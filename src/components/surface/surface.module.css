@@ -4,32 +4,32 @@
 
 .surface--root {
   --surface-background: var(--background-root);
-  --interactive-background: var(--background-default);
-  --interactive-background--active: var(--background-higher);
-  --interactive-border: var(--outline-dimmest);
-  --interactive-border--hover: var(--outline-default);
+  --surface-interactive-background: var(--background-default);
+  --surface-interactive-background-active: var(--background-higher);
+  --surface-interactive-border: var(--outline-dimmest);
+  --surface-interactive-border-hover: var(--outline-default);
 }
 
 .surface--default {
   --surface-background: var(--background-default);
-  --interactive-background: var(--background-higher);
-  --interactive-background--active: var(--background-highest);
-  --interactive-border: var(--outline-dimmer);
-  --interactive-border--hover: var(--outline-stronger);
+  --surface-interactive-background: var(--background-higher);
+  --surface-interactive-background-active: var(--background-highest);
+  --surface-interactive-border: var(--outline-dimmer);
+  --surface-interactive-border-hover: var(--outline-stronger);
 }
 
 .surface--higher {
   --surface-background: var(--background-higher);
-  --interactive-background: var(--background-highest);
-  --interactive-background--active: var(--background-default);
-  --interactive-border: var(--outline-default);
-  --interactive-border--hover: var(--outline-strongest);
+  --surface-interactive-background: var(--background-highest);
+  --surface-interactive-background-active: var(--background-default);
+  --surface-interactive-border: var(--outline-default);
+  --surface-interactive-border-hover: var(--outline-strongest);
 }
 
 .surface--highest {
   --surface-background: var(--background-highest);
-  --interactive-background: var(--background-higher);
-  --interactive-background--active: var(--background-default);
-  --interactive-border: var(--outline-stronger);
-  --interactive-border--hover: var(--outline-strongest);
+  --surface-interactive-background: var(--background-higher);
+  --surface-interactive-background-active: var(--background-default);
+  --surface-interactive-border: var(--outline-stronger);
+  --surface-interactive-border-hover: var(--outline-strongest);
 }

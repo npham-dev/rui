@@ -19,11 +19,15 @@ const preview: Preview = {
   },
 
   decorators: [
-    (Story) => (
-      <div className="root" data-theme="light">
-        <Story />
-      </div>
-    ),
+    (Story) => {
+      document.body.dataset.theme = "light";
+
+      return (
+        <div className="root">
+          <Story />
+        </div>
+      );
+    },
   ],
 };
 

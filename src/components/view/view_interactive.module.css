@@ -1,0 +1,135 @@
+.view_interactive {
+  /* loading styles */
+  --view-loading-low-pulse: var(--outline-dimmest);
+  --view-loading-high-pulse: var(--surface-interactive-background);
+
+  transition-duration: var(--transition-duration-snappy);
+  transition-timing-function: var(--transition-timing-function-snappy);
+  cursor: not-allowed;
+  border-width: 1px;
+  border-style: solid;
+  border-color: transparent;
+  border-radius: var(--border-radius-default);
+  background-color: transparent;
+
+  /* default disabled behavior */
+  color: var(--foreground-dimmest);
+
+  &:not([disabled], [data-disabled]) {
+    cursor: pointer;
+
+    &:focus:focus-visible {
+      outline-color: transparent;
+      outline-width: var(--space-2);
+      outline-offset: var(--space-4);
+      box-shadow: var(--shadow-focus);
+    }
+  }
+}
+
+/* Variants */
+
+.view_interactive_fill {
+  transition-property: background-color, box-shadow;
+  background-color: var(--surface-interactive-background);
+
+  &:not([disabled], [data-disabled]) {
+    cursor: pointer;
+    color: inherit;
+
+    &:active {
+      border-color: var(--primary-default);
+      background-color: var(--surface-interactive-background-active);
+    }
+
+    @media (hover: hover) {
+      &:hover {
+        background-color: var(--surface-interactive-background-active);
+      }
+    }
+  }
+}
+
+.view_interactive_no-fill {
+  transition-property: background-color, box-shadow;
+
+  &:not([disabled], [data-disabled]) {
+    cursor: pointer;
+    color: inherit;
+
+    &:not(textarea):active {
+      border-color: var(--primary-default);
+      background-color: var(--surface-interactive-background);
+    }
+
+    @media (hover: hover) {
+      &:hover {
+        background-color: var(--surface-interactive-background);
+      }
+    }
+  }
+}
+
+.view_interactive_outline {
+  transition-property: background-color, box-shadow;
+  border-color: var(--surface-interactive-border);
+
+  &:not([disabled], [data-disabled]) {
+    cursor: pointer;
+    color: inherit;
+
+    &:not(textarea):active {
+      border-color: var(--primary-default);
+    }
+
+    @media (hover: hover) {
+      &:hover {
+        background-color: var(--surface-interactive-background);
+      }
+    }
+  }
+}
+
+/* default interactive style */
+.view_interactive_fill-outline {
+  transition-property: border-color, box-shadow;
+  background-color: var(--surface-interactive-background);
+
+  &:not([disabled], [data-disabled]) {
+    cursor: pointer;
+    border-color: var(--surface-interactive-border);
+    color: inherit;
+
+    &:not(textarea):active {
+      transition: none;
+      border-color: var(--primary-default);
+    }
+
+    @media (hover: hover) {
+      &:hover {
+        border-color: var(--surface-interactive-border-hover);
+      }
+    }
+  }
+}
+
+.view_interactive_list-item {
+  transition-property: box-shadow;
+  border-radius: 0;
+
+  &:not([disabled], [data-disabled]) {
+    cursor: pointer;
+    color: inherit;
+
+    &:not(textarea):active {
+      border-color: var(--primary-default);
+      background-color: var(--surface-interactive-background-active);
+    }
+
+    @media (hover: hover) {
+      &:hover {
+        background-color: var(--surface-interactive-background);
+      }
+    }
+  }
+}

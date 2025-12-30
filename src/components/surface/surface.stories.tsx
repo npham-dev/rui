@@ -4,6 +4,16 @@ import { type ReactNode } from "react";
 import { Surface, type Background, type SurfaceProps } from ".";
 import { tokens } from "../../styles/tokens";
 
+const meta = {
+  title: "Surface",
+  component: Surface,
+  parameters: { layout: "centered" },
+} satisfies Meta<typeof Surface>;
+
+export default meta;
+
+type Story = StoryObj<typeof meta>;
+
 const PaddedSurface = ({
   label,
   children,
@@ -18,15 +28,6 @@ const PaddedSurface = ({
     {children}
   </Surface>
 );
-
-const meta = {
-  title: "Surface",
-  component: Surface,
-  parameters: { layout: "centered" },
-} satisfies Meta<SurfaceProps>;
-
-export default meta;
-type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   name: "Stacking Surfaces",

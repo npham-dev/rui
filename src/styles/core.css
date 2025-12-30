@@ -15,8 +15,8 @@
 ::file-selector-button {
   box-sizing: border-box; /* 1 */
   margin: 0; /* 2 */
-  padding: 0; /* 2 */
   border: 0 solid; /* 3 */
+  padding: 0; /* 2 */
 }
 
 :root {
@@ -92,13 +92,12 @@
 }
 
 body {
-  font-family: var(--font-family-default);
-  font-size: var(--font-size-default);
-  line-height: var(--line-height-default);
-  overflow-x: hidden;
-
   /* https://base-ui.com/react/overview/quick-start */
   position: relative;
+  overflow-x: hidden;
+  font-size: var(--font-size-default);
+  line-height: var(--line-height-default);
+  font-family: var(--font-family-default);
 }
 
 .root {
@@ -114,42 +113,38 @@ body {
   --primary-default: var(--blue-default);
   --primary-stronger: var(--blue-stronger);
   --primary-strongest: var(--blue-strongest);
+
   --positive-dimmest: var(--green-dimmest);
   --positive-dimmer: var(--green-dimmer);
   --positive-default: var(--green-default);
   --positive-stronger: var(--green-stronger);
   --positive-strongest: var(--green-strongest);
+
   --negative-dimmest: var(--red-dimmest);
   --negative-dimmer: var(--red-dimmer);
   --negative-default: var(--red-default);
   --negative-stronger: var(--red-stronger);
   --negative-strongest: var(--red-strongest);
+
   --warning-dimmest: var(--yellow-dimmest);
   --warning-dimmer: var(--yellow-dimmer);
   --warning-default: var(--yellow-default);
   --warning-stronger: var(--yellow-stronger);
   --warning-strongest: var(--yellow-strongest);
 
+  /* Default colorway styles */
+  --view-colorway-dimmest: var(--primary-dimmest);
+  --view-colorway-dimmer: var(--primary-dimmer);
+  --view-colorway-default: var(--primary-default);
+  --view-colorway-stronger: var(--primary-stronger);
+  --view-colorway-strongest: var(--primary-strongest);
+
   /* Default interactive styles  */
   --surface-background: var(--background-root);
-  --interactive-background: var(--background-default);
-  --interactive-background--active: var(--background-higher);
-  --interactive-border: var(--outline-dimmest);
-  --interactive-border--hover: var(--outline-default);
-
-  /* Interactive "colorway" (probably shouldn't do this) */
-  --interactive-dimmest: var(--surface-background);
-  --interactive-dimmer: var(--interactive-background);
-  --interactive-default: var(--interactive-background--active);
-  --interactive-stronger: var(--interactive-border--hover);
-  --interactive-strongest: var(--foreground-dimmer);
-
-  /* Default colorway styles */
-  --colorway-dimmest: var(--primary-dimmest);
-  --colorway-dimmer: var(--primary-dimmer);
-  --colorway-default: var(--primary-default);
-  --colorway-stronger: var(--primary-stronger);
-  --colorway-strongest: var(--primary-strongest);
+  --surface-interactive-background: var(--background-default);
+  --surface-interactive-background--active: var(--background-higher);
+  --surface-interactive-border: var(--outline-dimmest);
+  --surface-interactive-border--hover: var(--outline-default);
 
   background-color: var(--background-root);
   color: var(--foreground-default);
