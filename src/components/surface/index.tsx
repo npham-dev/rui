@@ -1,5 +1,5 @@
 import type { useRender } from "@base-ui/react";
-import clsx from "clsx";
+import { cn } from "~/lib/cn";
 import { createContext, useContext } from "react";
 
 import { View } from "../view";
@@ -40,7 +40,7 @@ export const Surface = ({
   return (
     <ElevationContext.Provider value={elevation}>
       <View
-        className={clsx(
+        className={cn(
           styles.surface,
           styles[`surface--${elevationToBackground(elevation)}`],
           className,

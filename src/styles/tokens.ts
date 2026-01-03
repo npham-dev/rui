@@ -1,5 +1,11 @@
-export const tokens = {
-  // color tokens
+type ValueOf<T> = T[keyof T];
+
+export type SpaceToken = ValueOf<typeof spaceTokens>;
+export type ColorToken = ValueOf<typeof colorTokens>;
+export type InteractiveToken = ValueOf<typeof interactiveTokens>;
+export type Token = ValueOf<typeof tokens>;
+
+export const colorTokens = {
   backgroundRoot: "var(--background-root)",
   backgroundDefault: "var(--background-default)",
   backgroundHigher: "var(--background-higher)",
@@ -95,22 +101,25 @@ export const tokens = {
   brownStrongest: "var(--brown-strongest)",
   black: "var(--black)",
   white: "var(--white)",
+} as const;
 
-  // interactive tokens
+export const interactiveTokens = {
   surfaceBackground: "var(--surface-background)",
-  interactiveBackground: "var(--surface-interactive-background)",
-  interactiveBackgroundActive: "var(--surface-interactive-background-active)",
-  interactiveBorder: "var(--surface-interactive-border)",
-  interactiveBorderHover: "var(--surface-interactive-border-hover)",
+  interactiveBackground: "var(--interactive-background)",
+  interactiveBackgroundActive: "var(--interactive-background--active)",
+  interactiveBorder: "var(--interactive-border)",
+  interactiveBorderHover: "var(--interactive-border--hover)",
+} as const;
 
-  // colorway tokens
-  colorwayDimmest: "var(--view-colorway-dimmest)",
-  colorwayDimmer: "var(--view-colorway-dimmer)",
-  colorwayDefault: "var(--view-colorway-default)",
-  colorwayStronger: "var(--view-colorway-stronger)",
-  colorwayStrongest: "var(--view-colorway-strongest)",
+export const colorwayTokens = {
+  colorwayDimmest: "var(--colorway-dimmest)",
+  colorwayDimmer: "var(--colorway-dimmer)",
+  colorwayDefault: "var(--colorway-default)",
+  colorwayStronger: "var(--colorway-stronger)",
+  colorwayStrongest: "var(--colorway-strongest)",
+} as const;
 
-  // space tokens
+export const spaceTokens = {
   space1: "var(--space-1)",
   space2: "var(--space-2)",
   space4: "var(--space-4)",
@@ -131,8 +140,9 @@ export const tokens = {
   space128: "var(--space-128)",
   space256: "var(--space-256)",
   spaceDefault: "var(--space-default)",
+} as const;
 
-  // border radius tokens
+export const borderTokens = {
   borderRadius1: "var(--border-radius-1)",
   borderRadius2: "var(--border-radius-2)",
   borderRadius4: "var(--border-radius-4)",
@@ -142,15 +152,17 @@ export const tokens = {
   borderRadius16: "var(--border-radius-16)",
   borderRadiusDefault: "var(--border-radius-default)",
   borderRadiusRound: "var(--border-radius-round)",
+  borderWidthDefault: "var(--border-width-default)",
+} as const;
 
-  // shadow tokens
+export const shadowTokens = {
   shadow1: "var(--shadow-1)",
   shadow2: "var(--shadow-2)",
   shadow3: "var(--shadow-3)",
   shadowDefault: "var(--shadow-default)",
-  shadowFocus: "var(--shadow-focus)",
+} as const;
 
-  // typography tokens
+export const typographyTokens = {
   fontFamilyDefault: "var(--font-family-default)",
   fontFamilyCode: "var(--font-family-code)",
 
@@ -173,90 +185,47 @@ export const tokens = {
   fontWeightRegular: "var(--font-weight-regular)",
   fontWeightMedium: "var(--font-weight-medium)",
   fontWeightBold: "var(--font-weight-bold)",
+} as const;
 
-  // transition tokens
+export const transitionTokens = {
   transitionDurationSnappy: "var(--transition-duration-snappy)",
   transitionTimingFunctionSnappy: "var(--transition-timing-function-snappy)",
   transitionDurationChill: "var(--transition-duration-chill)",
   transitionTimingFunctionChill: "var(--transition-timing-function-chill)",
-
-  borderWidthDefault: "var(--border-width-default)",
 } as const;
 
-/**
- * Convert a css variable (a token) into the key needed to set a style \
- * It will simply return the style key if the argument was a style key
- * @param token CSS variable
- * @returns Style key
- *
- * @example
- * const style = {
- *   [tokenToStyle(tokens.space2)]: "override"
- * }
- *
- * @example
- * tokenToStyle("var(--space-2)") // => --space-2
- * tokenToStyle("--space-2") // => --space-2
- */
-function tokenToStyle(token: string) {
-  return token.startsWith("var") ? token.substring(4, token.length - 1) : token;
+export const tokens = {
+  ...colorTokens,
+  ...colorwayTokens,
+  ...interactiveTokens,
+  ...borderTokens,
+  ...spaceTokens,
+  ...shadowTokens,
+  ...typographyTokens,
+  ...transitionTokens,
+} as const;
+
+type InvertedRecord<T extends Record<string, string>> = Record<
+  T[keyof T],
+  keyof T
+>;
+
+function invertRecord<T extends Record<string, string>>(record: T) {
+  return Object.entries(record).reduce(
+    (acc, [key, value]) => ({
+      ...acc,
+      [value]: key,
+    }),
+    {},
+  ) as InvertedRecord<T>;
 }
 
-/**
- * Convert a css variable (a token) into its JavaScript counterpart \
- * @param token CSS variable (or style, to be fair)
- * @returns JS Token, if valid
- *
- * @example
- * tokenToJS("var(--border-radius-2)") // => borderRadius2
- */
-function tokenToJS(token: string) {
-  const jsToken = tokenToStyle(token)
-    .substring(2)
-    .split("-")
-    .map((word, i) =>
-      i > 0 ? word.charAt(0).toLocaleUpperCase() + word.substring(1) : word,
-    )
-    .join("");
+const invertedTokens = invertRecord({
+  ...borderTokens,
+  ...spaceTokens,
+});
 
-  return jsToken in tokens ? (jsToken as keyof typeof tokens) : null;
-}
-
-/**
- * Get the raw CSS value of a token \
- * Can be slow because a raw token that isn't found will be extracted from the DOM \
- * Only use on the client
- * @param token Token or style key to use
- * @param element Element to extract variable from (interactive and colorway variables can change depending on nesting, for example)
- * @returns Raw CSS value
- */
-export function getTokenValue(token: string, element?: HTMLElement) {
-  const jsToken = tokenToJS(token);
-  if (jsToken && jsToken in rawTokenValues) {
-    const rawToken = rawTokenValues[jsToken as keyof typeof rawTokenValues];
-    if (typeof rawToken === "number") {
-      return `${rawToken}px`;
-    }
-    return rawToken;
-  }
-
-  // Supposedly this is decently fast?
-  // https://stackoverflow.com/questions/57393554/getcomputedstyle-local-vs-every-time-in-function-performance
-  if (typeof window !== "undefined") {
-    return getComputedStyle(
-      element || document.documentElement,
-    ).getPropertyValue(tokenToStyle(token));
-  }
-
-  console.error("you shouldn't use tokenToRaw in server side environments!");
-  return token;
-}
-
-// @todo raw tokens without tokenToRaw at all (generation + server adapter?)
-
-// color tokens depend on theming and cannot be reliably used w/out server implementation
-// use subset and then getComputedStyle as fallback
-export const rawTokenValues = {
+const rawTokenValues = {
   borderRadius1: 1,
   borderRadius2: 2,
   borderRadius4: 4,
@@ -266,6 +235,7 @@ export const rawTokenValues = {
   borderRadius16: 16,
   borderRadiusDefault: 8,
   borderRadiusRound: 1028,
+  borderWidthDefault: 1,
   space1: 1,
   space2: 2,
   space4: 4,
@@ -287,3 +257,21 @@ export const rawTokenValues = {
   space256: 256,
   spaceDefault: 8,
 } as const;
+
+/**
+ * Get the actual value from a CSS variable \
+ * You really can't get color values reliably without extracting them from the DOM because of theming
+ * @param token (CSS variable)
+ * @returns Raw value, or null if one is not found
+ *
+ * @example
+ * getTokenValue(tokens.space80)
+ * getTokenValue("var(--space-80)")
+ */
+export function getTokenValue(token: keyof typeof invertedTokens) {
+  // TODO create JS values alongside css themes
+  // something like getTokenValue(token.primaryDefault, "light")
+  // or try dom extraction?
+  const tokenKey = invertedTokens[token];
+  return rawTokenValues[tokenKey];
+}

@@ -8,8 +8,11 @@ import globals from "globals";
 import tseslint from "typescript-eslint";
 
 export default defineConfig([
-  globalIgnores(["dist"]),
+  globalIgnores(["dist", ".archived", ".husky"]),
   {
+    plugins: {
+      storybook: storybook,
+    },
     files: ["**/*.{ts,tsx}"],
     extends: [
       js.configs.recommended,

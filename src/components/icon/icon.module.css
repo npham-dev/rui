@@ -1,0 +1,48 @@
+.icon {
+  --icon-size: var(--space-16);
+
+  vertical-align: middle;
+  width: var(--icon-size);
+  min-width: var(--icon-size);
+  height: var(--icon-size);
+  min-height: var(--icon-size);
+  font-size: var(--icon-size);
+}
+
+/* Maximize performance by declaring styles instead of inline styles */
+
+.icon_space6 {
+  --icon-size: var(--space-6);
+}
+
+.icon_space8 {
+  --icon-size: var(--space-8);
+}
+
+.icon_space12 {
+  --icon-size: var(--space-12);
+}
+
+.icon_space16 {
+  --icon-size: var(--space-16);
+}
+
+.icon_space20 {
+  --icon-size: var(--space-20);
+}
+
+.icon_space24 {
+  --icon-size: var(--space-24);
+}
+
+.icon_space32 {
+  --icon-size: var(--space-32);
+}
+
+.icon_space48 {
+  --icon-size: var(--space-48);
+}
+
+.icon_space96 {
+  --icon-size: var(--space-96);
+}

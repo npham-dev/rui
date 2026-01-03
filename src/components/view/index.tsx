@@ -1,5 +1,5 @@
 import { mergeProps, useRender } from "@base-ui/react";
-import clsx from "clsx";
+import { cn } from "~/lib/cn";
 
 import colorwayStyles from "./view_colorway.module.css";
 import interactiveStyles from "./view_interactive.module.css";
@@ -49,6 +49,7 @@ export interface ViewProps extends useRender.ComponentProps<"div"> {
    * @warning You cannot supply both interactive and colorway values.
    */
   interactive?: boolean | InteractiveVariant;
+
   /**
    * Specify a color variant to make element look colorful!
    * Setting `color` to true will use "primary_fill-outline".
@@ -57,6 +58,11 @@ export interface ViewProps extends useRender.ComponentProps<"div"> {
    * @warning You cannot supply both interactive and colorway values.
    */
   colorway?: boolean | `${Colorway}_${ColorwayVariant}`;
+
+  /**
+   * Make this element look like it's loading.
+   * It'll use sensible defaults based on the colorway or interactive prop.
+   */
   loading?: boolean | LoadingVariant;
 }
 
@@ -72,7 +78,7 @@ export const View = ({ render, ...props }: ViewProps) => {
     render,
     props: mergeProps(
       {
-        className: clsx(
+        className: cn(
           styles.view,
           normalized.interactive && [
             interactiveStyles["view_interactive"],
