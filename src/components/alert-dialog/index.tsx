@@ -3,6 +3,7 @@ import type { SizeVariant } from "~/styles/tokens";
 import clsx from "clsx";
 import type { ComponentProps, ReactElement, ReactNode } from "react";
 
+import transitionStyles from "../../styles/transitions.module.css";
 import { Button, type ButtonProps } from "../button";
 import { Surface, type Background } from "../surface";
 import { Text } from "../text";
@@ -91,12 +92,16 @@ export function AlertDialog({
       {trigger ? <AlertDialogPrimitive.Trigger render={trigger} /> : null}
       <AlertDialogPrimitive.Portal>
         <AlertDialogPrimitive.Backdrop
-          className={styles["alert-dialog__backdrop"]}
+          className={clsx(
+            styles["alert-dialog__backdrop"],
+            transitionStyles.transition_fade,
+          )}
         />
         <AlertDialogPrimitive.Popup
           className={clsx(
             styles["alert-dialog__popup"],
             centered && styles["alert-dialog__popup_centered"],
+            transitionStyles.transition_scale,
           )}
         >
           <Surface

@@ -1,0 +1,23 @@
+.transition_fade {
+  transition: opacity var(--transition-duration-snappy)
+    var(--transition-timing-function-snappy);
+
+  &[data-starting-style] {
+    transform: scale(0.96);
+    opacity: 0;
+  }
+}
+
+.transition_scale {
+  transition:
+    opacity var(--transition-duration-snappy)
+      var(--transition-timing-function-snappy),
+    transform var(--transition-duration-snappy)
+      var(--transition-timing-function-snappy);
+
+  &[data-starting-style],
+  &[data-ending-style] {
+    transform: scale(0.96);
+    opacity: 0;
+  }
+}

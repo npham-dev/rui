@@ -4,6 +4,7 @@
 @import "./themes/dark.css";
 
 /*
+
   1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
   2. Remove default margins and padding
   3. Reset all borders.
