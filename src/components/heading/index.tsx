@@ -1,18 +1,19 @@
 import { mergeProps, useRender } from "@base-ui/react";
+import type { SizeVariant } from "~/styles/tokens";
 import { createContext, useContext } from "react";
 
-import { Text, type TextProps } from "../text";
+import { Text } from "../text";
 import styles from "./heading.module.css";
 
 type Level = 1 | 2 | 3 | 4 | 5 | 6;
 
-const levelToClassName: Record<Level, NonNullable<TextProps["size"]>> = {
-  1: "header-big",
-  2: "header-default",
-  3: "subhead-big",
-  4: "subhead-default",
-  5: "default",
-  6: "default",
+const levelToClassName: Record<Level, SizeVariant> = {
+  1: "3xl",
+  2: "2xl",
+  3: "xl",
+  4: "lg",
+  5: "md",
+  6: "md",
 } as const;
 
 const LevelContext = createContext<number>(0);

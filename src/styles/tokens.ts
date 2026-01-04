@@ -1,3 +1,5 @@
+export type SizeVariant = "sm" | "md" | "lg" | "xl" | "2xl" | "3xl";
+
 type ValueOf<T> = T[keyof T];
 
 export type SpaceToken = ValueOf<typeof spaceTokens>;
@@ -146,7 +148,6 @@ export const borderTokens = {
   borderRadius1: "var(--border-radius-1)",
   borderRadius2: "var(--border-radius-2)",
   borderRadius4: "var(--border-radius-4)",
-  borderRadius6: "var(--border-radius-6)",
   borderRadius8: "var(--border-radius-8)",
   borderRadius12: "var(--border-radius-12)",
   borderRadius16: "var(--border-radius-16)",
@@ -229,7 +230,6 @@ const rawTokenValues = {
   borderRadius1: 1,
   borderRadius2: 2,
   borderRadius4: 4,
-  borderRadius6: 6,
   borderRadius8: 8,
   borderRadius12: 12,
   borderRadius16: 16,

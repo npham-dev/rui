@@ -26,11 +26,10 @@
   --border-radius-1: 1px;
   --border-radius-2: 2px;
   --border-radius-4: 4px;
-  --border-radius-6: 6px;
   --border-radius-8: 8px;
   --border-radius-12: 12px;
   --border-radius-16: 16px;
-  --border-radius-default: var(--border-radius-8);
+  --border-radius-default: var(--border-radius-4);
   --border-radius-round: 1028px;
 
   --space-1: 1px;

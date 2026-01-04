@@ -10,39 +10,26 @@
 }
 
 /* Maximize performance by declaring styles instead of inline styles */
-
-.icon_space_6 {
-  --icon-size: var(--space-6);
-}
-
-.icon_space_8 {
-  --icon-size: var(--space-8);
-}
-
-.icon_space_12 {
+.icon_size_sm {
   --icon-size: var(--space-12);
 }
 
-.icon_space_16 {
+.icon_size_md {
   --icon-size: var(--space-16);
 }
 
-.icon_space_20 {
+.icon_size_lg {
   --icon-size: var(--space-20);
 }
 
-.icon_space_24 {
+.icon_size_xl {
   --icon-size: var(--space-24);
 }
 
-.icon_space_32 {
+.icon_size_2xl {
   --icon-size: var(--space-32);
 }
 
-.icon_space_48 {
+.icon_size_3xl {
   --icon-size: var(--space-48);
-}
-
-.icon_space_96 {
-  --icon-size: var(--space-96);
 }

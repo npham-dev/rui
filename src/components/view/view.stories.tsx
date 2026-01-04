@@ -3,6 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 import { View } from ".";
 import { tokens } from "../../styles/tokens";
 import { Surface } from "../surface";
+import { Text } from "../text";
 
 const meta = {
   title: "View",
@@ -50,9 +51,14 @@ export const Default: Story = {
             <View
               key={variant}
               interactive={variant}
-              style={{ padding: tokens.space8 }}
-              render={<button>{variant}</button>}
-            />
+              style={{
+                paddingInline: tokens.space16,
+                height: tokens.space32,
+                justifyContent: "center",
+              }}
+            >
+              <Text>{variant}</Text>
+            </View>
           ))}
         </Surface>
       ))}

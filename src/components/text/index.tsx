@@ -1,17 +1,11 @@
 import { mergeProps, useRender } from "@base-ui/react";
-import { cn } from "~/lib/cn";
+import type { SizeVariant } from "~/styles/tokens";
+import clsx from "clsx";
 
 import viewStyles from "../view/view.module.css";
 import styles from "./text.module.css";
 
 type ColorVariants = "inherit" | "default" | "dimmer" | "dimmest";
-type SizeVariants =
-  | "default"
-  | "small"
-  | "header-big"
-  | "header-default"
-  | "subhead-big"
-  | "subhead-default";
 
 export interface TextProps extends Omit<
   useRender.ComponentProps<"span">,
@@ -25,9 +19,9 @@ export interface TextProps extends Omit<
 
   /**
    * The size variant of the text.
-   * Defaults to "default".
+   * Defaults to "md".
    */
-  size?: SizeVariants;
+  size?: SizeVariant;
 
   /**
    * Maximum number of lines that should be displayed.
@@ -43,7 +37,7 @@ export interface TextProps extends Omit<
 
 export function Text({
   color = "default",
-  size = "default",
+  size = "md",
   maxLines = 1,
   multiline,
   render,
@@ -54,7 +48,7 @@ export function Text({
     render,
     props: mergeProps(
       {
-        className: cn(
+        className: clsx(
           viewStyles.view,
           styles.text,
           styles[`text_color_${color}`],

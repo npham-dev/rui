@@ -1,22 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import { pick } from "~/-utils";
-import { colorTokens, spaceTokens, tokens } from "~/styles/tokens";
+import { colorTokens, tokens } from "~/styles/tokens";
 
 import { Icon } from ".";
 
-const iconSizeOptions = Object.values(
-  pick(spaceTokens, [
-    "space6",
-    "space8",
-    "space12",
-    "space16",
-    "space20",
-    "space24",
-    "space32",
-    "space48",
-    "space96",
-  ]),
-);
+const iconSizeOptions = ["sm", "md", "lg", "xl", "2xl", "3xl"] as const;
 
 const meta = {
   title: "Icon",
@@ -31,10 +18,6 @@ const meta = {
       control: "select",
       options: iconSizeOptions,
     },
-    defaultSize: {
-      control: "select",
-      options: iconSizeOptions,
-    },
   },
 } satisfies Meta<typeof Icon>;
 
@@ -46,7 +29,7 @@ export const Default: Story = {
   args: {
     name: "heart-fill",
     color: tokens.primaryDefault,
-    size: tokens.space20,
+    size: "md",
   },
   render: (props) => (
     <div>

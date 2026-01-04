@@ -1,18 +1,18 @@
 import { mergeProps, useRender } from "@base-ui/react";
-import { cn } from "~/lib/cn";
+import clsx from "clsx";
 
 import colorwayStyles from "./view_colorway.module.css";
 import interactiveStyles from "./view_interactive.module.css";
 import styles from "./view.module.css";
 
-type InteractiveVariant =
+export type InteractiveVariant =
   | "fill"
   | "no-fill"
   | "outline"
   | "fill-outline"
   | "list-item";
 
-type Colorway =
+export type Color =
   | "primary"
   | "positive"
   | "negative"
@@ -29,7 +29,7 @@ type Colorway =
   | "pink"
   | "grey";
 
-type ColorwayVariant =
+export type ColorVariant =
   | "outline"
   | "outline-static"
   | "mute-static"
@@ -38,7 +38,9 @@ type ColorwayVariant =
   | "fill-static"
   | "fill-outline";
 
-type LoadingVariant = "background" | "foreground";
+export type Colorway = `${Color}_${ColorVariant}`;
+
+export type LoadingVariant = "background" | "foreground";
 
 export interface ViewProps extends useRender.ComponentProps<"div"> {
   /**
@@ -57,10 +59,11 @@ export interface ViewProps extends useRender.ComponentProps<"div"> {
    *
    * @warning You cannot supply both interactive and colorway values.
    */
-  colorway?: boolean | `${Colorway}_${ColorwayVariant}`;
+  colorway?: boolean | Colorway;
 
   /**
    * Make this element look like it's loading.
+   * Setting `loading` to true will use "background".
    * It'll use sensible defaults based on the colorway or interactive prop.
    */
   loading?: boolean | LoadingVariant;
@@ -78,7 +81,7 @@ export const View = ({ render, ...props }: ViewProps) => {
     render,
     props: mergeProps(
       {
-        className: cn(
+        className: clsx(
           styles.view,
           normalized.interactive && [
             interactiveStyles["view_interactive"],
@@ -111,12 +114,12 @@ const normalize = (
         : props.interactive;
   }
 
-  let colorway: [Colorway, ColorwayVariant] | null = null;
+  let colorway: [Color, ColorVariant] | null = null;
   if (props.colorway) {
     colorway =
       typeof props.colorway === "boolean"
         ? ["primary", "fill-outline"]
-        : (props.colorway.split("_") as [Colorway, ColorwayVariant]);
+        : (props.colorway.split("_") as [Color, ColorVariant]);
   }
 
   let loading: LoadingVariant | null = null;

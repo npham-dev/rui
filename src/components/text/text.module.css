@@ -39,38 +39,38 @@
 }
 
 /* Text size variants */
-.text_size_default {
-  font-weight: var(--font-weight-regular);
-  font-size: var(--font-size-default);
-  line-height: var(--line-height-default);
-}
-
-.text_size_small {
+.text_size_sm {
   font-weight: var(--font-weight-regular);
   font-size: var(--font-size-small);
   line-height: var(--line-height-small);
 }
 
-.text_size_header-big {
-  font-weight: var(--font-weight-medium);
-  font-size: var(--font-size-header-big);
-  line-height: var(--line-height-header-big);
+.text_size_md {
+  font-weight: var(--font-weight-regular);
+  font-size: var(--font-size-default);
+  line-height: var(--line-height-default);
 }
 
-.text_size_header-default {
+.text_size_lg {
   font-weight: var(--font-weight-medium);
-  font-size: var(--font-size-header-default);
-  line-height: var(--line-height-header-default);
+  font-size: var(--font-size-subhead-default);
+  line-height: var(--line-height-subhead-default);
 }
 
-.text_size_subhead-big {
+.text_size_xl {
   font-weight: var(--font-weight-medium);
   font-size: var(--font-size-subhead-big);
   line-height: var(--line-height-subhead-big);
 }
 
-.text_size_subhead-default {
+.text_size_2xl {
   font-weight: var(--font-weight-medium);
-  font-size: var(--font-size-subhead-default);
-  line-height: var(--line-height-subhead-default);
+  font-size: var(--font-size-header-default);
+  line-height: var(--line-height-header-default);
+}
+
+.text_size_3xl {
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-header-big);
+  line-height: var(--line-height-header-big);
 }

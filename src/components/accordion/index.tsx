@@ -1,6 +1,6 @@
 import { Accordion as AccordionPrimitive } from "@base-ui/react/accordion";
 import { textify } from "~/-utils";
-import { cn } from "~/lib/cn";
+import clsx from "clsx";
 import type { ComponentProps, ReactNode } from "react";
 
 import { Icon } from "../icon";
@@ -40,16 +40,16 @@ export function AccordionItem({
               interactive="list-item"
               render={
                 <AccordionPrimitive.Trigger
-                  className={cn(styles.accordion__trigger, className)}
-                >
-                  {textify(header)}
-                  <Icon
-                    name="close-line"
-                    className={styles["accordion__trigger-icon"]}
-                  />
-                </AccordionPrimitive.Trigger>
+                  className={clsx(styles.accordion__trigger, className)}
+                />
               }
-            />
+            >
+              {textify(header)}
+              <Icon
+                name="close-line"
+                className={styles["accordion__trigger-icon"]}
+              />
+            </View>
           }
         />
       </AccordionPrimitive.Header>

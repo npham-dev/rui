@@ -1,18 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import { tokens } from "~/styles/tokens";
+import { tokens, type SizeVariant } from "~/styles/tokens";
 
 import { Text } from ".";
 import { Surface } from "../surface";
 import { View } from "../view";
 
-const textSizeVariants = [
-  "small",
-  "default",
-  "subhead-default",
-  "subhead-big",
-  "header-default",
-  "header-big",
-] as const;
+const sizeVariants: SizeVariant[] = ["sm", "md", "lg", "xl", "2xl", "3xl"];
 
 const meta = {
   title: "Text",
@@ -25,7 +18,7 @@ const meta = {
     },
     size: {
       control: "select",
-      options: textSizeVariants,
+      options: sizeVariants,
     },
     maxLines: {
       control: "number",
@@ -42,7 +35,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    size: "default",
+    size: "md",
     color: "default",
   },
   render: (props) => (
@@ -52,10 +45,10 @@ export const Default: Story = {
   ),
 };
 
-export const AllVariants: Story = {
+export const AllSizes: Story = {
   render: () => (
     <View style={{ gap: tokens.space16 }}>
-      {textSizeVariants.map((variant) => (
+      {sizeVariants.map((variant) => (
         <View key={variant}>
           <Text color="dimmest">{variant}</Text>
           <Text size={variant}>
@@ -82,20 +75,3 @@ export const Multiline: Story = {
     </View>
   ),
 };
-
-// const levels = new Array(5)
-//   .fill(0)
-//   .map((_, i) => i + 1) as HeadingProps["level"][];
-
-// export const HeadingStory: Story = {
-//   render: () => (
-//     <View>
-//       <Text>The following texts are rendered as the appropriate heading.</Text>
-//       {levels.map((level) => (
-//         <Heading level={level} key={level}>
-//           Heading level {level} (h{level})
-//         </Heading>
-//       ))}
-//     </View>
-//   ),
-// };
