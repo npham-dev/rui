@@ -4,7 +4,7 @@ import clsx from "clsx";
 import { textify } from "~/-utils";
 import type { SizeVariant } from "~/styles/tokens";
 
-import { Icon, IconSizeProvider } from "../icon";
+import { Icon } from "../icon";
 import type { IconName } from "../icon/icon-names";
 import { View, type ViewProps } from "../view";
 
@@ -42,21 +42,19 @@ export function Button({
   ...props
 }: ButtonProps) {
   return (
-    <IconSizeProvider value={size}>
-      <View
-        {...props}
-        render={
-          <ButtonPrimitive
-            className={clsx(styles.button, styles[`button_height_${size}`])}
-            focusableWhenDisabled={!!props.loading}
-            render={render}
-          />
-        }
-      >
-        {leftIcon ? <Icon name={leftIcon} /> : null}
-        {textify(children, { size, color: "inherit" })}
-        {rightIcon ? <Icon name={rightIcon} /> : null}
-      </View>
-    </IconSizeProvider>
+    <View
+      {...props}
+      render={
+        <ButtonPrimitive
+          className={clsx(styles.button, styles[`button_height_${size}`])}
+          focusableWhenDisabled={!!props.loading}
+          render={render}
+        />
+      }
+    >
+      {leftIcon ? <Icon name={leftIcon} size={size} /> : null}
+      {textify(children, { size, color: "inherit" })}
+      {rightIcon ? <Icon name={rightIcon} size={size} /> : null}
+    </View>
   );
 }

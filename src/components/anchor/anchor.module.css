@@ -1,0 +1,18 @@
+.anchor {
+  cursor: pointer;
+  color: var(--primary-stronger);
+  font-weight: var(--font-weight-regular);
+  font-size: var(--font-size-default);
+  line-height: var(--line-height-default);
+  text-decoration: underline;
+
+  &:visited {
+    color: var(--blurple-stronger);
+  }
+}
+
+.anchor__icon {
+  /* you got me. a magic number in a sea of tokens. */
+  vertical-align: -5%;
+  margin-left: var(--space-2);
+}
