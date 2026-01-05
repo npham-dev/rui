@@ -28,8 +28,8 @@
 }
 
 .accordion__panel {
-  transition: height var(--transition-duration-snappy)
-    var(--transition-timing-function-snappy);
+  transition: height var(--transition-duration-chill)
+    var(--transition-timing-function-chill);
   height: var(--accordion-panel-height);
   overflow: hidden;
 

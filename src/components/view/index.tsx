@@ -6,7 +6,7 @@ import interactiveStyles from "./view_interactive.module.css";
 import loadingStyles from "./view_loading.module.css";
 import styles from "./view.module.css";
 
-export type InteractiveVariant =
+export type InteractiveStyle =
   | "fill"
   | "no-fill"
   | "outline"
@@ -30,7 +30,7 @@ export type Color =
   | "pink"
   | "grey";
 
-export type ColorVariant =
+export type ColorStyle =
   | "outline"
   | "outline-static"
   | "mute-static"
@@ -39,32 +39,26 @@ export type ColorVariant =
   | "fill-static"
   | "fill-outline";
 
-export type Colorway = `${Color}_${ColorVariant}`;
+export type ColorVariant = `${Color}_${ColorStyle}`;
 
 export type LoadingVariant = "background" | "foreground";
 
-// TODO centralize colorway and interactive into a single property?
-// then we could have things like
-// variant="fill" or variant="blue_fill"
-
 export interface ViewProps extends useRender.ComponentProps<"div"> {
   /**
-   * Specify an interactive variant to make element look clicky.
-   * Setting `interactive` to true will use "fill".
-   *
-   * @warning You cannot supply both interactive and colorway values.
-   */
-  interactive?: boolean | InteractiveVariant;
-
-  /**
-   * Specify a color variant to make element look colorful!
-   * Setting `color` to true will use "primary_fill".
+   * Centralized property to define either an interactive variant or colorway.
+   * We know which is which because colorways have an underscore (Color_ColorVariant, like primary_fill).
    *
    * Static variants will not apply transitions or cursor effects! Do not use them for interactive elements.
    *
-   * @warning You cannot supply both interactive and colorway values.
+   * Setting `interactive` to true will use "fill".
    */
-  colorway?: boolean | Colorway;
+  interactive?: boolean | InteractiveStyle | ColorVariant;
+
+  /**
+   * Add CSS color variables but do nothing else.
+   * Useful for using View as a sort of "Color Provider" so children can use colors and create custom variants.
+   */
+  color?: Color;
 
   /**
    * Make this element look like it's loading.
@@ -76,20 +70,12 @@ export interface ViewProps extends useRender.ComponentProps<"div"> {
 
 export const View = ({
   interactive,
-  colorway,
   loading,
+  color,
   render,
   ...props
 }: ViewProps) => {
-  // yes, we destructure and restructure bc we don't want our custom properties added to the DOM
-  const normalized = normalize({ interactive, colorway, loading });
-
-  if (normalized.interactive && normalized.colorway) {
-    console.error(
-      "You cannot have both interactive and colorway enabled at the same time.",
-    );
-  }
-
+  const normalized = normalize({ interactive, loading });
   const element = useRender({
     defaultTagName: "div",
     render,
@@ -97,6 +83,7 @@ export const View = ({
       {
         className: clsx(
           styles.view,
+          color && colorwayStyles[`view_colorway_color-${color}`],
           normalized.interactive && [
             interactiveStyles["view_interactive"],
             interactiveStyles[`view_interactive_${normalized.interactive}`],
@@ -117,27 +104,24 @@ export const View = ({
       props,
     ),
   });
-
   return element;
 };
 
-View.displayName = "View";
+const normalize = (props: Pick<ViewProps, "interactive" | "loading">) => {
+  let interactive: InteractiveStyle | null = null;
+  let colorway: [Color, ColorStyle] | null = null;
 
-const normalize = (
-  props: Pick<ViewProps, "interactive" | "colorway" | "loading">,
-) => {
-  let interactive: InteractiveVariant | null = null;
-  if (props.interactive) {
-    interactive =
-      typeof props.interactive === "boolean" ? "fill" : props.interactive;
-  }
-
-  let colorway: [Color, ColorVariant] | null = null;
-  if (props.colorway) {
-    colorway =
-      typeof props.colorway === "boolean"
-        ? ["primary", "fill"]
-        : (props.colorway.split("_") as [Color, ColorVariant]);
+  if (props.interactive && typeof props.interactive === "boolean") {
+    interactive = "fill";
+  } else if (typeof props.interactive === "string") {
+    if (
+      typeof props.interactive === "string" &&
+      props.interactive.includes("_")
+    ) {
+      colorway = props.interactive.split("_") as [Color, ColorStyle];
+    } else {
+      interactive = props.interactive as InteractiveStyle;
+    }
   }
 
   let loading: LoadingVariant | null = null;

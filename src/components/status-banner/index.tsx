@@ -1,7 +1,7 @@
 import { useRender } from "@base-ui/react";
 import clsx from "clsx";
 
-import type { SizeVariant } from "~/styles/tokens";
+import type { Size } from "~/styles/tokens";
 
 import { Heading } from "../heading";
 import { Icon } from "../icon";
@@ -25,30 +25,30 @@ export interface StatusBannerProps extends Omit<
   title?: string;
 
   /** Actual content of the status banner */
-  message: string;
+  description: string;
 
   /** Size, defaults to lg */
-  size?: Extract<SizeVariant, "md" | "lg">;
+  size?: Extract<Size, "md" | "lg">;
 }
 
 // map status banner size to size of indivdual elements
 const sizeMap: Record<
   NonNullable<StatusBannerProps["size"]>,
   {
-    icon: SizeVariant;
-    title: SizeVariant;
-    message: SizeVariant;
+    icon: Size;
+    title: Size;
+    description: Size;
   }
 > = {
   md: {
     icon: "md",
     title: "md",
-    message: "sm",
+    description: "sm",
   },
   lg: {
     icon: "xl",
     title: "lg",
-    message: "md",
+    description: "md",
   },
 };
 
@@ -59,7 +59,7 @@ export function StatusBanner({
   color = "neutral",
   icon,
   title,
-  message,
+  description,
   size = "lg",
   render,
   ...props
@@ -70,7 +70,7 @@ export function StatusBanner({
     <View
       render={render}
       {...props}
-      colorway={!interactive ? `${color}_mute-static` : undefined}
+      color={color === "neutral" ? undefined : color}
       className={clsx(
         styles["status-banner"],
         styles[`status-banner_size_${size}`],
@@ -86,12 +86,12 @@ export function StatusBanner({
           {title}
         </Heading>
         <Text
-          className={styles["status-banner__message"]}
+          className={styles["status-banner__description"]}
           multiline
-          size={sizeMap[size].message}
+          size={sizeMap[size].description}
           color="inherit"
         >
-          {message}
+          {description}
         </Text>
       </View>
     </View>

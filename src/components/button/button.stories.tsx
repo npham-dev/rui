@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import { AllVariants } from "~/stories/components/all-variants";
-import { colorVariants, sizeVariants } from "~/stories/data";
+import { colorVariants, sizes } from "~/stories/data";
 import { tokens } from "~/styles/tokens";
 
 import { Button } from ".";
@@ -16,7 +16,7 @@ const meta = {
   argTypes: {
     size: {
       control: "select",
-      options: sizeVariants,
+      options: sizes,
     },
     loading: {
       control: "boolean",
@@ -30,7 +30,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    colorway: "primary_fill",
+    interactive: "primary_fill",
     leftIcon: "square-line",
   },
   render: (props) => <Button {...props}>Hello World</Button>,
@@ -40,8 +40,7 @@ export const Link: Story = {
   args: {
     size: "md",
     leftIcon: "external-link-line",
-    colorway: "primary_fill",
-    interactive: false,
+    interactive: "primary_fill",
     loading: false,
   },
   render: (args) => (
@@ -58,13 +57,12 @@ export const Link: Story = {
 export const AllSizes: Story = {
   args: {
     interactive: "fill",
-    colorway: false,
     leftIcon: "square-line",
   },
   render: (args) => (
     <AllVariants
       variantName="size"
-      variants={sizeVariants}
+      variants={sizes}
       element={
         <Button style={{ width: "fit-content" }} {...args}>
           Hello World
@@ -89,11 +87,6 @@ export const AllPrimaryVariants: Story = {
         disable: true,
       },
     },
-    colorway: {
-      table: {
-        disable: true,
-      },
-    },
   },
   args: {
     size: "md",
@@ -102,7 +95,7 @@ export const AllPrimaryVariants: Story = {
   },
   render: (args) => (
     <AllVariants
-      variantName="colorway"
+      variantName="interactive"
       variants={colorVariants.map((variant) => `primary_${variant}`)}
       element={
         <Button style={{ width: "fit-content" }} {...args}>

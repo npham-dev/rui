@@ -1,13 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { tokens, type SizeVariant } from "~/styles/tokens";
+import { AllVariants } from "~/stories/components/all-variants";
+import { sizes } from "~/stories/data";
 
 import { Avatar } from ".";
-import { Surface } from "../surface";
-import { Text } from "../text";
-import { View } from "../view";
-
-const sizeVariants: SizeVariant[] = ["sm", "md", "lg", "xl", "2xl", "3xl"];
 
 const meta = {
   title: "Avatar",
@@ -16,7 +12,7 @@ const meta = {
   argTypes: {
     size: {
       control: "select",
-      options: sizeVariants,
+      options: sizes,
     },
   },
 } satisfies Meta<typeof Avatar>;
@@ -45,20 +41,13 @@ export const AllSizes: Story = {
     },
   },
   render: (props) => (
-    <Surface
-      elevated
+    <AllVariants
+      variantName="size"
+      variants={sizes}
+      element={<Avatar {...props} />}
       style={{
         flexDirection: "row",
-        gap: tokens.space16,
-        padding: tokens.space16,
       }}
-    >
-      {sizeVariants.map((variant) => (
-        <View key={variant} style={{ gap: tokens.space2 }}>
-          <Text color="dimmest">{variant}</Text>
-          <Avatar size={variant} {...props} />
-        </View>
-      ))}
-    </Surface>
+    />
   ),
 };

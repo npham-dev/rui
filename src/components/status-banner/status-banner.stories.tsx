@@ -29,7 +29,7 @@ export const Default: Story = {
   args: {
     icon: "alarm-warning-line",
     title: "This plan has been deprecated.",
-    message:
+    description:
       "You can continue to use these organizations, but if you want to add users, you’ll have to update to a current plan.",
     size: "lg",
     color: "neutral",

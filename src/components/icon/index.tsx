@@ -1,8 +1,8 @@
 import clsx from "clsx";
-import { createContext, useContext, type ComponentProps } from "react";
+import { type ComponentProps } from "react";
 import svgSprite from "remixicon/fonts/remixicon.symbol.svg";
 
-import { type ColorToken, type SizeVariant } from "~/styles/tokens";
+import { type ColorToken, type Size } from "~/styles/tokens";
 
 import { type IconName } from "./icon-names";
 
@@ -13,7 +13,7 @@ export interface IconProps extends Omit<ComponentProps<"svg">, "name"> {
    * Overrides the icon size provider.
    * Defaults to "md".
    */
-  size?: SizeVariant;
+  size?: Size;
 
   /** Icon name */
   name: IconName;
@@ -31,20 +31,14 @@ export interface IconProps extends Omit<ComponentProps<"svg">, "name"> {
   alt?: string;
 }
 
-const IconSizeContext = createContext<SizeVariant | null>(null);
-
-export const IconSizeProvider = IconSizeContext.Provider;
-
 export function Icon({
-  size,
+  size = "md",
   name,
   color,
   alt,
   className,
   ...props
 }: IconProps) {
-  const iconSizeContext = useContext(IconSizeContext);
-  const iconSize: SizeVariant = size || iconSizeContext || "md";
   const href = `${svgSprite}#ri-${name}`;
 
   return (
@@ -55,7 +49,7 @@ export function Icon({
       focusable={false}
       xmlns="http://www.w3.org/2000/svg"
       fill={color || "currentColor"}
-      className={clsx(styles.icon, styles[`icon_size_${iconSize}`], className)}
+      className={clsx(styles.icon, styles[`icon_size_${size}`], className)}
       {...props}
     >
       {/* https://css-tricks.com/accessible-svg-icons/ */}

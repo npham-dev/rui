@@ -1,14 +1,14 @@
+import type { InvertRecord, ValueOf } from "~/-types";
+
 /**
  * Size variants for widths, buttons, icon sizes, you name it!
  * Use `Extract` if you don't want to support all of them but ensure we reuse
  * correct values.
  * @example
  * // only support a subset of size variants
- * Extract<SizeVariant, "sm" | "md" | "lg">
+ * Extract<Size, "sm" | "md" | "lg">
  */
-export type SizeVariant = "sm" | "md" | "lg" | "xl" | "2xl" | "3xl";
-
-type ValueOf<T> = T[keyof T];
+export type Size = "sm" | "md" | "lg" | "xl" | "2xl" | "3xl";
 
 export type SpaceToken = ValueOf<typeof spaceTokens>;
 export type ColorToken = ValueOf<typeof colorTokens>;
@@ -214,11 +214,6 @@ export const tokens = {
   ...transitionTokens,
 } as const;
 
-type InvertedRecord<T extends Record<string, string>> = Record<
-  T[keyof T],
-  keyof T
->;
-
 function invertRecord<T extends Record<string, string>>(record: T) {
   return Object.entries(record).reduce(
     (acc, [key, value]) => ({
@@ -226,7 +221,7 @@ function invertRecord<T extends Record<string, string>>(record: T) {
       [value]: key,
     }),
     {},
-  ) as InvertedRecord<T>;
+  ) as InvertRecord<T>;
 }
 
 const invertedTokens = invertRecord({

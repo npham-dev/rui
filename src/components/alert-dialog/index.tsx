@@ -2,7 +2,7 @@ import { AlertDialog as AlertDialogPrimitive } from "@base-ui/react/alert-dialog
 import clsx from "clsx";
 import type { ComponentProps, ReactElement, ReactNode } from "react";
 
-import type { SizeVariant } from "~/styles/tokens";
+import type { Size } from "~/styles/tokens";
 
 import { Button, type ButtonProps } from "../button";
 import { Surface } from "../surface";
@@ -43,7 +43,7 @@ export interface AlertDialogProps extends ComponentProps<
    * have `colorway` "negative_fill".
    *
    */
-  actions: Array<ButtonProps & { text: string }>;
+  actions: Array<ButtonProps>;
 
   /**
    * Specify trigger to open alert. You can still used a {@link https://base-ui.com/react/components/alert-dialog#detached-triggers detached trigger}
@@ -60,7 +60,7 @@ export interface AlertDialogProps extends ComponentProps<
   /**
    * Maximum width of the dialog Default is "md", use "lg" for bigger dialogs.
    */
-  width?: Extract<SizeVariant, "sm" | "md" | "lg">;
+  width?: Extract<Size, "sm" | "md" | "lg">;
 
   /**
    * Vertically center dialog (or not). You probably shouldn't if you suspect
@@ -120,7 +120,7 @@ export function AlertDialog({
             </View>
             {children}
             <View className={styles["alert-dialog__actions"]}>
-              {actions.map(({ text, ...action }, i) => (
+              {actions.map(({ children, ...action }, i) => (
                 <AlertDialogPrimitive.Close
                   key={i}
                   render={
@@ -129,7 +129,7 @@ export function AlertDialog({
                     />
                   }
                 >
-                  {text}
+                  {children}
                 </AlertDialogPrimitive.Close>
               ))}
             </View>
@@ -149,7 +149,7 @@ export function AlertDialog({
 function getButtonProps(props: ButtonProps, isLast?: boolean): ButtonProps {
   if (isLast) {
     return {
-      colorway: "negative_fill",
+      interactive: "negative_fill",
       ...props,
     };
   }

@@ -70,20 +70,24 @@ export function Popover({
             <PopoverPrimitive.Arrow className={tooltipStyles.tooltip__arrow}>
               <TooltipArrow className={tooltipStyles["tooltip__arrow-icon"]} />
             </PopoverPrimitive.Arrow>
-            <View className={styles.popover__header}>
-              {title ? (
-                <PopoverPrimitive.Title
-                  render={<Heading level={2} size="2xl" />}
-                >
-                  {title}
-                </PopoverPrimitive.Title>
-              ) : null}
-              {description ? (
-                <PopoverPrimitive.Description render={<Text color="dimmer" />}>
-                  {description}
-                </PopoverPrimitive.Description>
-              ) : null}
-            </View>
+            {title || description ? (
+              <View className={styles.popover__header}>
+                {title ? (
+                  <PopoverPrimitive.Title
+                    render={<Heading level={2} size="2xl" />}
+                  >
+                    {title}
+                  </PopoverPrimitive.Title>
+                ) : null}
+                {description ? (
+                  <PopoverPrimitive.Description
+                    render={<Text color="dimmer" />}
+                  >
+                    {description}
+                  </PopoverPrimitive.Description>
+                ) : null}
+              </View>
+            ) : null}
             {children}
           </PopoverPrimitive.Popup>
         </PopoverPrimitive.Positioner>

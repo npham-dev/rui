@@ -1,6 +1,6 @@
 # rui
 
-Reimplemented UI (rui).
+Reimplemented UI (rui). Updated, fresh, simple.
 
 ## Installation
 

@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import { AllVariants } from "~/stories/components/all-variants";
-import { sizeVariants } from "~/stories/data";
+import { sizes } from "~/stories/data";
 import { tokens } from "~/styles/tokens";
 
 import { Text } from ".";
@@ -19,7 +19,7 @@ const meta = {
     },
     size: {
       control: "select",
-      options: sizeVariants,
+      options: sizes,
     },
     maxLines: {
       control: "number",
@@ -66,7 +66,7 @@ export const AllSizes: Story = {
   render: (args) => (
     <AllVariants
       variantName="size"
-      variants={sizeVariants}
+      variants={sizes}
       element={
         <Text {...args}>The quick brown fox jumps over the lazy dog.</Text>
       }

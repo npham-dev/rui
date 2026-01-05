@@ -1,7 +1,7 @@
 import { Button as ButtonPrimitive } from "@base-ui/react/button";
 import clsx from "clsx";
 
-import { type SizeVariant } from "~/styles/tokens";
+import { type Size } from "~/styles/tokens";
 
 import { Icon } from "../icon";
 import type { IconName } from "../icon/icon-names";
@@ -17,10 +17,8 @@ export type IconButtonProps = ViewProps & {
   alt: string;
 
   /** What size should the IconButton be. Defaults to "md". */
-  size?: SizeVariant;
+  size?: Size;
 };
-
-// TODO more sensible defaults (buttons should default to interactive if no interactive/colorway provided)
 
 export function IconButton({
   name,
@@ -31,7 +29,7 @@ export function IconButton({
 }: IconButtonProps) {
   return (
     <View
-      {...props}
+      interactive={true}
       render={
         <ButtonPrimitive
           className={clsx(
@@ -42,6 +40,7 @@ export function IconButton({
           render={render}
         />
       }
+      {...props}
     >
       <Icon name={name} size={size} alt={alt} />
     </View>

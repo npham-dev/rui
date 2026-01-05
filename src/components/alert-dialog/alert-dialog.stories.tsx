@@ -36,7 +36,7 @@ export const Default: Story = {
     title: "Are you absolutely sure?",
     description:
       "This action cannot be undone. This will permanently delete your account and remove your data from our servers.",
-    actions: [{ text: "Cancel" }, { text: "Yes, delete account." }],
+    actions: [{ children: "Cancel" }, { children: "Yes, delete account." }],
     width: "md",
     centered: false,
   },
@@ -44,7 +44,7 @@ export const Default: Story = {
     <AlertDialog
       {...props}
       trigger={
-        <Button leftIcon="delete-bin-line" colorway="red_outline">
+        <Button leftIcon="delete-bin-line" interactive="red_outline">
           Delete acount
         </Button>
       }

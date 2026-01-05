@@ -2,7 +2,7 @@ import type { useRender } from "@base-ui/react";
 import clsx from "clsx";
 import { createContext, useContext } from "react";
 
-import { View } from "../view";
+import { View, type Color } from "../view";
 
 import styles from "./surface.module.css";
 
@@ -20,6 +20,11 @@ export interface SurfaceProps extends useRender.ComponentProps<"div"> {
    * If the `background` prop is set, this prop will be ignored.
    */
   elevated?: boolean;
+
+  /**
+   * Add CSS color variables.
+   */
+  color?: Color;
 }
 
 const ElevationContext = createContext(0);

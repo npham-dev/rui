@@ -19,6 +19,8 @@
 
 .status-banner_variant_colorway {
   border-color: var(--view-colorway-stronger);
+  background: var(--view-colorway-dimmest);
+  color: var(--view-colorway-strongest);
 }
 
 .status-banner_size_md {
@@ -39,7 +41,7 @@
   gap: var(--status-banner-content-gap);
 }
 
-.status-banner__message {
+.status-banner__description {
   flex-grow: 1;
   flex-shrink: 1;
 }

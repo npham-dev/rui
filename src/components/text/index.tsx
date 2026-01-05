@@ -1,7 +1,7 @@
 import { mergeProps, useRender } from "@base-ui/react";
 import clsx from "clsx";
 
-import type { SizeVariant } from "~/styles/tokens";
+import type { Size } from "~/styles/tokens";
 
 import viewStyles from "../view/view.module.css";
 import styles from "./text.module.css";
@@ -22,7 +22,7 @@ export interface TextProps extends Omit<
    * The size variant of the text.
    * Defaults to "md".
    */
-  size?: SizeVariant;
+  size?: Size;
 
   /**
    * Maximum number of lines that should be displayed.

@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import {
   colorway,
-  interactiveVariants,
+  interactiveStyles,
   surfaceBackgrounds,
 } from "~/stories/data";
 
@@ -18,11 +18,7 @@ const meta = {
   argTypes: {
     interactive: {
       control: "select",
-      options: interactiveVariants,
-    },
-    colorway: {
-      control: "select",
-      options: colorway,
+      options: [...interactiveStyles, ...colorway],
     },
     loading: {
       control: "boolean",
@@ -42,13 +38,6 @@ export const Interactive: Story = {
     interactive: "fill",
     loading: false,
   },
-  argTypes: {
-    colorway: {
-      table: {
-        disable: true,
-      },
-    },
-  },
   render: (args) => (
     <View
       {...args}
@@ -65,7 +54,7 @@ export const Interactive: Story = {
 
 export const Colorway: Story = {
   args: {
-    colorway: "primary_fill",
+    interactive: "primary_fill",
     loading: false,
   },
   argTypes: {
@@ -89,13 +78,8 @@ export const Colorway: Story = {
   ),
 };
 
-export const AllInteractiveVariants: Story = {
+export const AllInteractiveStyles: Story = {
   argTypes: {
-    colorway: {
-      table: {
-        disable: true,
-      },
-    },
     interactive: {
       table: {
         disable: true,
@@ -126,7 +110,7 @@ export const AllInteractiveVariants: Story = {
         >
           <p style={{ fontWeight: 500 }}>{background}</p>
 
-          {interactiveVariants.map((variant) => (
+          {interactiveStyles.map((variant) => (
             <View
               key={variant}
               interactive={variant}

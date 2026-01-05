@@ -1,7 +1,7 @@
 import { Avatar as AvatarPrimitive } from "@base-ui/react/avatar";
 import clsx from "clsx";
 
-import type { SizeVariant } from "~/styles/tokens";
+import type { Size } from "~/styles/tokens";
 
 import styles from "./avatar.module.css";
 
@@ -24,7 +24,7 @@ export interface AvatarProps {
   /**
    * Size of the avatar, defaults to "md".
    */
-  size?: SizeVariant;
+  size?: Size;
 }
 
 export function Avatar(props: AvatarProps) {
@@ -37,16 +37,14 @@ export function Avatar(props: AvatarProps) {
       )}
     >
       {props.src ? (
-        <>
-          <AvatarPrimitive.Image
-            src={props.src}
-            className={styles.avatar__image}
-          />
-          <AvatarPrimitive.Fallback>{fallback}</AvatarPrimitive.Fallback>
-        </>
-      ) : (
-        <span className={styles.avatar__fallback}>{fallback}</span>
-      )}
+        <AvatarPrimitive.Image
+          src={props.src}
+          className={styles.avatar__image}
+        />
+      ) : null}
+      <AvatarPrimitive.Fallback className={styles.avatar__fallback}>
+        {fallback}
+      </AvatarPrimitive.Fallback>
     </AvatarPrimitive.Root>
   );
 }

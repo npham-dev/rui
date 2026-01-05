@@ -1,11 +1,11 @@
 import type {
   Color,
+  ColorStyle,
   ColorVariant,
-  Colorway,
-  InteractiveVariant,
+  InteractiveStyle,
 } from "~/components/view";
 
-import { type SizeVariant } from "../styles/tokens";
+import { type Size } from "../styles/tokens";
 
 export const surfaceBackgrounds = [
   "root",
@@ -14,16 +14,9 @@ export const surfaceBackgrounds = [
   "highest",
 ] as const;
 
-export const sizeVariants: SizeVariant[] = [
-  "sm",
-  "md",
-  "lg",
-  "xl",
-  "2xl",
-  "3xl",
-];
+export const sizes: Size[] = ["sm", "md", "lg", "xl", "2xl", "3xl"];
 
-export const interactiveVariants: InteractiveVariant[] = [
+export const interactiveStyles: InteractiveStyle[] = [
   "fill",
   "no-fill",
   "outline",
@@ -49,7 +42,7 @@ export const colors: Color[] = [
   "grey",
 ];
 
-export const colorVariants: ColorVariant[] = [
+export const colorVariants: ColorStyle[] = [
   "outline",
   "outline-static",
   "mute-static",
@@ -59,8 +52,8 @@ export const colorVariants: ColorVariant[] = [
   "fill-outline",
 ];
 
-export const colorway: Colorway[] = (() => {
-  const result: Colorway[] = [];
+export const colorway: ColorVariant[] = (() => {
+  const result: ColorVariant[] = [];
   for (const color of colors) {
     for (const variant of colorVariants) {
       result.push(`${color}_${variant}`);
