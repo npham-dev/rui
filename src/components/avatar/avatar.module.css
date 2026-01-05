@@ -1,6 +1,4 @@
 .avatar {
-  --avatar-size: var(--space-32);
-
   display: flex;
   position: relative;
   flex-shrink: 0;

@@ -3,6 +3,7 @@ import clsx from "clsx";
 
 import colorwayStyles from "./view_colorway.module.css";
 import interactiveStyles from "./view_interactive.module.css";
+import loadingStyles from "./view_loading.module.css";
 import styles from "./view.module.css";
 
 export type InteractiveVariant =
@@ -80,7 +81,9 @@ export const View = ({
   const normalized = normalize({ interactive, colorway, loading });
 
   if (normalized.interactive && normalized.colorway) {
-    throw new Error("You cannot supply both interactive and colorway values.");
+    throw new Error(
+      "You cannot have both interactive and colorway enabled at the same time.",
+    );
   }
 
   const element = useRender({
@@ -98,6 +101,10 @@ export const View = ({
             colorwayStyles["view_colorway"],
             colorwayStyles[`view_colorway_${normalized.colorway[1]}`],
             colorwayStyles[`view_colorway_color-${normalized.colorway[0]}`],
+          ],
+          normalized.loading && [
+            loadingStyles["view_loading"],
+            loadingStyles[`view_loading_${normalized.loading}`],
           ],
         ),
       },
