@@ -115,18 +115,18 @@ export const colorTokens = {
 
 export const interactiveTokens = {
   surfaceBackground: "var(--surface-background)",
-  interactiveBackground: "var(--interactive-background)",
-  interactiveBackgroundActive: "var(--interactive-background--active)",
-  interactiveBorder: "var(--interactive-border)",
-  interactiveBorderHover: "var(--interactive-border--hover)",
+  interactiveBackground: "var(--surface-interactive-background)",
+  interactiveBackgroundActive: "var(--surface-interactive-background--active)",
+  interactiveBorder: "var(--surface-interactive-border)",
+  interactiveBorderHover: "var(--surface-interactive-border--hover)",
 } as const;
 
 export const colorwayTokens = {
-  colorwayDimmest: "var(--colorway-dimmest)",
-  colorwayDimmer: "var(--colorway-dimmer)",
-  colorwayDefault: "var(--colorway-default)",
-  colorwayStronger: "var(--colorway-stronger)",
-  colorwayStrongest: "var(--colorway-strongest)",
+  colorwayDimmest: "var(--view-colorway-dimmest)",
+  colorwayDimmer: "var(--view-colorway-dimmer)",
+  colorwayDefault: "var(--view-colorway-default)",
+  colorwayStronger: "var(--view-colorway-stronger)",
+  colorwayStrongest: "var(--view-colorway-strongest)",
 } as const;
 
 export const spaceTokens = {

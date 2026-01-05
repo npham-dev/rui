@@ -6,13 +6,13 @@ export function pick<T extends Record<string, string>, K extends keyof T>(
   record: T,
   keys: Array<K>,
 ) {
-  return keys.reduce(
-    (acc, curr) => ({
-      ...acc,
-      [curr]: record[curr],
-    }),
-    {},
-  ) as Pick<T, K>;
+  const result = {} as Pick<T, K>;
+  for (const key of keys) {
+    if (key in record) {
+      result[key] = record[key];
+    }
+  }
+  return result;
 }
 
 /**

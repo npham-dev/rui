@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { tokens, type SizeVariant } from "~/styles/tokens";
+import { AllVariants } from "~/stories/all-variants";
+import { sizeVariants } from "~/stories/data";
+import { tokens } from "~/styles/tokens";
 
 import { Text } from ".";
 import { Surface } from "../surface";
 import { View } from "../view";
-
-const sizeVariants: SizeVariant[] = ["sm", "md", "lg", "xl", "2xl", "3xl"];
 
 const meta = {
   title: "Typography/Text",
@@ -41,30 +41,59 @@ export const Default: Story = {
   },
   render: (props) => (
     <Surface style={{ width: "512px", padding: tokens.space16 }} elevated>
-      <Text {...props}>The quick brown fox jumps over the lazy dog.</Text>
+      <Text {...props}>
+        The quick brown fox jumps over the lazy dog. Swiftly, it leaped across
+        the murmuring stream, its bushy tail a blur of motion. The old badger,
+        observing from its cozy burrow, merely yawned, accustomed to such
+        energetic displays. A curious squirrel chattered from a nearby oak,
+        dropping an acorn in surprise.
+      </Text>
     </Surface>
   ),
 };
 
 export const AllSizes: Story = {
-  render: () => (
-    <View style={{ gap: tokens.space16 }}>
-      {sizeVariants.map((variant) => (
-        <View key={variant}>
-          <Text color="dimmest">{variant}</Text>
-          <Text size={variant}>
-            The quick brown fox jumps over the lazy dog.
-          </Text>
-        </View>
-      ))}
-    </View>
+  argTypes: {
+    size: {
+      table: {
+        disable: true,
+      },
+    },
+  },
+  args: {
+    color: "default",
+  },
+  render: (args) => (
+    <AllVariants
+      variantName="size"
+      variants={sizeVariants}
+      element={
+        <Text {...args}>The quick brown fox jumps over the lazy dog.</Text>
+      }
+    />
   ),
 };
 
 export const Multiline: Story = {
-  render: () => (
+  argTypes: {
+    maxLines: {
+      table: {
+        disable: true,
+      },
+    },
+    multiline: {
+      table: {
+        disable: true,
+      },
+    },
+  },
+  args: {
+    color: "default",
+    size: "md",
+  },
+  render: (args) => (
     <View style={{ maxWidth: tokens.space256 }}>
-      <Text multiline>
+      <Text multiline {...args}>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
         veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea

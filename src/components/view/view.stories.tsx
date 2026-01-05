@@ -1,6 +1,12 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { View } from ".";
+import {
+  colorway,
+  interactiveVariants,
+  surfaceBackgrounds,
+} from "~/stories/data";
+
+import { View, type ViewProps } from ".";
 import { tokens } from "../../styles/tokens";
 import { Surface } from "../surface";
 import { Text } from "../text";
@@ -9,24 +15,97 @@ const meta = {
   title: "View",
   component: View,
   parameters: { layout: "centered" },
-} satisfies Meta<typeof View>;
+  argTypes: {
+    interactive: {
+      control: "select",
+      options: interactiveVariants,
+    },
+    colorway: {
+      control: "select",
+      options: colorway,
+    },
+    loading: {
+      control: "boolean",
+    },
+    "data-disabled": {
+      control: "boolean",
+    },
+  },
+} satisfies Meta<ViewProps & { "data-disabled"?: boolean }>;
 
 export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-const surfaceBackgrounds = ["root", "default", "higher", "highest"] as const;
-const interactiveVariants = [
-  "fill",
-  "no-fill",
-  "outline",
-  "fill-outline",
-  "list-item",
-] as const;
+export const Interactive: Story = {
+  args: {
+    interactive: "fill",
+    loading: false,
+  },
+  argTypes: {
+    colorway: {
+      table: {
+        disable: true,
+      },
+    },
+  },
+  render: (args) => (
+    <View
+      {...args}
+      style={{
+        paddingInline: tokens.space16,
+        height: tokens.space32,
+        justifyContent: "center",
+      }}
+    >
+      Hello world
+    </View>
+  ),
+};
 
-export const Default: Story = {
-  name: "Interactive Styles",
-  render: () => (
+export const Colorway: Story = {
+  args: {
+    colorway: "primary_fill",
+    loading: false,
+  },
+  argTypes: {
+    interactive: {
+      table: {
+        disable: true,
+      },
+    },
+  },
+  render: (args) => (
+    <View
+      {...args}
+      style={{
+        paddingInline: tokens.space16,
+        height: tokens.space32,
+        justifyContent: "center",
+      }}
+    >
+      Hello world
+    </View>
+  ),
+};
+
+export const AllInteractiveVariants: Story = {
+  argTypes: {
+    colorway: {
+      table: {
+        disable: true,
+      },
+    },
+    interactive: {
+      table: {
+        disable: true,
+      },
+    },
+  },
+  args: {
+    loading: false,
+  },
+  render: (args) => (
     <View
       style={{
         flexDirection: "row",
@@ -56,6 +135,7 @@ export const Default: Story = {
                 height: tokens.space32,
                 justifyContent: "center",
               }}
+              {...args}
             >
               <Text>{variant}</Text>
             </View>

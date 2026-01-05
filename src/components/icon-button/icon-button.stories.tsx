@@ -4,7 +4,6 @@ import { AllVariants } from "~/stories/all-variants";
 import { type SizeVariant } from "~/styles/tokens";
 
 import { IconButton } from ".";
-import { Text } from "../text";
 
 const sizeVariants: SizeVariant[] = ["sm", "md", "lg", "xl", "2xl", "3xl"];
 
@@ -35,24 +34,25 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    interactive: true,
     size: "md",
     name: "add-line",
     alt: "Create a new project.",
+    interactive: true,
+    colorway: false,
+    loading: false,
   },
-  render: (args) => {
-    if (args.interactive && args.colorway) {
-      return (
-        <Text>
-          You cannot have both interactive and colorway enabled at the same
-          time.
-        </Text>
-      );
-    }
-
-    return <IconButton {...args} />;
-  },
+  render: (args) => <IconButton {...args} />,
 };
+
+// TODO find a better way of doing this
+// if (args.interactive && args.colorway) {
+//   return (
+//     <Text>
+//       You cannot have both interactive and colorway enabled at the same
+//       time.
+//     </Text>
+//   );
+// }
 
 export const AllSizes: Story = {
   args: {

@@ -9,7 +9,7 @@ import globals from "globals";
 import tseslint from "typescript-eslint";
 
 export default defineConfig([
-  globalIgnores(["dist", ".archived", ".husky"]),
+  globalIgnores(["dist", ".archived", ".husky", "storybook-static"]),
   {
     plugins: {
       storybook: storybook,

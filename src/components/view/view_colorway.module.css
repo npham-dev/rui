@@ -9,10 +9,18 @@
   border-width: 1px;
   border-style: solid;
   border-color: transparent;
+  border-radius: var(--border-radius-default);
 
   &:not([disabled], [data-disabled]) {
     cursor: pointer;
   }
+}
+
+.view_colorway_static {
+  border-width: 1px;
+  border-style: solid;
+  border-color: transparent;
+  border-radius: var(--border-radius-default);
 }
 
 /* Variants */
@@ -64,6 +72,7 @@
 }
 
 .view_colorway_outline-static {
+  box-shadow: none;
   border-color: var(--view-colorway-dimmer);
   color: var(--view-colorway-strongest);
 }

@@ -1,24 +1,27 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { tokens, type SizeVariant } from "~/styles/tokens";
+import { AllVariants } from "~/stories/all-variants";
+import { colorVariants, sizeVariants } from "~/stories/data";
+import { tokens } from "~/styles/tokens";
 
 import { Button } from ".";
 import { Surface } from "../surface";
 import { Text } from "../text";
-import { View, type ColorVariant } from "../view";
-
-const sizeVariants: SizeVariant[] = ["sm", "md", "lg", "xl", "2xl", "3xl"];
-const colorVariants: ColorVariant[] = [
-  "outline",
-  "no-fill",
-  "fill",
-  "fill-outline",
-];
+import { View } from "../view";
 
 const meta = {
   title: "Button",
   component: Button,
   parameters: { layout: "centered" },
+  argTypes: {
+    size: {
+      control: "select",
+      options: sizeVariants,
+    },
+    loading: {
+      control: "boolean",
+    },
+  },
 } satisfies Meta<typeof Button>;
 
 export default meta;
@@ -26,19 +29,24 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
-  render: (props) => (
-    <Button {...props} colorway="primary_fill" leftIcon="square-line">
-      Hello World
-    </Button>
-  ),
+  args: {
+    colorway: "primary_fill",
+    leftIcon: "square-line",
+  },
+  render: (props) => <Button {...props}>Hello World</Button>,
 };
 
 export const Link: Story = {
-  render: (props) => (
+  args: {
+    size: "md",
+    leftIcon: "external-link-line",
+    colorway: "primary_fill",
+    interactive: false,
+    loading: false,
+  },
+  render: (args) => (
     <Button
-      {...props}
-      colorway="primary_fill"
-      leftIcon="external-link-line"
+      {...args}
       render={<a href="https://natmfat.com" target="_blank" rel="noreferrer" />}
       nativeButton={false}
     >
@@ -48,42 +56,59 @@ export const Link: Story = {
 };
 
 export const AllSizes: Story = {
-  render: (props) => (
-    <View style={{ gap: tokens.space16 }}>
-      {sizeVariants.map((variant) => (
-        <View key={variant} style={{ gap: tokens.space2 }}>
-          <Text color="dimmest">{variant}</Text>
-          <Button
-            style={{ width: "fit-content" }}
-            {...props}
-            interactive="fill"
-            size={variant}
-            leftIcon="square-line"
-          >
-            Hello World
-          </Button>
-        </View>
-      ))}
-    </View>
+  args: {
+    interactive: "fill",
+    colorway: false,
+    leftIcon: "square-line",
+  },
+  render: (args) => (
+    <AllVariants
+      variantName="size"
+      variants={sizeVariants}
+      element={
+        <Button style={{ width: "fit-content" }} {...args}>
+          Hello World
+        </Button>
+      }
+    />
   ),
 };
 
-export const AllColorwayVariants: Story = {
-  render: (props) => (
-    <Surface elevated style={{ gap: tokens.space16, padding: tokens.space16 }}>
-      {colorVariants.map((variant) => (
-        <View key={variant} style={{ gap: tokens.space2 }}>
-          <Text color="dimmest">{variant}</Text>
-          <Button
-            style={{ width: "fit-content" }}
-            {...props}
-            colorway={`primary_${variant}`}
-            leftIcon="square-line"
-          >
-            Hello World
-          </Button>
-        </View>
-      ))}
-    </Surface>
+<Surface elevated style={{ gap: tokens.space16, padding: tokens.space16 }}>
+  {colorVariants.map((variant) => (
+    <View key={variant} style={{ gap: tokens.space2 }}>
+      <Text color="dimmest">{variant}</Text>
+    </View>
+  ))}
+</Surface>;
+
+export const AllPrimaryVariants: Story = {
+  argTypes: {
+    interactive: {
+      table: {
+        disable: true,
+      },
+    },
+    colorway: {
+      table: {
+        disable: true,
+      },
+    },
+  },
+  args: {
+    size: "md",
+    leftIcon: "square-line",
+    loading: false,
+  },
+  render: (args) => (
+    <AllVariants
+      variantName="colorway"
+      variants={colorVariants.map((variant) => `primary_${variant}`)}
+      element={
+        <Button style={{ width: "fit-content" }} {...args}>
+          Hello World
+        </Button>
+      }
+    />
   ),
 };

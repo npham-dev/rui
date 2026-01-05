@@ -43,11 +43,14 @@ export type Colorway = `${Color}_${ColorVariant}`;
 
 export type LoadingVariant = "background" | "foreground";
 
+// TODO centralize colorway and interactive into a single property?
+// then we could have things like
+// variant="fill" or variant="blue_fill"
+
 export interface ViewProps extends useRender.ComponentProps<"div"> {
   /**
    * Specify an interactive variant to make element look clicky.
    * Setting `interactive` to true will use "fill".
-   * No interactive variant will be used if one is not specified.
    *
    * @warning You cannot supply both interactive and colorway values.
    */
@@ -56,7 +59,8 @@ export interface ViewProps extends useRender.ComponentProps<"div"> {
   /**
    * Specify a color variant to make element look colorful!
    * Setting `color` to true will use "primary_fill".
-   * No color will be used if one is not specified.
+   *
+   * Static variants will not apply transitions or cursor effects! Do not use them for interactive elements.
    *
    * @warning You cannot supply both interactive and colorway values.
    */
@@ -64,7 +68,7 @@ export interface ViewProps extends useRender.ComponentProps<"div"> {
 
   /**
    * Make this element look like it's loading.
-   * Setting `loading` to true will use "background".
+   * Setting `loading` to true will use "foreground".
    * It'll use sensible defaults based on the colorway or interactive prop.
    */
   loading?: boolean | LoadingVariant;
@@ -81,7 +85,7 @@ export const View = ({
   const normalized = normalize({ interactive, colorway, loading });
 
   if (normalized.interactive && normalized.colorway) {
-    throw new Error(
+    console.error(
       "You cannot have both interactive and colorway enabled at the same time.",
     );
   }
@@ -98,7 +102,9 @@ export const View = ({
             interactiveStyles[`view_interactive_${normalized.interactive}`],
           ],
           normalized.colorway && [
-            colorwayStyles["view_colorway"],
+            normalized.colorway[1].endsWith("static")
+              ? colorwayStyles["view_colorway_static"]
+              : colorwayStyles["view_colorway"],
             colorwayStyles[`view_colorway_${normalized.colorway[1]}`],
             colorwayStyles[`view_colorway_color-${normalized.colorway[0]}`],
           ],
@@ -136,7 +142,7 @@ const normalize = (
 
   let loading: LoadingVariant | null = null;
   if (props.loading) {
-    loading = typeof props.loading === "boolean" ? "background" : props.loading;
+    loading = typeof props.loading === "boolean" ? "foreground" : props.loading;
   }
 
   return { interactive, colorway, loading };

@@ -5,7 +5,7 @@ import type { ComponentProps, ReactElement, ReactNode } from "react";
 import type { SizeVariant } from "~/styles/tokens";
 
 import { Button, type ButtonProps } from "../button";
-import { Surface, type Background } from "../surface";
+import { Surface } from "../surface";
 import { Text } from "../text";
 import { View } from "../view";
 
@@ -58,11 +58,6 @@ export interface AlertDialogProps extends ComponentProps<
   // TODO reuse below properties for dialog as well
 
   /**
-   * Optional background for surface. Defaults to root.
-   */
-  background?: Background;
-
-  /**
    * Maximum width of the dialog Default is "md", use "lg" for bigger dialogs.
    */
   width?: Extract<SizeVariant, "sm" | "md" | "lg">;
@@ -80,13 +75,12 @@ export function AlertDialog({
   actions,
   trigger,
   children,
-  background = "root",
   width = "md",
   centered = false,
   ...props
 }: AlertDialogProps) {
   if (actions.length < 2) {
-    throw new Error("You must have at least two actions.");
+    console.error("You must have at least two actions.");
   }
 
   return (
@@ -107,7 +101,6 @@ export function AlertDialog({
           )}
         >
           <Surface
-            background={background}
             className={clsx(
               styles["alert-dialog__content"],
               styles[`alert-dialog__content_width_${width}`],

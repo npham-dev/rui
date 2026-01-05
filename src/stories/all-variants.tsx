@@ -27,7 +27,9 @@ export function AllVariants(props: {
     >
       {props.variants.map((variant) => (
         <View key={variant} style={{ gap: tokens.space2 }}>
-          <Text color="dimmest">{variant}</Text>
+          <Text color="dimmest" size="sm">
+            {variant}
+          </Text>
           {cloneElement(props.element, {
             [props.variantName]: variant,
           })}

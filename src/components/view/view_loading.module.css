@@ -1,10 +1,11 @@
+/*
+  these variables are defined in colorway & interactive
+  --view-loading-low-pulse
+  --view-loading-high-pulse
+*/
 .view_loading {
   position: relative;
   color: var(--foreground-dimmest);
-
-  /* these are also overriden in colorway and interactive for potentially more sensible defaults */
-  --view-loading-low-pulse: var(--outline-dimmest);
-  --view-loading-high-pulse: var(--surface-interactive-background);
 }
 
 .view_loading_foreground {
