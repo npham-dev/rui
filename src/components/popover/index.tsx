@@ -8,6 +8,7 @@ import { Text } from "../text";
 import { TooltipArrow } from "../tooltip/tooltip-arrow";
 import { View } from "../view";
 
+import transitionStyles from "../../styles/transitions.module.css";
 import tooltipStyles from "../tooltip/tooltip.module.css";
 import styles from "./popover.module.css";
 
@@ -59,7 +60,12 @@ export function Popover({
         <PopoverPrimitive.Positioner align={align} side={side} sideOffset={8}>
           <PopoverPrimitive.Popup
             render={<Surface background={background} />}
-            className={clsx(tooltipStyles.tooltip, styles.popover, className)}
+            className={clsx(
+              tooltipStyles.tooltip,
+              styles.popover,
+              transitionStyles.transition_scale,
+              className,
+            )}
           >
             <PopoverPrimitive.Arrow className={tooltipStyles.tooltip__arrow}>
               <TooltipArrow className={tooltipStyles["tooltip__arrow-icon"]} />

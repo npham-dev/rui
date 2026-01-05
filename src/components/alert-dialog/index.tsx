@@ -90,7 +90,7 @@ export function AlertDialog({
         <AlertDialogPrimitive.Backdrop
           className={clsx(
             styles["alert-dialog__backdrop"],
-            transitionStyles.transition_fade,
+            transitionStyles.transition_opacity,
           )}
         />
         <AlertDialogPrimitive.Popup

@@ -1,4 +1,4 @@
-.transition_fade {
+.transition_opacity {
   transition: opacity var(--transition-duration-snappy)
     var(--transition-timing-function-snappy);
 
