@@ -16,7 +16,7 @@ const meta = {
     },
     color: {
       control: "select",
-      options: ["neutral", ...colors],
+      options: colors,
     },
   },
 } satisfies Meta<typeof StatusBanner>;
@@ -32,7 +32,7 @@ export const Default: Story = {
     description:
       "You can continue to use these organizations, but if you want to add users, you’ll have to update to a current plan.",
     size: "lg",
-    color: "neutral",
+    color: "warning",
   },
   render: (args) => {
     return (

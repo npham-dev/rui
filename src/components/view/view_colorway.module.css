@@ -11,7 +11,7 @@
   border-color: transparent;
   border-radius: var(--border-radius-default);
 
-  &:not([disabled], [data-disabled="true"]) {
+  &:not([disabled], [aria-disabled="true"]) {
     cursor: pointer;
   }
 }
@@ -32,7 +32,7 @@
   /* default disabled behavior */
   color: var(--view-colorway-dimmer);
 
-  &:not([disabled], [data-disabled="true"]) {
+  &:not([disabled], [aria-disabled="true"]) {
     color: var(--view-colorway-stronger);
 
     &:active {
@@ -88,7 +88,7 @@
   background-color: transparent;
   color: var(--view-colorway-dimmer);
 
-  &:not([disabled], [data-disabled="true"]) {
+  &:not([disabled], [aria-disabled="true"]) {
     color: var(--view-colorway-stronger);
 
     &:focus {
@@ -117,7 +117,7 @@
   background-color: var(--view-colorway-dimmest);
   color: var(--view-colorway-default);
 
-  &:not([disabled], [data-disabled="true"]) {
+  &:not([disabled], [aria-disabled="true"]) {
     background-color: var(--view-colorway-dimmer);
     color: var(--foreground-default);
 
@@ -150,7 +150,7 @@
   background-color: var(--view-colorway-dimmest);
   color: var(--view-colorway-default);
 
-  &:not([disabled], [data-disabled="true"]) {
+  &:not([disabled], [aria-disabled="true"]) {
     background-color: var(--view-colorway-dimmest);
     color: var(--view-colorway-strongest);
 

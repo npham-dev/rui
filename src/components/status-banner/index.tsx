@@ -16,7 +16,7 @@ export interface StatusBannerProps extends Omit<
   "children"
 > {
   /** Communicate purpose with color */
-  color?: Color | "neutral";
+  color?: Color;
 
   /** Icon on the left side  */
   icon: IconName;
@@ -56,7 +56,7 @@ const sizeMap: Record<
 // TODO figure out better api, using a view with interactive & colorway feels kind of ass
 
 export function StatusBanner({
-  color = "neutral",
+  color,
   icon,
   title,
   description,
@@ -64,19 +64,17 @@ export function StatusBanner({
   render,
   ...props
 }: StatusBannerProps) {
-  const interactive = color === "neutral";
-
   return (
     <View
       render={render}
       {...props}
-      color={color === "neutral" ? undefined : color}
+      color={color}
       className={clsx(
         styles["status-banner"],
         styles[`status-banner_size_${size}`],
-        interactive
-          ? styles["status-banner_variant_neutral"]
-          : styles["status-banner_variant_colorway"],
+        color
+          ? styles["status-banner_variant_colorway"]
+          : styles["status-banner_variant_neutral"],
       )}
     >
       {icon ? <Icon name={icon} size={sizeMap[size].icon} /> : null}

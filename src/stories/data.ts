@@ -1,3 +1,4 @@
+import type { Background } from "~/components/surface";
 import type { TextProps } from "~/components/text";
 import type {
   Color,
@@ -15,12 +16,12 @@ export const textColors: Array<NonNullable<TextProps["color"]>> = [
   "dimmest",
 ];
 
-export const surfaceBackgrounds = [
+export const surfaceBackgrounds: Background[] = [
   "root",
   "default",
   "higher",
   "highest",
-] as const;
+];
 
 export const sizes: Size[] = ["sm", "md", "lg", "xl", "2xl", "3xl"];
 

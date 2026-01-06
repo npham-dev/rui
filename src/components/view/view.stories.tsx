@@ -23,11 +23,11 @@ const meta = {
     loading: {
       control: "boolean",
     },
-    "data-disabled": {
+    "aria-disabled": {
       control: "boolean",
     },
   },
-} satisfies Meta<ViewProps & { "data-disabled"?: boolean }>;
+} satisfies Meta<ViewProps & { "aria-disabled"?: boolean }>;
 
 export default meta;
 

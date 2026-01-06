@@ -1,0 +1,22 @@
+.input {
+  flex: 1 1 0%;
+  outline: none;
+  padding: var(--space-4) var(--space-8);
+  height: var(--space-32);
+  font-size: var(--font-size-default);
+  line-height: var(--line-height-input);
+  font-family: var(--font-family-default);
+
+  &::placeholder {
+    color: var(--foreground-dimmest);
+  }
+
+  &:not([disabled], [aria-disabled="true"]) {
+    cursor: text;
+    color: var(--foreground-default);
+  }
+}
+
+.input_autosize {
+  resize: none;
+}

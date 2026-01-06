@@ -1,4 +1,4 @@
-import type { ReactNode } from "react";
+import type * as React from "react";
 
 import { Text, type TextProps } from "~/components/text";
 
@@ -22,6 +22,26 @@ export function pick<T extends Record<string, string>, K extends keyof T>(
  * @param props optional text props
  * @returns ReactNode or Text
  */
-export function textify(node: ReactNode, props: TextProps = {}) {
+export function textify(node: React.ReactNode, props: TextProps = {}) {
   return typeof node === "string" ? <Text {...props}>{node}</Text> : node;
+}
+
+/**
+ * Merge many refs to pass to one element.
+ *
+ * Adapted from
+ * https://github.com/gregberge/react-merge-refs/blob/main/src/index.tsx
+ */
+export function mergeRefs<T = unknown>(
+  ...refs: Array<React.RefObject<T> | React.RefAttributes<T>["ref"] | undefined>
+): React.RefCallback<T> {
+  return (value) => {
+    refs.forEach((ref) => {
+      if (typeof ref === "function") {
+        ref(value);
+      } else if (ref) {
+        (ref as React.RefObject<T | null>).current = value;
+      }
+    });
+  };
 }

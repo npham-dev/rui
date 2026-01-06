@@ -10,7 +10,6 @@ import { glob } from "glob";
 import { defineConfig } from "vite";
 import dts from "vite-plugin-dts";
 import { libInjectCss } from "vite-plugin-lib-inject-css";
-import { optimizeCssModules } from "vite-plugin-optimize-css-modules";
 import tsconfigPaths from "vite-tsconfig-paths";
 
 const dirname =
@@ -30,7 +29,6 @@ const IGNORE_STORIES = [
 export default defineConfig({
   plugins: [
     tsconfigPaths(),
-    optimizeCssModules(),
     libInjectCss(),
     react(),
     dts({

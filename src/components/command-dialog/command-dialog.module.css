@@ -4,7 +4,7 @@
   border: none;
   padding: 0;
 
-  /* stylelint-disable-next-line  */
+  /* stylelint-disable-next-line */
   [data-framework-close] {
     top: var(--space-4);
     right: var(--space-4);
@@ -37,7 +37,7 @@
     color: var(--foreground-dimmest);
   }
 
-  &:not([disabled], [data-disabled="true"]) {
+  &:not([disabled], [aria-disabled="true"]) {
     cursor: text;
   }
 }
@@ -61,7 +61,7 @@
 .command-dialog__group {
   padding-top: var(--space-6);
 
-  /* stylelint-disable-next-line  */
+  /* stylelint-disable-next-line */
   [cmdk-group-heading] {
     border: 1px solid transparent;
     padding: 0 var(--space-12) var(--space-2) var(--space-12);
