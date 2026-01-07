@@ -6,7 +6,7 @@ import { tokens } from "~/styles/tokens";
 import { SearchBar } from ".";
 
 const meta = {
-  title: "Block/Search Bar",
+  title: "Search Bar",
   component: SearchBar,
   parameters: { layout: "centered" },
 } satisfies Meta<typeof SearchBar>;
