@@ -25,7 +25,7 @@
 
 /* Variants */
 .view_colorway_outline {
-  transition-property: color, border-color, background-color, box-shadow;
+  transition-property: color, background-color, box-shadow;
   border-color: var(--view-colorway-dimmer);
   background-color: transparent;
   color: var(--view-colorway-dimmer);
@@ -126,7 +126,7 @@
 }
 
 .view_colorway_fill-outline {
-  transition-property: border-color, background-color, box-shadow;
+  transition-property: background-color, box-shadow;
   box-shadow: none;
   border-color: var(--view-colorway-dimmer);
   background-color: var(--view-colorway-dimmest);

@@ -57,7 +57,7 @@ export function Radio({
 
   if (label) {
     return (
-      <label className={radioStyles["radio_label"]}>
+      <label className={radioStyles["radio__label"]}>
         {radio} <Text>{label}</Text>
       </label>
     );

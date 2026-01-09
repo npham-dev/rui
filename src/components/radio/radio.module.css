@@ -28,7 +28,7 @@
   }
 }
 
-.radio_label {
+.radio__label {
   display: flex;
   flex-direction: row;
   align-items: center;

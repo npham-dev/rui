@@ -86,7 +86,7 @@
 
 /* default interactive style */
 .view_interactive_fill-outline {
-  transition-property: border-color, box-shadow;
+  transition-property: box-shadow;
   background-color: var(--surface-interactive-background);
 
   &:not([disabled], [data-disabled]) {
