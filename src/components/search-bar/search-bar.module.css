@@ -23,21 +23,7 @@
   pointer-events: none;
 }
 
-.search-bar__icon_loading {
-  animation: loading 3s linear infinite;
-}
-
 .search-bar__icon_close {
   padding: var(--space-4);
   pointer-events: auto;
-}
-
-@keyframes loading {
-  from {
-    rotate: 0deg;
-  }
-
-  to {
-    rotate: 360deg;
-  }
 }

@@ -1,0 +1,13 @@
+.spinner {
+  animation: loading 3s linear infinite;
+}
+
+@keyframes loading {
+  from {
+    rotate: 0deg;
+  }
+
+  to {
+    rotate: 360deg;
+  }
+}

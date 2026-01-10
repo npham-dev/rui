@@ -4,6 +4,7 @@ import React from "react";
 import { Icon } from "../icon";
 import { IconButton } from "../icon-button";
 import { Input } from "../input";
+import { Spinner } from "../spinner";
 import { View } from "../view";
 
 import styles from "./search-bar.module.css";
@@ -36,16 +37,7 @@ export function SearchBar({
         </View>
       ) : null}
 
-      {loading ? (
-        <View
-          className={clsx(
-            styles["search-bar__icon"],
-            styles["search-bar__icon_loading"],
-          )}
-        >
-          <Icon name="loader-2-line" />
-        </View>
-      ) : null}
+      {loading ? <Spinner className={styles["search-bar__icon"]} /> : null}
 
       {!loading && props.value ? (
         <View
