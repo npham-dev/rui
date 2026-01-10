@@ -17,13 +17,7 @@ const dirname =
     ? __dirname
     : path.dirname(fileURLToPath(import.meta.url));
 
-const IGNORE_STORIES = [
-  "src/**/*.stories.tsx",
-  "src/stories/**/*",
-  // internal utilities that shouldn't be built
-  "src/-*.ts",
-  "src/-*/**",
-];
+const IGNORE_STORIES = ["src/**/*.stories.tsx", "src/stories/**/*"];
 
 // More info at: https://storybook.js.org/docs/next/writing-tests/integrations/vitest-addon
 export default defineConfig({
