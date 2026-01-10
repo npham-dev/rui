@@ -11,7 +11,7 @@ import { Separator } from "../separator";
 import { Text } from "../text";
 import { View } from "../view";
 
-import styles from "./command-dialog.module.css";
+import styles from "./command.module.css";
 
 // TODO put background in dialog base props
 export type CommandDialogProps = Omit<
@@ -30,26 +30,23 @@ export function CommandDialog({
     <Dialog
       width="sm"
       background="default"
-      className={styles["command-dialog"]}
+      className={styles["command"]}
       {...props}
       closable
     >
       <CommandPrimitive>
-        <View className={styles["command-dialog__input-root"]}>
+        <View className={styles["command__input-root"]}>
           <View
             interactive="fill-outline"
-            className={styles["command-dialog__input"]}
+            className={styles["command__input"]}
             render={<CommandPrimitive.Input placeholder={placeholder} />}
           />
-          <Icon
-            name="search-line"
-            className={styles["command-dialog__input-icon"]}
-          />
+          <Icon name="search-line" className={styles["command__input-icon"]} />
         </View>
 
-        <CommandPrimitive.List className={styles["command-dialog__list"]}>
+        <CommandPrimitive.List className={styles["command__list"]}>
           <CommandPrimitive.Empty>
-            <View className={styles["command-dialog__empty"]}>
+            <View className={styles["command__empty"]}>
               <Text color="dimmer">No results found.</Text>
             </View>
           </CommandPrimitive.Empty>
@@ -67,7 +64,7 @@ export function CommandGroup({
 }: ComponentProps<typeof CommandPrimitive.Group>) {
   return (
     <CommandPrimitive.Group
-      className={clsx(styles["command-dialog__group"], className)}
+      className={clsx(styles["command__group"], className)}
       {...props}
     />
   );
@@ -92,14 +89,14 @@ export function CommandItem({
   return (
     <View
       interactive="list-item"
-      className={clsx(styles["command-dialog__item"], className)}
+      className={clsx(styles["command__item"], className)}
       render={<CommandPrimitive.Item {...props} />}
     >
       {icon ? <Icon name={icon} /> : undefined}
       {textify(children)}
       {shortcut ? (
         <Text
-          className={clsx(styles["command-dialog__shortcut"])}
+          className={clsx(styles["command__shortcut"])}
           color="dimmer"
           size="sm"
         >

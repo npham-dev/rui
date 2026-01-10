@@ -1,0 +1,175 @@
+@import "~/styles/core.css";
+
+@theme {
+  --font-sans: var(--font-family-default);
+  --font-mono: var(--font-family-code);
+
+  --text-small: var(--font-size-small);
+  --text-default: var(--font-size-default);
+  --text-subhead-default: var(--font-size-subhead-default);
+  --text-subhead-big: var(--font-size-subhead-big);
+  --text-header-default: var(--font-size-header-default);
+  --text-header-big: var(--font-size-header-big);
+
+  --leading-none: 1;
+  --leading-small: var(--line-height-small);
+  --leading-default: var(--line-height-default);
+  --leading-subhead-default: var(--line-height-subhead-default);
+  --leading-subhead-big: var(--line-height-subhead-big);
+  --leading-header-default: var(--line-height-header-default);
+  --leading-header-big: var(--line-height-header-big);
+
+  --shadow-1: var(--shadow-1);
+  --shadow-2: var(--shadow-2);
+  --shadow-3: var(--shadow-3);
+  --shadow-focus: inset 0 0 0 2px var(--primary-default);
+  --shadow-default: var(--shadow-default);
+  --shadow-none: "";
+
+  --color-transparent: transparent;
+  --color-white: #fcfcfc;
+  --color-black: #0e1525;
+
+  --color-background-root: var(--background-root);
+  --color-background-default: var(--background-default);
+  --color-background-higher: var(--background-higher);
+  --color-background-highest: var(--background-highest);
+  --color-background-overlay: var(--background-overlay);
+  --color-foreground-default: var(--foreground-default);
+  --color-foreground-dimmer: var(--foreground-dimmer);
+  --color-foreground-dimmest: var(--foreground-dimmest);
+  --color-outline-dimmest: var(--outline-dimmest);
+  --color-outline-dimmer: var(--outline-dimmer);
+  --color-outline-default: var(--outline-default);
+  --color-outline-stronger: var(--outline-stronger);
+  --color-outline-strongest: var(--outline-strongest);
+  --color-red-dimmest: var(--red-dimmest);
+  --color-red-dimmer: var(--red-dimmer);
+  --color-red-default: var(--red-default);
+  --color-red-stronger: var(--red-stronger);
+  --color-red-strongest: var(--red-strongest);
+  --color-orange-dimmest: var(--orange-dimmest);
+  --color-orange-dimmer: var(--orange-dimmer);
+  --color-orange-default: var(--orange-default);
+  --color-orange-stronger: var(--orange-stronger);
+  --color-orange-strongest: var(--orange-strongest);
+  --color-yellow-dimmest: var(--yellow-dimmest);
+  --color-yellow-dimmer: var(--yellow-dimmer);
+  --color-yellow-default: var(--yellow-default);
+  --color-yellow-stronger: var(--yellow-stronger);
+  --color-yellow-strongest: var(--yellow-strongest);
+  --color-lime-dimmest: var(--lime-dimmest);
+  --color-lime-dimmer: var(--lime-dimmer);
+  --color-lime-default: var(--lime-default);
+  --color-lime-stronger: var(--lime-stronger);
+  --color-lime-strongest: var(--lime-strongest);
+  --color-green-dimmest: var(--green-dimmest);
+  --color-green-dimmer: var(--green-dimmer);
+  --color-green-default: var(--green-default);
+  --color-green-stronger: var(--green-stronger);
+  --color-green-strongest: var(--green-strongest);
+  --color-teal-dimmest: var(--teal-dimmest);
+  --color-teal-dimmer: var(--teal-dimmer);
+  --color-teal-default: var(--teal-default);
+  --color-teal-stronger: var(--teal-stronger);
+  --color-teal-strongest: var(--teal-strongest);
+  --color-blue-dimmest: var(--blue-dimmest);
+  --color-blue-dimmer: var(--blue-dimmer);
+  --color-blue-default: var(--blue-default);
+  --color-blue-stronger: var(--blue-stronger);
+  --color-blue-strongest: var(--blue-strongest);
+  --color-blurple-dimmest: var(--blurple-dimmest);
+  --color-blurple-dimmer: var(--blurple-dimmer);
+  --color-blurple-default: var(--blurple-default);
+  --color-blurple-stronger: var(--blurple-stronger);
+  --color-blurple-strongest: var(--blurple-strongest);
+  --color-purple-dimmest: var(--purple-dimmest);
+  --color-purple-dimmer: var(--purple-dimmer);
+  --color-purple-default: var(--purple-default);
+  --color-purple-stronger: var(--purple-stronger);
+  --color-purple-strongest: var(--purple-strongest);
+  --color-magenta-dimmest: var(--magenta-dimmest);
+  --color-magenta-dimmer: var(--magenta-dimmer);
+  --color-magenta-default: var(--magenta-default);
+  --color-magenta-stronger: var(--magenta-stronger);
+  --color-magenta-strongest: var(--magenta-strongest);
+  --color-pink-dimmest: var(--pink-dimmest);
+  --color-pink-dimmer: var(--pink-dimmer);
+  --color-pink-default: var(--pink-default);
+  --color-pink-stronger: var(--pink-stronger);
+  --color-pink-strongest: var(--pink-strongest);
+  --color-grey-dimmest: var(--grey-dimmest);
+  --color-grey-dimmer: var(--grey-dimmer);
+  --color-grey-default: var(--grey-default);
+  --color-grey-stronger: var(--grey-stronger);
+  --color-grey-strongest: var(--grey-strongest);
+  --color-brown-dimmest: var(--brown-dimmest);
+  --color-brown-dimmer: var(--brown-dimmer);
+  --color-brown-default: var(--brown-default);
+  --color-brown-stronger: var(--brown-stronger);
+  --color-brown-strongest: var(--brown-strongest);
+
+  /* Primary Aliases */
+  --color-primary-dimmest: var(--primary-dimmest);
+  --color-primary-dimmer: var(--primary-dimmer);
+  --color-primary-default: var(--primary-default);
+  --color-primary-stronger: var(--primary-stronger);
+  --color-primary-strongest: var(--primary-strongest);
+
+  /* Positive Aliases */
+  --color-positive-dimmest: var(--positive-dimmest);
+  --color-positive-dimmer: var(--positive-dimmer);
+  --color-positive-default: var(--positive-default);
+  --color-positive-stronger: var(--positive-stronger);
+  --color-positive-strongest: var(--positive-strongest);
+
+  /* Negative Aliases */
+  --color-negative-dimmest: var(--negative-dimmest);
+  --color-negative-dimmer: var(--negative-dimmer);
+  --color-negative-default: var(--negative-default);
+  --color-negative-stronger: var(--negative-stronger);
+  --color-negative-strongest: var(--negative-strongest);
+
+  /* Warning Aliases */
+  --color-warning-dimmest: var(--warning-dimmest);
+  --color-warning-dimmer: var(--warning-dimmer);
+  --color-warning-default: var(--warning-default);
+  --color-warning-stronger: var(--warning-stronger);
+  --color-warning-strongest: var(--warning-strongest);
+
+  /* View Colorway Aliases */
+  --color-view-colorway-dimmest: var(--view-colorway-dimmest);
+  --color-view-colorway-dimmer: var(--view-colorway-dimmer);
+  --color-view-colorway-default: var(--view-colorway-default);
+  --color-view-colorway-stronger: var(--view-colorway-stronger);
+  --color-view-colorway-strongest: var(--view-colorway-strongest);
+
+  /* Surface Aliases */
+  --color-surface-background: var(--surface-background);
+  --color-surface-interactive-background: var(--surface-interactive-background);
+  --color-surface-interactive-background-active: var(
+    --surface-interactive-background-active
+  );
+  --color-surface-interactive-border: var(--surface-interactive-border);
+  --color-surface-interactive-border-hover: var(
+    --surface-interactive-border-hover
+  );
+
+  --default-transition-duration: var(--transition-duration-snappy);
+  --default-transition-timing-function: var(
+    --transition-timing-function-snappy
+  );
+
+  --ease-snappy: var(--transition-timing-function-snappy);
+  --ease-chill: var(--transition-timing-function-chill);
+
+  --radius-none: 0px;
+  --radius-sm: var(--border-radius-2);
+  --radius-md: var(--border-radius-4);
+  --radius-lg: var(--border-radius-6);
+  --radius-xl: var(--border-radius-8);
+  --radius-2xl: var(--border-radius-12);
+  --radius-3xl: var(--border-radius-16);
+  --radius-full: var(--border-radius-round);
+  --radius-default: var(--border-radius-default);
+}

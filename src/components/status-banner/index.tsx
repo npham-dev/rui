@@ -53,7 +53,6 @@ const sizeMap: Record<
 };
 
 // TODO figure out if you can really just pass on render like this or if useRender is required
-// TODO figure out better api, using a view with interactive & colorway feels kind of ass
 
 export function StatusBanner({
   color,

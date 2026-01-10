@@ -1,5 +1,5 @@
-.command-dialog {
-  --command-dialog-padding: var(--space-6);
+.command {
+  --command-padding: var(--space-6);
 
   border: none;
   padding: 0;
@@ -11,18 +11,18 @@
   }
 }
 
-.command-dialog__empty {
+.command__empty {
   padding: var(--space-28) var(--space-16);
-  padding-top: calc(var(--space-28) + var(--command-dialog-padding));
+  padding-top: calc(var(--space-28) + var(--command-padding));
   text-align: center;
 }
 
-.command-dialog__input-root {
+.command__input-root {
   position: relative;
   height: var(--space-32);
 }
 
-.command-dialog__input {
+.command__input {
   flex-grow: 1;
   flex-shrink: 1;
   border-bottom-right-radius: 0 !important;
@@ -42,23 +42,23 @@
   }
 }
 
-.command-dialog__input-icon {
+.command__input-icon {
   position: absolute;
   top: var(--space-8);
   left: var(--space-8);
 }
 
-.command-dialog__list {
+.command__list {
   border: 1px solid var(--surface-interactive-border);
   border-top: 0;
   border-bottom-right-radius: var(--border-radius-default) !important;
   border-bottom-left-radius: var(--border-radius-default) !important;
-  padding-bottom: var(--command-dialog-padding);
+  padding-bottom: var(--command-padding);
   max-height: var(--space-256);
   overflow: hidden auto;
 }
 
-.command-dialog__group {
+.command__group {
   padding-top: var(--space-6);
 
   /* stylelint-disable-next-line */
@@ -71,7 +71,7 @@
   }
 }
 
-.command-dialog__item {
+.command__item {
   flex-direction: row;
   align-items: center;
   gap: var(--space-8);
@@ -84,7 +84,7 @@
   }
 }
 
-.command-dialog__shortcut {
+.command__shortcut {
   margin-left: auto;
 
   /*

@@ -23,8 +23,6 @@ import styles from "./alert-dialog.module.css";
  * style of generalization feels kind of anti-composition
  */
 
-export const AlertDialogClose = AlertDialogPrimitive.Close;
-
 export type AlertDialogProps = ComponentProps<
   typeof AlertDialogPrimitive.Root
 > &
@@ -103,11 +101,7 @@ export function AlertDialog({
               {actions.map(({ children, ...action }, i) => (
                 <AlertDialogClose
                   key={i}
-                  render={
-                    <Button
-                      {...getButtonProps(action, i + 1 === actions.length)}
-                    />
-                  }
+                  {...getButtonProps(action, i + 1 === actions.length)}
                 >
                   {children}
                 </AlertDialogClose>
@@ -118,6 +112,10 @@ export function AlertDialog({
       </AlertDialogPrimitive.Portal>
     </AlertDialogPrimitive.Root>
   );
+}
+
+export function AlertDialogClose(props: ButtonProps) {
+  return <AlertDialogPrimitive.Close render={<Button {...props} />} />;
 }
 
 /**
