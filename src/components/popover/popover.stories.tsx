@@ -43,7 +43,7 @@ export const Default: Story = {
   render: (args) => (
     <Popover
       trigger={
-        <IconButton name="notification-line" alt="Notifications" interactive />
+        <IconButton icon="notification-line" alt="Notifications" interactive />
       }
       {...args}
     />

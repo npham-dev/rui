@@ -23,7 +23,6 @@ export function RadioGroup({
     <RadioContext.Provider value={color}>
       <RadioGroupPrimitive
         className={clsx(radioGroupStyles["radio-group"], className)}
-        render={<View />}
         {...props}
       />
     </RadioContext.Provider>
@@ -46,13 +45,14 @@ export function Radio({
   const normalizedColor: Color = color || colorContext || "primary";
 
   const radio = (
-    <RadioPrimitive.Root
+    <View
+      render={<RadioPrimitive.Root {...props} />}
+      interactive="fill-outline"
+      color={normalizedColor}
       className={clsx(radioStyles["radio"], className)}
-      render={<View interactive="fill-outline" color={normalizedColor} />}
-      {...props}
     >
       <RadioPrimitive.Indicator className={radioStyles["radio__indicator"]} />
-    </RadioPrimitive.Root>
+    </View>
   );
 
   if (label) {

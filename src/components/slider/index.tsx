@@ -14,16 +14,14 @@ export function Slider({
   return (
     <SliderPrimitive.Root {...props}>
       <SliderPrimitive.Control className={styles["slider__control"]}>
-        <SliderPrimitive.Track
+        <View
+          render={<SliderPrimitive.Track />}
+          color={color}
           className={styles["slider__track"]}
-          render={<View color={color} />}
         >
           <SliderPrimitive.Indicator className={styles["slider__indicator"]} />
-          <SliderPrimitive.Thumb
-            className={clsx(styles["slider__thumb"])}
-            render={<View interactive="fill-outline" />}
-          />
-        </SliderPrimitive.Track>
+          <SliderPrimitive.Thumb className={clsx(styles["slider__thumb"])} />
+        </View>
       </SliderPrimitive.Control>
     </SliderPrimitive.Root>
   );

@@ -47,7 +47,7 @@ export function SearchBar({
           )}
         >
           <IconButton
-            name="close-line"
+            icon="close-line"
             alt="Clear"
             size="sm"
             disabled={props.disabled}

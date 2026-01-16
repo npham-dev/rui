@@ -33,6 +33,7 @@
   --border-radius-1: 1px;
   --border-radius-2: 2px;
   --border-radius-4: 4px;
+  --border-radius-6: 6px;
   --border-radius-8: 8px;
   --border-radius-12: 12px;
   --border-radius-16: 16px;
@@ -103,14 +104,6 @@ body {
 
 .root {
   isolation: isolate;
-}
-
-/* https://stackoverflow.com/questions/72789466/remove-the-up-down-increment-decrement-buttons-on-number-inputs-using-css */
-/* hide increment/decrement buttons on inputs */
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
 }
 
 [data-theme] {

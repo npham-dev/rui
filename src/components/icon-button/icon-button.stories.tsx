@@ -30,7 +30,7 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     size: "md",
-    name: "add-line",
+    icon: "add-line",
     alt: "Create a new project.",
     interactive: true,
     loading: false,
@@ -40,7 +40,7 @@ export const Default: Story = {
 
 export const AllSizes: Story = {
   args: {
-    name: "add-line",
+    icon: "add-line",
     alt: "Create a new project.",
   },
   argTypes: {

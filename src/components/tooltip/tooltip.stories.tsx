@@ -45,7 +45,7 @@ export const Default: Story = {
   },
   render: (args) => (
     <Tooltip
-      trigger={<IconButton name="bold" alt="Bold" interactive />}
+      trigger={<IconButton icon="bold" alt="Bold" interactive />}
       {...args}
     />
   ),
@@ -60,15 +60,15 @@ export const Provider: Story = {
       <View style={{ flexDirection: "row", gap: tokens.space4 }}>
         <Tooltip
           children="Bold"
-          trigger={<IconButton name="bold" alt="Bold" interactive />}
+          trigger={<IconButton icon="bold" alt="Bold" interactive />}
         />
         <Tooltip
           children="Italic"
-          trigger={<IconButton name="italic" alt="Italic" interactive />}
+          trigger={<IconButton icon="italic" alt="Italic" interactive />}
         />
         <Tooltip
           children="Underline"
-          trigger={<IconButton name="underline" alt="Underline" interactive />}
+          trigger={<IconButton icon="underline" alt="Underline" interactive />}
         />
       </View>
     </TooltipProvider>

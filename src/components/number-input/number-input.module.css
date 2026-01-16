@@ -1,0 +1,41 @@
+.number-input__root {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+/*
+  https://stackoverflow.com/questions/72789466/remove-the-up-down-increment-decrement-buttons-on-number-inputs-using-css
+  Hide increment/decrement buttons on input
+*/
+.number-input[type="number"]::-webkit-inner-spin-button,
+.number-input[type="number"]::-webkit-outer-spin-button {
+  /* stylelint-disable-next-line */
+  -webkit-appearance: none;
+  padding-right: var(--space-32);
+  text-overflow: ellipsis;
+}
+
+.number-input__scrub-area {
+  cursor: ew-resize;
+  user-select: none;
+}
+
+.number-input__group {
+  position: relative;
+}
+
+.number-input__controls {
+  display: flex;
+  position: absolute;
+  top: 50%;
+  right: var(--space-4);
+  flex-direction: row;
+  align-items: center;
+  gap: var(--space-4);
+  transform: translateY(-50%);
+}
+
+.number-input__separator {
+  height: var(--space-16);
+}

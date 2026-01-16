@@ -34,7 +34,12 @@ export function pick<T extends Record<string, string>, K extends keyof T>(
  * @param props optional text props
  * @returns ReactNode or Text
  */
-export function textify(node: React.ReactNode, props: TextProps = {}) {
+export function textify(
+  node: React.ReactNode,
+  props: TextProps = {
+    color: "inherit",
+  },
+) {
   return typeof node === "string" ? <Text {...props}>{node}</Text> : node;
 }
 

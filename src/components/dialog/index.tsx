@@ -129,7 +129,7 @@ export function Dialog({
                 render={
                   <IconButton
                     size="sm"
-                    name="close-line"
+                    icon="close-line"
                     alt="Close"
                     interactive="no-fill"
                   />

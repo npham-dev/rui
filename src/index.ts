@@ -21,6 +21,8 @@ export { InlineCode } from "./components/inline-code";
 export { Input } from "./components/input";
 export { Meter } from "./components/meter";
 export { MultilineInput } from "./components/multiline-input";
+export { NumberInput } from "./components/number-input";
+export { PasswordInput } from "./components/password-input";
 export { Pill } from "./components/pill";
 export { Popover } from "./components/popover";
 export { PreviewCard } from "./components/preview-card";

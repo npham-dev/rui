@@ -11,7 +11,7 @@ import styles from "./icon-button.module.css";
 
 export type IconButtonProps = ViewProps<"button"> & {
   /** Icon to display. */
-  name: IconName;
+  icon: IconName;
 
   /** Explain what the button does. Required for accessibility. */
   alt: string;
@@ -21,7 +21,7 @@ export type IconButtonProps = ViewProps<"button"> & {
 };
 
 export function IconButton({
-  name,
+  icon,
   alt,
   size = "md",
   render,
@@ -42,7 +42,7 @@ export function IconButton({
       }
       {...props}
     >
-      <Icon name={name} size={size} alt={alt} />
+      <Icon name={icon} size={size} alt={alt} />
     </View>
   );
 }

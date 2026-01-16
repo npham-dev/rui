@@ -53,9 +53,9 @@ function ToastList() {
         )}
         render={<Surface background="default" color={color} />}
       >
-        <ToastPrimitive.Content
+        <View
+          render={<ToastPrimitive.Content />}
           className={styles["toast__content"]}
-          render={<View />}
         >
           <View className={styles["toast__row"]}>
             <View className={styles["toast__header"]}>
@@ -82,7 +82,7 @@ function ToastList() {
                 <IconButton
                   className={toast.title ? styles["toast__close"] : undefined}
                   interactive={color ? `${color}_no-fill` : "no-fill"}
-                  name="close-line"
+                  icon="close-line"
                   size="sm"
                   alt="Close"
                 />
@@ -97,7 +97,7 @@ function ToastList() {
               {toast.action.children}
             </Button>
           ) : null}
-        </ToastPrimitive.Content>
+        </View>
       </ToastPrimitive.Root>
     );
   });

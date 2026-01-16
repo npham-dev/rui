@@ -11,12 +11,13 @@ export function Switch({
   color?: Color;
 }) {
   return (
-    <SwitchPrimitive.Root
-      render={<View interactive="fill-outline" color={color} />}
+    <View
+      render={<SwitchPrimitive.Root {...props} />}
       className={styles["switch"]}
-      {...props}
+      interactive="fill-outline"
+      color={color}
     >
       <SwitchPrimitive.Thumb className={styles["switch__thumb"]} />
-    </SwitchPrimitive.Root>
+    </View>
   );
 }

@@ -30,7 +30,7 @@
     border-bottom-width: 1px;
     border-color: var(--surface-interactive-border);
     border-radius: var(--border-radius-default) var(--border-radius-default) 0 0;
-    height: var(--space-32);
+    height: calc(var(--space-32) + var(--space-4));
   }
 
   .tabs__trigger[data-active] {
