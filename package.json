@@ -28,7 +28,8 @@
     "lint:style": "stylelint src/**/*.module.css",
     "format": "prettier --write .",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "prepublishOnly": "pnpm run build"
   },
   "dependencies": {
     "@base-ui/react": "^1.0.0",
