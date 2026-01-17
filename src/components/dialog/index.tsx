@@ -1,6 +1,6 @@
 import { Dialog as DialogPrimitive } from "@base-ui/react/dialog";
 import clsx from "clsx";
-import type { ComponentProps, ReactElement, ReactNode } from "react";
+import type { ReactElement, ReactNode } from "react";
 
 import type { Size } from "~/styles/tokens";
 
@@ -56,7 +56,7 @@ export type BaseDialogProps = {
   className?: string;
 };
 
-export type DialogProps = ComponentProps<typeof DialogPrimitive.Root> &
+export type DialogProps = DialogPrimitive.Root.Props &
   BaseDialogProps & {
     /**
      * Show close icon

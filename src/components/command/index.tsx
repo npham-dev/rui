@@ -1,3 +1,4 @@
+import { Dialog as DialogPrimitive } from "@base-ui/react/dialog";
 import clsx from "clsx";
 import { Command as CommandPrimitive } from "cmdk";
 import type { ComponentProps } from "react";
@@ -13,13 +14,10 @@ import { View } from "../view";
 
 import styles from "./command.module.css";
 
-// TODO put background in dialog base props
-export type CommandDialogProps = Omit<
-  BaseDialogProps,
-  "title" | "description" | "background"
-> & {
-  placeholder?: string;
-};
+export type CommandDialogProps = DialogPrimitive.Root.Props &
+  Omit<BaseDialogProps, "title" | "description" | "background"> & {
+    placeholder?: string;
+  };
 
 export function CommandDialog({
   placeholder,
@@ -31,8 +29,8 @@ export function CommandDialog({
       width="sm"
       background="default"
       className={styles["command"]}
-      {...props}
       closable
+      {...props}
     >
       <CommandPrimitive>
         <View className={styles["command__input-root"]}>
