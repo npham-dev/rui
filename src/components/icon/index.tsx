@@ -8,6 +8,8 @@ import { type IconName } from "./icon-names";
 
 import styles from "./icon.module.css";
 
+export type { IconName };
+
 export interface IconProps extends Omit<ComponentProps<"svg">, "name"> {
   /**
    * Overrides the icon size provider.
