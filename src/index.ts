@@ -1,5 +1,5 @@
 export { Accordion, AccordionItem } from "./components/accordion";
-export { AlertDialog } from "./components/alert-dialog";
+export { AlertDialog, AlertDialogClose } from "./components/alert-dialog";
 export { Anchor } from "./components/anchor";
 export { Avatar } from "./components/avatar";
 export { Badge } from "./components/badge";
@@ -13,10 +13,20 @@ export {
   CommandSeparator,
   CommandItem,
 } from "./components/command";
+export {
+  ContextMenu,
+  ContextMenuCheckboxItem,
+  ContextMenuGroup,
+  ContextMenuItem,
+  ContextMenuMore,
+  ContextMenuRadioGroup,
+  ContextMenuRadioItem,
+  ContextMenuSeparator,
+} from "./components/context-menu";
 export { Dialog, DialogClose } from "./components/dialog";
 export { Heading, Section } from "./components/heading";
-export { IconButton } from "./components/icon-button";
 export { Icon } from "./components/icon";
+export { IconButton } from "./components/icon-button";
 export { InlineCode } from "./components/inline-code";
 export { Input } from "./components/input";
 export { Meter } from "./components/meter";
@@ -31,11 +41,12 @@ export { SearchBar } from "./components/search-bar";
 export { Select } from "./components/select";
 export { Separator } from "./components/separator";
 export { Slider } from "./components/slider";
+export { Spinner } from "./components/spinner";
 export { StackedAvatars } from "./components/stacked-avatars";
 export { StatusBanner } from "./components/status-banner";
 export { Surface } from "./components/surface";
 export { Switch } from "./components/switch";
-export { Tabs } from "./components/tabs";
+export { Tabs, TabsPanel } from "./components/tabs";
 export { Text } from "./components/text";
 export { ThemeProvider, useThemeContext } from "./components/theme-provider";
 export { Timestamp } from "./components/timestamp";

@@ -1,6 +1,6 @@
 {
   "name": "@koide-labs/ui",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
   "main": "./dist/index.js",
   "exports": {
@@ -12,8 +12,20 @@
       "types": "./dist/components/*/index.d.ts",
       "default": "./dist/components/*/index.js"
     },
-    "./styles/*.css": "./dist/assets/styles/*.css"
+    "./integrations/tailwind.css": "./dist/integrations/tailwind.css",
+    "./integrations/*": {
+      "types": "./dist/integrations/*/index.d.ts",
+      "default": "./dist/integrations/*/index.js"
+    },
+    "./styles/core.css": "./dist/styles/core.css",
+    "./styles/tokens.js": {
+      "types": "./dist/styles/tokens.d.ts",
+      "default": "./dist/styles/tokens.js"
+    }
   },
+  "files": [
+    "dist"
+  ],
   "packageManager": "pnpm@10.19.0",
   "scripts": {
     "dev": "vite",
@@ -43,6 +55,10 @@
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-markdown": "^10.1.0"
+  },
+  "peerDependencies": {
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^4.1.3",

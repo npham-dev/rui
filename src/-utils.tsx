@@ -37,6 +37,7 @@ export function pick<T extends Record<string, string>, K extends keyof T>(
 export function textify(
   node: React.ReactNode,
   props: TextProps = {
+    // TODO look for any regressions
     color: "inherit",
   },
 ) {

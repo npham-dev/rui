@@ -7,6 +7,8 @@ import styles from "./input.module.css";
 
 export type InputProps = InputPrimitive.Props;
 
+// TODO provide label prop for more consistency across inputs
+
 export function Input({ className, ...props }: InputProps) {
   return (
     <View
