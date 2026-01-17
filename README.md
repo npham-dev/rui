@@ -9,7 +9,7 @@ Accessible, fresh, and simple.
 ## Installation
 
 ```bash
-pnpm add @koide-labs/ui
+pnpm add @koide-labs/ui remixicon
 ```
 
 Because we import CSS modules for each component, you must add this to your Vite config.
@@ -24,17 +24,7 @@ export default defineConfig({
 });
 ```
 
-## Styling
-
-I highly recommend using TailwindCSS.
-
-```css
-@import "tailwindcss" important;
-@import "@koide-labs/ui/integrations/tailwind.css";
-@import "@koide-labs/ui/styles/core.css";
-```
-
-### Fonts
+Then, include the necessary fonts.
 
 - IBM Plex Sans
 - IBM Plex Mono
@@ -50,6 +40,16 @@ I highly recommend using TailwindCSS.
   rel="stylesheet"
   href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
 />
+```
+
+## Styling
+
+I highly recommend using TailwindCSS.
+
+```css
+@import "tailwindcss" important;
+@import "@koide-labs/ui/integrations/tailwind.css";
+@import "@koide-labs/ui/styles/core.css";
 ```
 
 ## Development

@@ -39,8 +39,14 @@ export default defineConfig({
       },
       formats: ["es"],
     },
+    assetsInlineLimit: 0,
     rollupOptions: {
-      external: ["react", "react/jsx-runtime", "react-dom"],
+      external: [
+        "react",
+        "react/jsx-runtime",
+        "react-dom",
+        "remixicon/fonts/remixicon.symbol.svg",
+      ],
       input: Object.fromEntries(
         glob
           .sync(
@@ -63,6 +69,17 @@ export default defineConfig({
           ]),
       ),
       output: {
+        // for Next.js support
+        // https://github.com/vitejs/vite/issues/1579
+        intro: (chunk) => {
+          if (
+            chunk.fileName.startsWith("components") &&
+            chunk.fileName.endsWith("index.js")
+          ) {
+            return `"use client";`;
+          }
+          return "";
+        },
         globals: {
           react: "React",
           "react/jsx-runtime": "react/jsx-runtime",
