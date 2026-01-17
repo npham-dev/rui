@@ -1,4 +1,4 @@
-@theme {
+@theme inline {
   --font-sans: var(--font-family-default);
   --font-mono: var(--font-family-code);
 
