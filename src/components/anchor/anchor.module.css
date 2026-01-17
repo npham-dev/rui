@@ -10,9 +10,3 @@
     color: var(--blurple-stronger);
   }
 }
-
-.anchor__icon {
-  /* you got me. a magic number in a sea of tokens. */
-  vertical-align: -5%;
-  margin-left: var(--space-2);
-}

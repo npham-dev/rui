@@ -1,7 +1,5 @@
 import { mergeProps, useRender } from "@base-ui/react";
 
-import { Icon } from "../icon";
-
 import styles from "./anchor.module.css";
 
 export type AnchorProps = useRender.ComponentProps<"a"> & {
@@ -11,7 +9,7 @@ export type AnchorProps = useRender.ComponentProps<"a"> & {
   external?: boolean;
 };
 
-export function Anchor({ external, render, children, ...props }: AnchorProps) {
+export function Anchor({ external, render, ...props }: AnchorProps) {
   const element = useRender({
     defaultTagName: "a",
     render,
@@ -24,18 +22,6 @@ export function Anchor({ external, render, children, ...props }: AnchorProps) {
               rel: "noreferrer",
             }
           : {}),
-        children: (
-          <>
-            {children}
-            {external ? (
-              <Icon
-                name="external-link-line"
-                size="sm"
-                className={styles["anchor__icon"]}
-              />
-            ) : null}
-          </>
-        ),
       },
       props,
     ),
