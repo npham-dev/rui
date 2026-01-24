@@ -61,6 +61,7 @@ export function StatusBanner({
   description,
   size = "lg",
   render,
+  className,
   ...props
 }: StatusBannerProps) {
   return (
@@ -74,6 +75,7 @@ export function StatusBanner({
         color
           ? styles["status-banner_variant_colorway"]
           : styles["status-banner_variant_neutral"],
+        className,
       )}
     >
       {icon ? <Icon name={icon} size={sizeMap[size].icon} /> : null}
