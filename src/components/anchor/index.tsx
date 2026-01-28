@@ -13,18 +13,15 @@ export function Anchor({ external, render, ...props }: AnchorProps) {
   const element = useRender({
     defaultTagName: "a",
     render,
-    props: mergeProps(
-      {
-        className: styles["anchor"],
-        ...(external
-          ? {
-              target: "_blank",
-              rel: "noreferrer",
-            }
-          : {}),
-      },
-      props,
-    ),
+    props: mergeProps(props, {
+      className: styles["anchor"],
+      ...(external
+        ? {
+            target: "_blank",
+            rel: "noreferrer",
+          }
+        : {}),
+    }),
   });
 
   return element;

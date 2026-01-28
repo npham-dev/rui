@@ -83,30 +83,27 @@ export const View = <T extends ElementType = "div">({
   const element = useRender({
     defaultTagName: "div",
     render,
-    props: mergeProps(
-      {
-        className: clsx(
-          styles["view"],
-          color && colorwayStyles[`view_colorway_color-${color}`],
-          normalized.interactive && [
-            interactiveStyles["view_interactive"],
-            interactiveStyles[`view_interactive_${normalized.interactive}`],
-          ],
-          normalized.colorway && [
-            normalized.colorway[1].endsWith("static")
-              ? colorwayStyles["view_colorway_static"]
-              : colorwayStyles["view_colorway"],
-            colorwayStyles[`view_colorway_${normalized.colorway[1]}`],
-            colorwayStyles[`view_colorway_color-${normalized.colorway[0]}`],
-          ],
-          normalized.loading && [
-            loadingStyles["view_loading"],
-            loadingStyles[`view_loading_${normalized.loading}`],
-          ],
-        ),
-      },
-      props,
-    ),
+    props: mergeProps(props, {
+      className: clsx(
+        styles["view"],
+        color && colorwayStyles[`view_colorway_color-${color}`],
+        normalized.interactive && [
+          interactiveStyles["view_interactive"],
+          interactiveStyles[`view_interactive_${normalized.interactive}`],
+        ],
+        normalized.colorway && [
+          normalized.colorway[1].endsWith("static")
+            ? colorwayStyles["view_colorway_static"]
+            : colorwayStyles["view_colorway"],
+          colorwayStyles[`view_colorway_${normalized.colorway[1]}`],
+          colorwayStyles[`view_colorway_color-${normalized.colorway[0]}`],
+        ],
+        normalized.loading && [
+          loadingStyles["view_loading"],
+          loadingStyles[`view_loading_${normalized.loading}`],
+        ],
+      ),
+    }),
   });
   return element;
 };

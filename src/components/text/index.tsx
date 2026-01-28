@@ -47,22 +47,19 @@ export function Text({
   const element = useRender({
     defaultTagName: "span",
     render,
-    props: mergeProps(
-      {
-        className: clsx(
-          viewStyles["view"],
-          styles["text"],
-          styles[`text_color_${color}`],
-          styles[`text_size_${size}`],
-          !multiline && styles["text_clip-line"],
-          !multiline && maxLines > 1 && styles["text_clamp-lines"],
-        ),
-        style: {
-          "--text-max-lines": Math.max(maxLines, 1),
-        },
+    props: mergeProps(props, {
+      className: clsx(
+        viewStyles["view"],
+        styles["text"],
+        styles[`text_color_${color}`],
+        styles[`text_size_${size}`],
+        !multiline && styles["text_clip-line"],
+        !multiline && maxLines > 1 && styles["text_clamp-lines"],
+      ),
+      style: {
+        "--text-max-lines": Math.max(maxLines, 1),
       },
-      props,
-    ),
+    }),
   });
 
   return element;

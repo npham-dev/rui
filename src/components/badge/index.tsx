@@ -36,23 +36,25 @@ export function Badge({
   shiny,
   tagline,
   render,
+  className,
   ...props
 }: BadgeProps) {
   const element = useRender({
     defaultTagName: "span",
     render,
-    props: mergeProps(
-      {
-        className: clsx(styles["badge"], shiny && styles["badge_shiny"]),
-        children: (
-          <>
-            {icon ? <Icon name={icon} /> : null}
-            {name}
-          </>
-        ),
-      },
-      props,
-    ),
+    props: mergeProps(props, {
+      className: clsx(
+        styles["badge"],
+        shiny && styles["badge_shiny"],
+        className,
+      ),
+      children: (
+        <>
+          {icon ? <Icon name={icon} /> : null}
+          {name}
+        </>
+      ),
+    }),
   });
 
   const label = <View color={color}>{element}</View>;

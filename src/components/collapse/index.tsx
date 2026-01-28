@@ -42,17 +42,11 @@ export function Collapse({
     defaultTagName: "div",
     render,
     ref,
-    props: mergeProps(
-      {
-        "aria-hidden": !expand,
-        className: clsx(
-          styles["collapse"],
-          expand && styles["collapse_expand"],
-        ),
-        style: { "--collapse-height": `${height}px` },
-      },
-      props,
-    ),
+    props: mergeProps(props, {
+      "aria-hidden": !expand,
+      className: clsx(styles["collapse"], expand && styles["collapse_expand"]),
+      style: { "--collapse-height": `${height}px` },
+    }),
   });
 
   return element;

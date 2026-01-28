@@ -52,12 +52,7 @@ export function Heading({
   const element = useRender({
     defaultTagName: `h${normalizedLevel}`,
     render,
-    props: mergeProps(
-      {
-        className: styles["heading"],
-      },
-      props,
-    ),
+    props: mergeProps(props, { className: styles["heading"] }),
   });
   return (
     <Text
