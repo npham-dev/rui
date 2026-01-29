@@ -22,6 +22,18 @@ const IGNORE_STORIES = ["src/**/*.stories.tsx", "src/stories/**/*"];
 // More info at: https://storybook.js.org/docs/next/writing-tests/integrations/vitest-addon
 export default defineConfig({
   plugins: [
+    {
+      name: "prefix-css-plugin",
+      enforce: "pre",
+      transform(code, id) {
+        if (id.endsWith(".module.css")) {
+          return {
+            code: `@layer normalize, theme, atom, component;\n${code}`,
+            map: null,
+          };
+        }
+      },
+    },
     tsconfigPaths(),
     libInjectCss(),
     react(),
@@ -58,7 +70,7 @@ export default defineConfig({
               "src/integrations/tailwind.css",
             ],
             {
-              ignore: IGNORE_STORIES,
+              ignore: [...IGNORE_STORIES, "src/**/*.types.ts"],
             },
           )
           .map((file) => [

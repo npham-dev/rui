@@ -50,12 +50,9 @@ Then, include the necessary fonts.
 I highly recommend using TailwindCSS.
 
 ```css
+@import "tailwindcss" important;
 @import "@koide-labs/ui/integrations/tailwind.css";
 @import "@koide-labs/ui/styles/core.css";
-
-@import "tailwindcss/theme.css" layer(theme);
-@import "tailwindcss/preflight.css" layer(base);
-@import "tailwindcss/utilities.css" layer(utilities) important;
 ```
 
 ## Development

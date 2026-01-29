@@ -1,9 +1,8 @@
-@layer normalize, theme, base, atom, components;
+@layer normalize, theme, atom, component;
 
 /*
   normalize - modern-normalize.css
   theme - tokens and variables
-  base - preflight
   atom - reusable styles/components that other components extend from
   components - actual component styles
 */

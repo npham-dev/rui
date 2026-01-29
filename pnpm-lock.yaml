@@ -47,6 +47,9 @@ importers:
       "@chromatic-com/storybook":
         specifier: ^4.1.3
         version: 4.1.3(storybook@10.1.11(@testing-library/dom@10.4.1)(prettier@3.7.4)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))
+      "@csstools/postcss-cascade-layers":
+        specifier: ^6.0.0
+        version: 6.0.0(postcss@8.5.6)
       "@eslint/js":
         specifier: ^9.39.1
         version: 9.39.2
@@ -516,6 +519,15 @@ packages:
       "@csstools/css-parser-algorithms": ^3.0.5
       "@csstools/css-tokenizer": ^3.0.4
 
+  "@csstools/postcss-cascade-layers@6.0.0":
+    resolution:
+      {
+        integrity: sha512-WhsECqmrEZQGqaPlBA7JkmF/CJ2/+wetL4fkL9sOPccKd32PQ1qToFM6gqSI5rkpmYqubvbxjEJhyMTHYK0vZQ==,
+      }
+    engines: { node: ">=20.19.0" }
+    peerDependencies:
+      postcss: ^8.4
+
   "@csstools/selector-resolve-nested@3.1.0":
     resolution:
       {
@@ -533,6 +545,15 @@ packages:
     engines: { node: ">=18" }
     peerDependencies:
       postcss-selector-parser: ^7.0.0
+
+  "@csstools/selector-specificity@6.0.0":
+    resolution:
+      {
+        integrity: sha512-4sSgl78OtOXEX/2d++8A83zHNTgwCJMaR24FvsYL7Uf/VS8HZk9PTwR51elTbGqMuwH3szLvvOXEaVnqn0Z3zA==,
+      }
+    engines: { node: ">=20.19.0" }
+    peerDependencies:
+      postcss-selector-parser: ^7.1.1
 
   "@dual-bundle/import-meta-resolve@4.2.1":
     resolution:
@@ -6971,11 +6992,21 @@ snapshots:
       "@csstools/css-parser-algorithms": 3.0.5(@csstools/css-tokenizer@3.0.4)
       "@csstools/css-tokenizer": 3.0.4
 
+  "@csstools/postcss-cascade-layers@6.0.0(postcss@8.5.6)":
+    dependencies:
+      "@csstools/selector-specificity": 6.0.0(postcss-selector-parser@7.1.1)
+      postcss: 8.5.6
+      postcss-selector-parser: 7.1.1
+
   "@csstools/selector-resolve-nested@3.1.0(postcss-selector-parser@7.1.1)":
     dependencies:
       postcss-selector-parser: 7.1.1
 
   "@csstools/selector-specificity@5.0.0(postcss-selector-parser@7.1.1)":
+    dependencies:
+      postcss-selector-parser: 7.1.1
+
+  "@csstools/selector-specificity@6.0.0(postcss-selector-parser@7.1.1)":
     dependencies:
       postcss-selector-parser: 7.1.1
 

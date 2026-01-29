@@ -1,4 +1,4 @@
-@layer components {
+@layer component {
   .search-bar {
     position: relative;
     height: var(--space-32);

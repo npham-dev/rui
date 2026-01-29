@@ -1,4 +1,4 @@
-@layer components {
+@layer component {
   .command {
     --command-padding: var(--space-6);
 

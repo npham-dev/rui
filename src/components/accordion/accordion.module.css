@@ -1,4 +1,4 @@
-@layer components {
+@layer component {
   .accordion {
     border-bottom: 1px solid var(--surface-interactive-border);
   }

@@ -1,4 +1,4 @@
-@layer components {
+@layer component {
   .alert-dialog__actions {
     flex-direction: row;
     justify-content: end;

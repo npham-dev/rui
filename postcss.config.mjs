@@ -3,5 +3,6 @@ export default {
     autoprefixer: {},
     "postcss-nesting": {},
     "postcss-nested-import": {},
+    "@csstools/postcss-cascade-layers": {},
   },
 };

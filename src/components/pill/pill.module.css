@@ -1,4 +1,4 @@
-@layer components {
+@layer component {
   .pill {
     flex-shrink: 1;
     flex-direction: row;

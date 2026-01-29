@@ -1,4 +1,4 @@
-@layer components {
+@layer component {
   .inline-code {
     display: inline;
     border: 1px solid var(--surface-interactive-border);
