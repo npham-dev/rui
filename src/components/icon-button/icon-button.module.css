@@ -1,33 +1,35 @@
-.icon-button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: var(--border-radius-default);
-  aspect-ratio: 1 / 1;
-  width: var(--icon-button-size);
-  height: var(--icon-button-size);
-}
+@layer components {
+  .icon-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: var(--border-radius-default);
+    aspect-ratio: 1 / 1;
+    width: var(--icon-button-size);
+    height: var(--icon-button-size);
+  }
 
-.icon-button_size_sm {
-  --icon-button-size: var(--space-24);
-}
+  .icon-button_size_sm {
+    --icon-button-size: var(--space-24);
+  }
 
-.icon-button_size_md {
-  --icon-button-size: var(--space-32);
-}
+  .icon-button_size_md {
+    --icon-button-size: var(--space-32);
+  }
 
-.icon-button_size_lg {
-  --icon-button-size: var(--space-40);
-}
+  .icon-button_size_lg {
+    --icon-button-size: var(--space-40);
+  }
 
-.icon-button_size_xl {
-  --icon-button-size: var(--space-48);
-}
+  .icon-button_size_xl {
+    --icon-button-size: var(--space-48);
+  }
 
-.icon-button_size_2xl {
-  --icon-button-size: var(--space-56);
-}
+  .icon-button_size_2xl {
+    --icon-button-size: var(--space-56);
+  }
 
-.icon-button_size_3xl {
-  --icon-button-size: var(--space-64);
+  .icon-button_size_3xl {
+    --icon-button-size: var(--space-64);
+  }
 }

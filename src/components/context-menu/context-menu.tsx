@@ -21,7 +21,9 @@ import { View } from "../view";
 import transitionStyles from "../../styles/transitions.module.css";
 import styles from "./context-menu.module.css";
 
-export type ContextMenuProps = ContextMenuPrimitive.Root.Props & {
+const ContextMenuContext = createContext<Background>("root");
+
+type ContextMenuRootProps = ContextMenuPrimitive.Root.Props & {
   /** Specify trigger to open context menu. */
   trigger?: ReactElement;
 
@@ -38,16 +40,14 @@ export type ContextMenuProps = ContextMenuPrimitive.Root.Props & {
   style?: CSSProperties;
 };
 
-const ContextMenuContext = createContext<Background>("root");
-
-export function ContextMenu({
+function ContextMenuRoot({
   trigger,
   background = "root",
   className,
   children,
   style,
   ...props
-}: ContextMenuProps) {
+}: ContextMenuRootProps) {
   return (
     <ContextMenuContext.Provider value={background}>
       <ContextMenuPrimitive.Root {...props}>
@@ -72,19 +72,21 @@ export function ContextMenu({
   );
 }
 
-export function ContextMenuItem({
-  icon,
-  shortcut,
-  className,
-  children,
-  ...props
-}: ContextMenuPrimitive.Item.Props & {
+type ContextMenuItemProps = ContextMenuPrimitive.Item.Props & {
   /** Optional item icon to communicate purpose */
   icon?: IconName;
 
   /** Indicate that this action can be triggered by a keyboard shortcut */
   shortcut?: string;
-}) {
+};
+
+function ContextMenuItem({
+  icon,
+  shortcut,
+  className,
+  children,
+  ...props
+}: ContextMenuItemProps) {
   return (
     <View
       render={<ContextMenuPrimitive.Item {...props} />}
@@ -108,19 +110,22 @@ export function ContextMenuItem({
   );
 }
 
-export function ContextMenuSeparator(
-  props: ContextMenuPrimitive.Separator.Props & SeparatorProps,
-) {
+export type ContextMenuSeparatorProps = ContextMenuPrimitive.Separator.Props &
+  SeparatorProps;
+
+function ContextMenuSeparator(props: ContextMenuSeparatorProps) {
   return <Separator render={<ContextMenuPrimitive.Separator />} {...props} />;
 }
 
-export function ContextMenuGroup({
+export type ContextMenuGroupProps = ContextMenuPrimitive.Group.Props & {
+  label?: string;
+};
+
+function ContextMenuGroup({
   label,
   children,
   ...props
-}: ContextMenuPrimitive.Group.Props & {
-  label?: string;
-}) {
+}: ContextMenuGroupProps) {
   return (
     <ContextMenuPrimitive.Group {...props}>
       {label ? (
@@ -138,9 +143,9 @@ export function ContextMenuGroup({
   );
 }
 
-export const ContextMenuRadioGroup = ContextMenuPrimitive.RadioGroup;
+const ContextMenuRadioGroup = ContextMenuPrimitive.RadioGroup;
 
-export function ContextMenuRadioItem({
+function ContextMenuRadioItem({
   className,
   children,
   ...props
@@ -161,11 +166,11 @@ export function ContextMenuRadioItem({
   );
 }
 
-export function ContextMenuCheckboxItem({
+function ContextMenuCheckboxItem({
   className,
   children,
   ...props
-}: ContextMenuPrimitive.RadioItem.Props) {
+}: ContextMenuPrimitive.CheckboxItem.Props) {
   return (
     <View
       interactive="list-item"
@@ -182,14 +187,7 @@ export function ContextMenuCheckboxItem({
   );
 }
 
-export function ContextMenuMore({
-  label,
-  icon,
-  children,
-  className,
-  style,
-  ...props
-}: ContextMenuPrimitive.SubmenuRoot.Props & {
+export type ContextMenuMoreProps = ContextMenuPrimitive.SubmenuRoot.Props & {
   label: string;
 
   /** Optional item icon to communicate purpose */
@@ -203,7 +201,16 @@ export function ContextMenuMore({
 
   /** Apply styles to ContextMenuPrimitive.Popup  */
   style?: CSSProperties;
-}) {
+};
+
+function ContextMenuMore({
+  label,
+  icon,
+  children,
+  className,
+  style,
+  ...props
+}: ContextMenuMoreProps) {
   const background = useContext(ContextMenuContext);
 
   return (
@@ -239,4 +246,46 @@ export function ContextMenuMore({
       </ContextMenuPrimitive.Portal>
     </ContextMenuPrimitive.SubmenuRoot>
   );
+}
+
+export const ContextMenu = Object.assign(ContextMenuRoot, {
+  Item: ContextMenuItem,
+  Separator: ContextMenuSeparator,
+  Group: ContextMenuGroup,
+  RadioGroup: ContextMenuRadioGroup,
+  RadioItem: ContextMenuRadioItem,
+  CheckboxItem: ContextMenuCheckboxItem,
+  More: ContextMenuMore,
+});
+
+export declare namespace ContextMenu {
+  export type Props = ContextMenuRootProps;
+
+  export namespace Item {
+    export type Props = ContextMenuItemProps;
+  }
+
+  export namespace Separator {
+    export type Props = ContextMenuSeparatorProps;
+  }
+
+  export namespace Group {
+    export type Props = ContextMenuGroupProps;
+  }
+
+  export namespace RadioGroup {
+    export type Props = ContextMenuPrimitive.RadioGroup.Props;
+  }
+
+  export namespace RadioItem {
+    export type Props = ContextMenuPrimitive.RadioItem.Props;
+  }
+
+  export namespace CheckboxItem {
+    export type Props = ContextMenuPrimitive.CheckboxItem.Props;
+  }
+
+  export namespace More {
+    export type Props = ContextMenuMoreProps;
+  }
 }

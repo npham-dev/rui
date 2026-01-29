@@ -6,7 +6,7 @@ import { View, type Color } from "../view";
 
 import styles from "./checkbox.module.css";
 
-export interface CheckboxProps extends CheckboxPrimitive.Root.Props {
+interface CheckboxProps extends CheckboxPrimitive.Root.Props {
   /** Optional color for checkbox. Defaults to "primary". */
   color?: Color;
 
@@ -14,7 +14,7 @@ export interface CheckboxProps extends CheckboxPrimitive.Root.Props {
   label?: string;
 }
 
-export function Checkbox({ color, label, ...props }: CheckboxProps) {
+function Checkbox({ color, label, ...props }: CheckboxProps) {
   const checkbox = (
     <View
       color={color}
@@ -38,4 +38,10 @@ export function Checkbox({ color, label, ...props }: CheckboxProps) {
   }
 
   return checkbox;
+}
+
+export { Checkbox };
+
+export declare namespace Checkbox {
+  export type Props = CheckboxProps;
 }

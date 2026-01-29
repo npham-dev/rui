@@ -1,6 +1,6 @@
 import clsx from "clsx";
 
-import { Avatar, type AvatarProps } from "../avatar";
+import { Avatar } from "../avatar";
 import { Text } from "../text";
 import { Tooltip } from "../tooltip";
 import { View, type Color } from "../view";
@@ -10,7 +10,7 @@ import styles from "./stacked-avatars.module.css";
 export interface StackedAvatarsProps {
   /** User objects */
   users: Array<
-    AvatarProps & {
+    Avatar.Props & {
       /** Ring color around the avatar */
       color: Color;
     }
@@ -20,7 +20,7 @@ export interface StackedAvatarsProps {
   visibleUsers?: number;
 
   /** The size of the avatars. Defaults to "md". */
-  size?: AvatarProps["size"];
+  size?: Avatar.Props["size"];
 }
 
 export function StackedAvatars({

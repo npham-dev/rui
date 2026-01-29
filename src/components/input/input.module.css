@@ -1,23 +1,25 @@
-.input {
-  flex: 1 1 0%;
-  outline: none;
-  padding: var(--space-4) var(--space-8);
-  height: var(--space-32);
-  min-height: var(--space-32);
-  font-size: var(--font-size-default);
-  line-height: var(--line-height-input);
-  font-family: var(--font-family-default);
+@layer components {
+  .input {
+    flex: 1 1 0%;
+    outline: none;
+    padding: var(--space-4) var(--space-8);
+    height: var(--space-32);
+    min-height: var(--space-32);
+    font-size: var(--font-size-default);
+    line-height: var(--line-height-input);
+    font-family: var(--font-family-default);
 
-  &::placeholder {
-    color: var(--foreground-dimmest);
+    &::placeholder {
+      color: var(--foreground-dimmest);
+    }
+
+    &:not([disabled], [data-disabled]) {
+      cursor: text;
+      color: var(--foreground-default);
+    }
   }
 
-  &:not([disabled], [data-disabled]) {
-    cursor: text;
-    color: var(--foreground-default);
+  .input_autosize {
+    resize: none;
   }
-}
-
-.input_autosize {
-  resize: none;
 }

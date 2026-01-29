@@ -2,14 +2,14 @@ import { mergeProps, useRender } from "@base-ui/react";
 
 import styles from "./anchor.module.css";
 
-export type AnchorProps = useRender.ComponentProps<"a"> & {
+type AnchorProps = useRender.ComponentProps<"a"> & {
   /**
    * Open this link in a new tab
    */
   external?: boolean;
 };
 
-export function Anchor({ external, render, ...props }: AnchorProps) {
+function Anchor({ external, render, ...props }: AnchorProps) {
   const element = useRender({
     defaultTagName: "a",
     render,
@@ -25,4 +25,10 @@ export function Anchor({ external, render, ...props }: AnchorProps) {
   });
 
   return element;
+}
+
+export { Anchor };
+
+export declare namespace Anchor {
+  export type Props = AnchorProps;
 }

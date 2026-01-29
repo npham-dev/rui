@@ -4,7 +4,7 @@ import type { ReactElement, ReactNode } from "react";
 
 import type { Size } from "~/styles/tokens";
 
-import { Button, type ButtonProps } from "../button";
+import { Button } from "../button";
 import { IconButton } from "../icon-button";
 import { Surface, type Background } from "../surface";
 import { Text } from "../text";
@@ -143,6 +143,6 @@ export function Dialog({
   );
 }
 
-export function DialogClose(props: ButtonProps) {
+export function DialogClose(props: Button.Props) {
   return <DialogPrimitive.Close render={<Button {...props} />} />;
 }

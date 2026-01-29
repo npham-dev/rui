@@ -1,56 +1,58 @@
-.avatar {
-  display: flex;
-  position: relative;
-  flex-shrink: 0;
-  border-width: 1px;
-  border-style: solid;
-  border-color: var(--outline-dimmest);
-  border-radius: var(--border-radius-round);
-  background-color: var(--background-highest);
-  width: var(--avatar-size);
-  height: var(--avatar-size);
-  overflow: hidden;
-}
+@layer components {
+  .avatar {
+    display: flex;
+    position: relative;
+    flex-shrink: 0;
+    border-width: 1px;
+    border-style: solid;
+    border-color: var(--outline-dimmest);
+    border-radius: var(--border-radius-round);
+    background-color: var(--background-highest);
+    width: var(--avatar-size);
+    height: var(--avatar-size);
+    overflow: hidden;
+  }
 
-.avatar__image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+  .avatar__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 
-.avatar__fallback {
-  display: flex;
-  flex: 1 1 0%;
-  justify-content: center;
-  align-items: center;
-  border-radius: var(--border-radius-round);
-  width: 100%;
-  height: 100%;
-  color: var(--foreground-dimmest);
-  font-size: calc(var(--avatar-size) / 2.5);
-}
+  .avatar__fallback {
+    display: flex;
+    flex: 1 1 0%;
+    justify-content: center;
+    align-items: center;
+    border-radius: var(--border-radius-round);
+    width: 100%;
+    height: 100%;
+    color: var(--foreground-dimmest);
+    font-size: calc(var(--avatar-size) / 2.5);
+  }
 
-/* Avatar size variants */
-.avatar_size_sm {
-  --avatar-size: var(--space-24);
-}
+  /* Avatar size variants */
+  .avatar_size_sm {
+    --avatar-size: var(--space-24);
+  }
 
-.avatar_size_md {
-  --avatar-size: var(--space-32);
-}
+  .avatar_size_md {
+    --avatar-size: var(--space-32);
+  }
 
-.avatar_size_lg {
-  --avatar-size: var(--space-40);
-}
+  .avatar_size_lg {
+    --avatar-size: var(--space-40);
+  }
 
-.avatar_size_xl {
-  --avatar-size: var(--space-48);
-}
+  .avatar_size_xl {
+    --avatar-size: var(--space-48);
+  }
 
-.avatar_size_2xl {
-  --avatar-size: var(--space-56);
-}
+  .avatar_size_2xl {
+    --avatar-size: var(--space-56);
+  }
 
-.avatar_size_3xl {
-  --avatar-size: var(--space-64);
+  .avatar_size_3xl {
+    --avatar-size: var(--space-64);
+  }
 }

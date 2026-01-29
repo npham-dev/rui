@@ -6,17 +6,17 @@ import {
 
 import type { Override } from "~/-types";
 
-import type { ButtonProps } from "../button";
+import type { Button } from "../button";
 
 /**
  * A whole lot of useless effort
  * Basically I want "actionProps" to be "action"
- * And I want "action" to use ButtonProps with text
+ * And I want "action" to use Button with text
  */
 
 type ActionProps = {
   type?: "info" | "error" | "warning" | "success" | (string & {});
-  action?: ButtonProps;
+  action?: Button.Props;
 };
 
 type FrameworkAddOptions<Data extends object> = Omit<

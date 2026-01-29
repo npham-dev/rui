@@ -1,35 +1,37 @@
-.badge {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-4);
-  cursor: default;
-  border-radius: var(--border-radius-16);
-  background-color: var(--view-colorway-dimmer);
-  padding: var(--space-4) var(--space-8);
-  height: var(--space-24);
-  color: var(--view-colorway-strongest);
-  font-size: var(--font-size-small);
-  line-height: 1;
-  white-space: nowrap;
-}
+@layer components {
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-4);
+    cursor: default;
+    border-radius: var(--border-radius-16);
+    background-color: var(--view-colorway-dimmer);
+    padding: var(--space-4) var(--space-8);
+    height: var(--space-24);
+    color: var(--view-colorway-strongest);
+    font-size: var(--font-size-small);
+    line-height: 1;
+    white-space: nowrap;
+  }
 
-.badge_shiny {
-  display: inline-flex;
-  flex-direction: row;
-  align-items: center;
-  transition: none;
-  background-image: radial-gradient(
-    circle at top left,
-    var(--view-colorway-dimmest) 34%,
-    var(--view-colorway-dimmer) 50%,
-    var(--view-colorway-dimmest) 66%
-  );
-  background-position: left;
-  background-size: 300% 100%;
+  .badge_shiny {
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    transition: none;
+    background-image: radial-gradient(
+      circle at top left,
+      var(--view-colorway-dimmest) 34%,
+      var(--view-colorway-dimmer) 50%,
+      var(--view-colorway-dimmest) 66%
+    );
+    background-position: left;
+    background-size: 300% 100%;
 
-  &:hover {
-    transition: background-position 600ms
-      var(--transition-timing-function-chill);
-    background-position: right;
+    &:hover {
+      transition: background-position 600ms
+        var(--transition-timing-function-chill);
+      background-position: right;
+    }
   }
 }

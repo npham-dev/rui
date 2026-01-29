@@ -9,7 +9,7 @@ import { View, type Color } from "../view";
 
 import styles from "./badge.module.css";
 
-export interface BadgeProps extends Omit<
+interface BadgeProps extends Omit<
   useRender.ComponentProps<"span">,
   "children"
 > {
@@ -29,7 +29,7 @@ export interface BadgeProps extends Omit<
   tagline?: string;
 }
 
-export function Badge({
+function Badge({
   icon,
   name,
   color,
@@ -70,4 +70,10 @@ export function Badge({
       </Text>
     </Tooltip>
   );
+}
+
+export { Badge };
+
+export declare namespace Badge {
+  export type Props = BadgeProps;
 }

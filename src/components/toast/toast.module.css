@@ -1,162 +1,164 @@
-.toast__viewport {
-  position: fixed;
-  right: var(--space-8);
-  bottom: var(--space-8);
-  z-index: 49;
-  margin: 0 auto;
-  isolation: isolate;
-  width: var(--space-256);
+@layer components {
+  .toast__viewport {
+    position: fixed;
+    right: var(--space-8);
+    bottom: var(--space-8);
+    z-index: 49;
+    margin: 0 auto;
+    isolation: isolate;
+    width: var(--space-256);
 
-  @media (width >= 512px) {
-    right: var(--space-16);
-    bottom: var(--space-16);
-  }
-}
-
-.toast {
-  /* we add -custom to prevent collisions with Base UI */
-  --toast-custom-gap: var(--space-12);
-  --toast-custom-peek: var(--space-12);
-  --toast-custom-scale: calc(max(0, 1 - (var(--toast-index) * 0.1)));
-  --toast-custom-shrink: calc(1 - var(--toast-custom-scale));
-  --toast-custom-height: var(--toast-frontmost-height, var(--toast-height));
-  --toast-custom-offset-y: calc(
-    var(--toast-offset-y) * -1 +
-      (var(--toast-index) * var(--toast-custom-gap) * -1) +
-      var(--toast-swipe-movement-y)
-  );
-
-  display: flex;
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: auto;
-  flex-direction: row;
-  align-items: center;
-  gap: var(--space-8);
-  transform: translateX(var(--toast-swipe-movement-x))
-    translateY(
-      calc(
-        var(--toast-swipe-movement-y) -
-          (var(--toast-index) * var(--toast-custom-peek)) -
-          (var(--toast-custom-shrink) * var(--toast-custom-height))
-      )
-    )
-    scale(var(--toast-custom-scale));
-  transform-origin: bottom center;
-  z-index: calc(1000 - var(--toast-index));
-  transition:
-    transform 600ms cubic-bezier(0.22, 1, 0.36, 1),
-    opacity 600ms,
-    height var(--transition-duration-snappy);
-  cursor: default;
-  box-sizing: border-box;
-  margin: 0 0 0 auto;
-  border-width: 1px;
-  border-style: solid;
-  border-radius: var(--border-radius-default);
-  background-clip: padding-box;
-  width: 100%;
-  height: var(--toast-custom-height);
-  user-select: none;
-
-  &[data-expanded] {
-    transform: translateX(var(--toast-swipe-movement-x))
-      translateY(var(--toast-custom-offset-y));
-    height: var(--toast-height);
+    @media (width >= 512px) {
+      right: var(--space-16);
+      bottom: var(--space-16);
+    }
   }
 
-  &[data-starting-style],
-  &[data-ending-style] {
-    transform: translateY(150%);
-  }
+  .toast {
+    /* we add -custom to prevent collisions with Base UI */
+    --toast-custom-gap: var(--space-12);
+    --toast-custom-peek: var(--space-12);
+    --toast-custom-scale: calc(max(0, 1 - (var(--toast-index) * 0.1)));
+    --toast-custom-shrink: calc(1 - var(--toast-custom-scale));
+    --toast-custom-height: var(--toast-frontmost-height, var(--toast-height));
+    --toast-custom-offset-y: calc(
+      var(--toast-offset-y) * -1 +
+        (var(--toast-index) * var(--toast-custom-gap) * -1) +
+        var(--toast-swipe-movement-y)
+    );
 
-  &[data-limited] {
-    opacity: 0;
-  }
-
-  &[data-ending-style] {
-    opacity: 0;
-  }
-
-  &[data-ending-style][data-swipe-direction="up"] {
-    transform: translateY(calc(var(--toast-swipe-movement-y) - 50%));
-  }
-
-  &[data-ending-style][data-swipe-direction="left"] {
-    transform: translateX(calc(var(--toast-swipe-movement-x) - 50%))
-      translateY(var(--toast-custom-offset-y));
-  }
-
-  &[data-ending-style][data-swipe-direction="right"] {
-    transform: translateX(calc(var(--toast-swipe-movement-x) + 50%))
-      translateY(var(--toast-custom-offset-y));
-  }
-
-  &[data-ending-style][data-swipe-direction="down"] {
-    transform: translateY(calc(var(--toast-swipe-movement-y) + 50%));
-  }
-
-  &::after {
-    display: block;
+    display: flex;
     position: absolute;
-    top: 100%;
-    left: 0;
+    right: 0;
+    bottom: 0;
+    left: auto;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-8);
+    transform: translateX(var(--toast-swipe-movement-x))
+      translateY(
+        calc(
+          var(--toast-swipe-movement-y) -
+            (var(--toast-index) * var(--toast-custom-peek)) -
+            (var(--toast-custom-shrink) * var(--toast-custom-height))
+        )
+      )
+      scale(var(--toast-custom-scale));
+    transform-origin: bottom center;
+    z-index: calc(1000 - var(--toast-index));
+    transition:
+      transform 600ms cubic-bezier(0.22, 1, 0.36, 1),
+      opacity 600ms,
+      height var(--transition-duration-snappy);
+    cursor: default;
+    box-sizing: border-box;
+    margin: 0 0 0 auto;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: var(--border-radius-default);
+    background-clip: padding-box;
     width: 100%;
-    height: calc(var(--toast-custom-gap) + 1px);
-    content: "";
+    height: var(--toast-custom-height);
+    user-select: none;
+
+    &[data-expanded] {
+      transform: translateX(var(--toast-swipe-movement-x))
+        translateY(var(--toast-custom-offset-y));
+      height: var(--toast-height);
+    }
+
+    &[data-starting-style],
+    &[data-ending-style] {
+      transform: translateY(150%);
+    }
+
+    &[data-limited] {
+      opacity: 0;
+    }
+
+    &[data-ending-style] {
+      opacity: 0;
+    }
+
+    &[data-ending-style][data-swipe-direction="up"] {
+      transform: translateY(calc(var(--toast-swipe-movement-y) - 50%));
+    }
+
+    &[data-ending-style][data-swipe-direction="left"] {
+      transform: translateX(calc(var(--toast-swipe-movement-x) - 50%))
+        translateY(var(--toast-custom-offset-y));
+    }
+
+    &[data-ending-style][data-swipe-direction="right"] {
+      transform: translateX(calc(var(--toast-swipe-movement-x) + 50%))
+        translateY(var(--toast-custom-offset-y));
+    }
+
+    &[data-ending-style][data-swipe-direction="down"] {
+      transform: translateY(calc(var(--toast-swipe-movement-y) + 50%));
+    }
+
+    &::after {
+      display: block;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      height: calc(var(--toast-custom-gap) + 1px);
+      content: "";
+    }
   }
-}
 
-.toast_variant_neutral {
-  border-color: var(--surface-interactive-border);
-  background: var(--surface-background);
-  color: var(--foreground-default);
-}
-
-.toast_variant_colorway {
-  border-color: var(--view-colorway-dimmer);
-  background: var(--view-colorway-dimmest);
-  color: var(--view-colorway-strongest);
-}
-
-.toast__content {
-  position: relative;
-  flex-grow: 1;
-  flex-shrink: 1;
-  gap: var(--space-8);
-  transition: opacity var(--transition-duration-snappy)
-    var(--transition-timing-function-snappy);
-  padding: var(--space-12);
-  overflow: hidden;
-
-  &[data-behind] {
-    opacity: 0;
+  .toast_variant_neutral {
+    border-color: var(--surface-interactive-border);
+    background: var(--surface-background);
+    color: var(--foreground-default);
   }
 
-  &[data-expanded] {
-    opacity: 1;
+  .toast_variant_colorway {
+    border-color: var(--view-colorway-dimmer);
+    background: var(--view-colorway-dimmest);
+    color: var(--view-colorway-strongest);
   }
-}
 
-.toast__header {
-  gap: var(--space-4);
-}
+  .toast__content {
+    position: relative;
+    flex-grow: 1;
+    flex-shrink: 1;
+    gap: var(--space-8);
+    transition: opacity var(--transition-duration-snappy)
+      var(--transition-timing-function-snappy);
+    padding: var(--space-12);
+    overflow: hidden;
 
-.toast__header_pad {
-  padding-right: var(--space-28);
-}
+    &[data-behind] {
+      opacity: 0;
+    }
 
-.toast__title {
-  flex: 1 1 auto;
-}
+    &[data-expanded] {
+      opacity: 1;
+    }
+  }
 
-.toast__description {
-  flex: 1 1 auto;
-}
+  .toast__header {
+    gap: var(--space-4);
+  }
 
-.toast__close {
-  position: absolute;
-  top: var(--space-12);
-  right: var(--space-12);
+  .toast__header_pad {
+    padding-right: var(--space-28);
+  }
+
+  .toast__title {
+    flex: 1 1 auto;
+  }
+
+  .toast__description {
+    flex: 1 1 auto;
+  }
+
+  .toast__close {
+    position: absolute;
+    top: var(--space-12);
+    right: var(--space-12);
+  }
 }

@@ -1,153 +1,169 @@
-@import "modern-normalize/modern-normalize.css";
-
-@import "./themes/light.css";
-@import "./themes/dark.css";
+@layer reset, theme, base, components, utilities;
 
 /*
-  1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
-  2. Remove default margins and padding
-  3. Reset all borders.
+  theme - tokens and variables
+  base - reusable styles/components that other components extend from
+  components - actual component styles
+  utilities - max precedence, reusable styles
 */
-*,
-::after,
-::before,
-::backdrop,
-::file-selector-button {
-  box-sizing: border-box; /* 1 */
-  margin: 0; /* 2 */
-  border: 0 solid; /* 3 */
-  padding: 0; /* 2 */
-}
+
+@import "modern-normalize/modern-normalize.css" layer(reset);
+@import "./themes/light.css" layer(theme);
+@import "./themes/dark.css" layer(theme);
 
 /*
   TODO maybe revisit to add custom animations (just fade)
   @media (prefers-reduced-motion: reduce)
 */
 
-:root {
-  --black: #0e1525;
-  --white: #fcfcfc;
-
-  --shadow-default: var(--shadow-1);
-
-  --border-radius-1: 1px;
-  --border-radius-2: 2px;
-  --border-radius-4: 4px;
-  --border-radius-6: 6px;
-  --border-radius-8: 8px;
-  --border-radius-12: 12px;
-  --border-radius-16: 16px;
-  --border-radius-default: var(--border-radius-8);
-  --border-radius-round: 1028px;
-
-  --space-1: 1px;
-  --space-2: 2px;
-  --space-4: 4px;
-  --space-6: 6px;
-  --space-8: 8px;
-  --space-12: 12px;
-  --space-16: 16px;
-  --space-20: 20px;
-  --space-24: 24px;
-  --space-28: 28px;
-  --space-32: 32px;
-  --space-40: 40px;
-  --space-48: 48px;
-  --space-56: 56px;
-  --space-64: 64px;
-  --space-80: 80px;
-  --space-96: 96px;
-  --space-128: 128px;
-  --space-256: 256px;
-  --space-default: var(--space-8);
-
-  --font-family-default: "IBM Plex Sans", sans-serif;
-  --font-family-code: "IBM Plex Mono", monospace;
-
-  --font-size-small: 12px;
-  --font-size-default: 14px;
-  --font-size-subhead-default: 16px;
-  --font-size-subhead-big: 20px;
-  --font-size-header-default: 24px;
-  --font-size-header-big: 32px;
-
-  --line-height-small: 1.5;
-  --line-height-default: 1.6;
-  --line-height-subhead-default: 1.375;
-  --line-height-subhead-big: 1.4;
-  --line-height-header-default: 1.333;
-  --line-height-header-big: 1.25;
-  --line-height-input: 22px;
-  --line-height-single: 1;
-
-  --font-weight-regular: 400;
-  --font-weight-medium: 500;
-  --font-weight-bold: 600;
-
-  --transition-duration-snappy: 120ms;
-  --transition-timing-function-snappy: ease-out;
-
-  --transition-duration-chill: 300ms;
-  --transition-timing-function-chill: ease-in-out;
-
-  --border-width-default: 1px;
+@layer reset {
+  /*
+    1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
+    2. Remove default margins and padding
+    3. Reset all borders.
+  */
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    box-sizing: border-box; /* 1 */
+    margin: 0; /* 2 */
+    border: 0 solid; /* 3 */
+    padding: 0; /* 2 */
+  }
 }
 
-body {
-  /* https://base-ui.com/react/overview/quick-start */
-  position: relative;
-  overflow-x: hidden;
-  font-size: var(--font-size-default);
-  line-height: var(--line-height-default);
-  font-family: var(--font-family-default);
+@layer theme {
+  :root {
+    --black: #0e1525;
+    --white: #fcfcfc;
+
+    --shadow-default: var(--shadow-1);
+
+    --border-radius-1: 1px;
+    --border-radius-2: 2px;
+    --border-radius-4: 4px;
+    --border-radius-6: 6px;
+    --border-radius-8: 8px;
+    --border-radius-12: 12px;
+    --border-radius-16: 16px;
+    --border-radius-default: var(--border-radius-8);
+    --border-radius-round: 1028px;
+
+    --space-1: 1px;
+    --space-2: 2px;
+    --space-4: 4px;
+    --space-6: 6px;
+    --space-8: 8px;
+    --space-12: 12px;
+    --space-16: 16px;
+    --space-20: 20px;
+    --space-24: 24px;
+    --space-28: 28px;
+    --space-32: 32px;
+    --space-40: 40px;
+    --space-48: 48px;
+    --space-56: 56px;
+    --space-64: 64px;
+    --space-80: 80px;
+    --space-96: 96px;
+    --space-128: 128px;
+    --space-256: 256px;
+    --space-default: var(--space-8);
+
+    --font-family-default: "IBM Plex Sans", sans-serif;
+    --font-family-code: "IBM Plex Mono", monospace;
+
+    --font-size-small: 12px;
+    --font-size-default: 14px;
+    --font-size-subhead-default: 16px;
+    --font-size-subhead-big: 20px;
+    --font-size-header-default: 24px;
+    --font-size-header-big: 32px;
+
+    --line-height-small: 1.5;
+    --line-height-default: 1.6;
+    --line-height-subhead-default: 1.375;
+    --line-height-subhead-big: 1.4;
+    --line-height-header-default: 1.333;
+    --line-height-header-big: 1.25;
+    --line-height-input: 22px;
+    --line-height-single: 1;
+
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+    --font-weight-bold: 600;
+
+    --transition-duration-snappy: 120ms;
+    --transition-timing-function-snappy: ease-out;
+
+    --transition-duration-chill: 300ms;
+    --transition-timing-function-chill: ease-in-out;
+
+    --border-width-default: 1px;
+  }
+
+  [data-theme] {
+    --shadow-focus: inset 0 0 0 1.5px var(--primary-default);
+
+    /* Colorway aliases */
+    --primary-dimmest: var(--blue-dimmest);
+    --primary-dimmer: var(--blue-dimmer);
+    --primary-default: var(--blue-default);
+    --primary-stronger: var(--blue-stronger);
+    --primary-strongest: var(--blue-strongest);
+
+    --positive-dimmest: var(--green-dimmest);
+    --positive-dimmer: var(--green-dimmer);
+    --positive-default: var(--green-default);
+    --positive-stronger: var(--green-stronger);
+    --positive-strongest: var(--green-strongest);
+
+    --negative-dimmest: var(--red-dimmest);
+    --negative-dimmer: var(--red-dimmer);
+    --negative-default: var(--red-default);
+    --negative-stronger: var(--red-stronger);
+    --negative-strongest: var(--red-strongest);
+
+    --warning-dimmest: var(--yellow-dimmest);
+    --warning-dimmer: var(--yellow-dimmer);
+    --warning-default: var(--yellow-default);
+    --warning-stronger: var(--yellow-stronger);
+    --warning-strongest: var(--yellow-strongest);
+
+    /* Default colorway styles */
+    --view-colorway-dimmest: var(--primary-dimmest);
+    --view-colorway-dimmer: var(--primary-dimmer);
+    --view-colorway-default: var(--primary-default);
+    --view-colorway-stronger: var(--primary-stronger);
+    --view-colorway-strongest: var(--primary-strongest);
+
+    /* Default interactive styles  */
+    --surface-background: var(--background-root);
+    --surface-interactive-background: var(--background-default);
+    --surface-interactive-background-active: var(--background-higher);
+    --surface-interactive-border: var(--outline-dimmest);
+    --surface-interactive-border-hover: var(--outline-default);
+  }
 }
 
-.root {
-  isolation: isolate;
-}
+@layer base {
+  body {
+    /* https://base-ui.com/react/overview/quick-start */
+    position: relative;
+    overflow-x: hidden;
+    font-size: var(--font-size-default);
+    line-height: var(--line-height-default);
+    font-family: var(--font-family-default);
+  }
 
-[data-theme] {
-  --shadow-focus: inset 0 0 0 1.5px var(--primary-default);
+  .root {
+    isolation: isolate;
+  }
 
-  /* Colorway aliases */
-  --primary-dimmest: var(--blue-dimmest);
-  --primary-dimmer: var(--blue-dimmer);
-  --primary-default: var(--blue-default);
-  --primary-stronger: var(--blue-stronger);
-  --primary-strongest: var(--blue-strongest);
-
-  --positive-dimmest: var(--green-dimmest);
-  --positive-dimmer: var(--green-dimmer);
-  --positive-default: var(--green-default);
-  --positive-stronger: var(--green-stronger);
-  --positive-strongest: var(--green-strongest);
-
-  --negative-dimmest: var(--red-dimmest);
-  --negative-dimmer: var(--red-dimmer);
-  --negative-default: var(--red-default);
-  --negative-stronger: var(--red-stronger);
-  --negative-strongest: var(--red-strongest);
-
-  --warning-dimmest: var(--yellow-dimmest);
-  --warning-dimmer: var(--yellow-dimmer);
-  --warning-default: var(--yellow-default);
-  --warning-stronger: var(--yellow-stronger);
-  --warning-strongest: var(--yellow-strongest);
-
-  /* Default colorway styles */
-  --view-colorway-dimmest: var(--primary-dimmest);
-  --view-colorway-dimmer: var(--primary-dimmer);
-  --view-colorway-default: var(--primary-default);
-  --view-colorway-stronger: var(--primary-stronger);
-  --view-colorway-strongest: var(--primary-strongest);
-
-  /* Default interactive styles  */
-  --surface-background: var(--background-root);
-  --surface-interactive-background: var(--background-default);
-  --surface-interactive-background-active: var(--background-higher);
-  --surface-interactive-border: var(--outline-dimmest);
-  --surface-interactive-border-hover: var(--outline-default);
-
-  background-color: var(--background-root);
-  color: var(--foreground-default);
+  [data-theme] {
+    background-color: var(--background-root);
+    color: var(--foreground-default);
+  }
 }

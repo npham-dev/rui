@@ -1,29 +1,31 @@
-.search-bar {
-  position: relative;
-  height: var(--space-32);
-}
+@layer components {
+  .search-bar {
+    position: relative;
+    height: var(--space-32);
+  }
 
-.search-bar__input {
-  position: relative;
-  padding-right: var(--space-32);
-  width: 100%;
-  height: 100%;
-  line-height: var(--line-height-input);
-}
+  .search-bar__input {
+    position: relative;
+    padding-right: var(--space-32);
+    width: 100%;
+    height: 100%;
+    line-height: var(--line-height-input);
+  }
 
-.search-bar__icon {
-  display: flex;
-  position: absolute !important;
-  top: 0;
-  right: 0;
-  justify-content: center;
-  align-items: center;
-  padding: var(--space-8);
-  height: 100%;
-  pointer-events: none;
-}
+  .search-bar__icon {
+    display: flex;
+    position: absolute !important;
+    top: 0;
+    right: 0;
+    justify-content: center;
+    align-items: center;
+    padding: var(--space-8);
+    height: 100%;
+    pointer-events: none;
+  }
 
-.search-bar__icon_close {
-  padding: var(--space-4);
-  pointer-events: auto;
+  .search-bar__icon_close {
+    padding: var(--space-4);
+    pointer-events: auto;
+  }
 }

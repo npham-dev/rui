@@ -1,13 +1,15 @@
-.inline-code {
-  display: inline;
-  border: 1px solid var(--surface-interactive-border);
-  border-radius: var(--border-radius-6);
-  padding: 0 var(--space-4);
-  line-height: var(--line-height-default);
-  font-family: var(--font-family-code);
-  overflow-wrap: anywhere;
-}
+@layer components {
+  .inline-code {
+    display: inline;
+    border: 1px solid var(--surface-interactive-border);
+    border-radius: var(--border-radius-6);
+    padding: 0 var(--space-4);
+    line-height: var(--line-height-default);
+    font-family: var(--font-family-code);
+    overflow-wrap: anywhere;
+  }
 
-.inline-code_colorway {
-  color: var(--view-colorway-default);
+  .inline-code_colorway {
+    color: var(--view-colorway-default);
+  }
 }

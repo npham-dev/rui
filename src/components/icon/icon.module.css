@@ -1,36 +1,38 @@
-.icon {
-  --icon-size: var(--space-16);
+@layer components {
+  .icon {
+    --icon-size: var(--space-16);
 
-  vertical-align: middle;
-  width: var(--icon-size);
-  min-width: var(--icon-size);
-  height: var(--icon-size);
-  min-height: var(--icon-size);
-  font-size: var(--icon-size);
-}
+    vertical-align: middle;
+    width: var(--icon-size);
+    min-width: var(--icon-size);
+    height: var(--icon-size);
+    min-height: var(--icon-size);
+    font-size: var(--icon-size);
+  }
 
-/* Maximize performance by declaring styles instead of inline styles */
-.icon_size_sm {
-  /* TODO revisit this - we kind of depend on icons to be at least 16 px, so maybe expose an "xs" size? idk */
-  --icon-size: var(--space-16);
-}
+  /* Maximize performance by declaring styles instead of inline styles */
+  .icon_size_sm {
+    /* TODO revisit this - we kind of depend on icons to be at least 16 px, so maybe expose an "xs" size? idk */
+    --icon-size: var(--space-16);
+  }
 
-.icon_size_md {
-  --icon-size: var(--space-16);
-}
+  .icon_size_md {
+    --icon-size: var(--space-16);
+  }
 
-.icon_size_lg {
-  --icon-size: var(--space-20);
-}
+  .icon_size_lg {
+    --icon-size: var(--space-20);
+  }
 
-.icon_size_xl {
-  --icon-size: var(--space-24);
-}
+  .icon_size_xl {
+    --icon-size: var(--space-24);
+  }
 
-.icon_size_2xl {
-  --icon-size: var(--space-32);
-}
+  .icon_size_2xl {
+    --icon-size: var(--space-32);
+  }
 
-.icon_size_3xl {
-  --icon-size: var(--space-48);
+  .icon_size_3xl {
+    --icon-size: var(--space-48);
+  }
 }

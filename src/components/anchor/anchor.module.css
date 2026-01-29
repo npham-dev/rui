@@ -1,12 +1,14 @@
-.anchor {
-  cursor: pointer;
-  color: var(--primary-stronger);
-  font-weight: var(--font-weight-regular);
-  font-size: var(--font-size-default);
-  line-height: var(--line-height-default);
-  text-decoration: underline;
+@layer components {
+  .anchor {
+    cursor: pointer;
+    color: var(--primary-stronger);
+    font-weight: var(--font-weight-regular);
+    font-size: var(--font-size-default);
+    line-height: var(--line-height-default);
+    text-decoration: underline;
 
-  &:visited {
-    color: var(--blurple-stronger);
+    &:visited {
+      color: var(--primary-stronger);
+    }
   }
 }

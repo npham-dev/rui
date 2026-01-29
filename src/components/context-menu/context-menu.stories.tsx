@@ -2,16 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import { tokens } from "~/styles/tokens";
 
-import {
-  ContextMenu,
-  ContextMenuCheckboxItem,
-  ContextMenuGroup,
-  ContextMenuItem,
-  ContextMenuMore,
-  ContextMenuRadioGroup,
-  ContextMenuRadioItem,
-  ContextMenuSeparator,
-} from ".";
+import { ContextMenu } from ".";
 import { Text } from "../text";
 import { View } from "../view";
 
@@ -47,52 +38,50 @@ export const Default: Story = {
           </View>
         }
       >
-        <ContextMenuGroup>
-          <ContextMenuItem icon="arrow-left-line" disabled shortcut="⌘+[">
+        <ContextMenu.Group>
+          <ContextMenu.Item icon="arrow-left-line" disabled shortcut="⌘+[">
             Back
-          </ContextMenuItem>
-          <ContextMenuItem icon="arrow-right-line" shortcut="⌘+]">
+          </ContextMenu.Item>
+          <ContextMenu.Item icon="arrow-right-line" shortcut="⌘+]">
             Forward
-          </ContextMenuItem>
-          <ContextMenuItem icon="refresh-line">Reload</ContextMenuItem>
-          <ContextMenuMore icon="tools-line" label="More Tools">
-            <ContextMenuGroup>
-              <ContextMenuItem icon="download-line">
+          </ContextMenu.Item>
+          <ContextMenu.Item icon="refresh-line">Reload</ContextMenu.Item>
+          <ContextMenu.More icon="tools-line" label="More Tools">
+            <ContextMenu.Group>
+              <ContextMenu.Item icon="download-line">
                 Save Page As
-              </ContextMenuItem>
-              <ContextMenuItem icon="links-line">
+              </ContextMenu.Item>
+              <ContextMenu.Item icon="links-line">
                 Create Shortcut
-              </ContextMenuItem>
-              <ContextMenuItem icon="window-2-line">
+              </ContextMenu.Item>
+              <ContextMenu.Item icon="window-2-line">
                 Name Window
-              </ContextMenuItem>
-            </ContextMenuGroup>
-            <ContextMenuSeparator />
-            <ContextMenuItem icon="terminal-box-line">
+              </ContextMenu.Item>
+            </ContextMenu.Group>
+            <ContextMenu.Separator />
+            <ContextMenu.Item icon="terminal-box-line">
               Developer Tools
-            </ContextMenuItem>
-          </ContextMenuMore>
-        </ContextMenuGroup>
+            </ContextMenu.Item>
+          </ContextMenu.More>
+        </ContextMenu.Group>
 
-        <ContextMenuSeparator />
+        <ContextMenu.Separator />
 
-        <ContextMenuGroup>
-          <ContextMenuCheckboxItem value="bookmarks">
-            Show Bookmarks
-          </ContextMenuCheckboxItem>
-          <ContextMenuCheckboxItem value="show_full_urls">
-            Show Full URLs
-          </ContextMenuCheckboxItem>
-        </ContextMenuGroup>
+        <ContextMenu.Group>
+          <ContextMenu.CheckboxItem>Show Bookmarks</ContextMenu.CheckboxItem>
+          <ContextMenu.CheckboxItem>Show Full URLs</ContextMenu.CheckboxItem>
+        </ContextMenu.Group>
 
-        <ContextMenuSeparator />
+        <ContextMenu.Separator />
 
-        <ContextMenuGroup label="People">
-          <ContextMenuRadioGroup defaultValue="a">
-            <ContextMenuRadioItem value="a">Pedro Duarte</ContextMenuRadioItem>
-            <ContextMenuRadioItem value="b">Colm Tuite</ContextMenuRadioItem>
-          </ContextMenuRadioGroup>
-        </ContextMenuGroup>
+        <ContextMenu.Group label="People">
+          <ContextMenu.RadioGroup defaultValue="a">
+            <ContextMenu.RadioItem value="a">
+              Pedro Duarte
+            </ContextMenu.RadioItem>
+            <ContextMenu.RadioItem value="b">Colm Tuite</ContextMenu.RadioItem>
+          </ContextMenu.RadioGroup>
+        </ContextMenu.Group>
       </ContextMenu>
     </>
   ),

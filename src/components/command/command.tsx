@@ -14,16 +14,12 @@ import { View } from "../view";
 
 import styles from "./command.module.css";
 
-export type CommandDialogProps = DialogPrimitive.Root.Props &
+type CommandRootProps = DialogPrimitive.Root.Props &
   Omit<BaseDialogProps, "title" | "description" | "background"> & {
     placeholder?: string;
   };
 
-export function CommandDialog({
-  placeholder,
-  children,
-  ...props
-}: CommandDialogProps) {
+function CommandRoot({ placeholder, children, ...props }: CommandRootProps) {
   return (
     <Dialog
       width="sm"
@@ -56,10 +52,9 @@ export function CommandDialog({
   );
 }
 
-export function CommandGroup({
-  className,
-  ...props
-}: ComponentProps<typeof CommandPrimitive.Group>) {
+type CommandGroupProps = ComponentProps<typeof CommandPrimitive.Group>;
+
+function CommandGroup({ className, ...props }: CommandGroupProps) {
   return (
     <CommandPrimitive.Group
       className={clsx(styles["command__group"], className)}
@@ -68,22 +63,24 @@ export function CommandGroup({
   );
 }
 
-export function CommandSeparator(
-  props: ComponentProps<typeof CommandPrimitive.Separator>,
-) {
+type CommandSeparatorProps = ComponentProps<typeof CommandPrimitive.Separator>;
+
+function CommandSeparator(props: CommandSeparatorProps) {
   return <Separator render={<CommandPrimitive.Separator {...props} />} />;
 }
 
-export function CommandItem({
+type CommandItemProps = ComponentProps<typeof CommandPrimitive.Item> & {
+  shortcut?: string;
+  icon?: IconName;
+};
+
+function CommandItem({
   shortcut,
   icon,
   className,
   children,
   ...props
-}: ComponentProps<typeof CommandPrimitive.Item> & {
-  shortcut?: string;
-  icon?: IconName;
-}) {
+}: CommandItemProps) {
   return (
     <View
       interactive="list-item"
@@ -103,4 +100,26 @@ export function CommandItem({
       ) : null}
     </View>
   );
+}
+
+export const Command = Object.assign(CommandRoot, {
+  Group: CommandGroup,
+  Separator: CommandSeparator,
+  Item: CommandItem,
+});
+
+export declare namespace Command {
+  export type Props = CommandRootProps;
+
+  export namespace Group {
+    export type Props = CommandGroupProps;
+  }
+
+  export namespace Separator {
+    export type Props = CommandSeparatorProps;
+  }
+
+  export namespace Item {
+    export type Props = CommandItemProps;
+  }
 }

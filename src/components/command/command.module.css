@@ -1,95 +1,97 @@
-.command {
-  --command-padding: var(--space-6);
+@layer components {
+  .command {
+    --command-padding: var(--space-6);
 
-  border: none;
-  padding: 0;
+    border: none;
+    padding: 0;
 
-  /* stylelint-disable-next-line */
-  [data-framework-close] {
-    top: var(--space-4);
-    right: var(--space-4);
-  }
-}
-
-.command__empty {
-  padding: var(--space-28) var(--space-16);
-  padding-top: calc(var(--space-28) + var(--command-padding));
-  text-align: center;
-}
-
-.command__input-root {
-  position: relative;
-  height: var(--space-32);
-}
-
-.command__input {
-  flex-grow: 1;
-  flex-shrink: 1;
-  border-bottom-right-radius: 0 !important;
-  border-bottom-left-radius: 0 !important;
-  background-color: transparent;
-  padding: var(--space-4) var(--space-32);
-  width: 100%;
-  height: 100%;
-  line-height: var(--line-height-input);
-
-  &::placeholder {
-    color: var(--foreground-dimmest);
+    /* stylelint-disable-next-line */
+    [data-framework-close] {
+      top: var(--space-4);
+      right: var(--space-4);
+    }
   }
 
-  &:not([disabled], [data-disabled]) {
-    cursor: text;
+  .command__empty {
+    padding: var(--space-28) var(--space-16);
+    padding-top: calc(var(--space-28) + var(--command-padding));
+    text-align: center;
   }
-}
 
-.command__input-icon {
-  position: absolute;
-  top: var(--space-8);
-  left: var(--space-8);
-}
-
-.command__list {
-  border: 1px solid var(--surface-interactive-border);
-  border-top: 0;
-  border-bottom-right-radius: var(--border-radius-default) !important;
-  border-bottom-left-radius: var(--border-radius-default) !important;
-  padding-bottom: var(--command-padding);
-  max-height: var(--space-256);
-  overflow: hidden auto;
-}
-
-.command__group {
-  padding-top: var(--space-6);
-
-  /* stylelint-disable-next-line */
-  [cmdk-group-heading] {
-    border: 1px solid transparent;
-    padding: 0 var(--space-12) var(--space-2) var(--space-12);
-    color: var(--foreground-dimmer);
-    font-size: var(--font-size-small);
-    line-height: var(--line-height-small);
+  .command__input-root {
+    position: relative;
+    height: var(--space-32);
   }
-}
 
-.command__item {
-  flex-direction: row;
-  align-items: center;
-  gap: var(--space-8);
-  padding: var(--space-4) var(--space-12);
-  height: var(--space-32);
-  user-select: none;
+  .command__input {
+    flex-grow: 1;
+    flex-shrink: 1;
+    border-bottom-right-radius: 0 !important;
+    border-bottom-left-radius: 0 !important;
+    background-color: transparent;
+    padding: var(--space-4) var(--space-32);
+    width: 100%;
+    height: 100%;
+    line-height: var(--line-height-input);
 
-  &[data-selected="true"] {
-    background-color: var(--interactive-background);
+    &::placeholder {
+      color: var(--foreground-dimmest);
+    }
+
+    &:not([disabled], [data-disabled]) {
+      cursor: text;
+    }
   }
-}
 
-.command__shortcut {
-  margin-left: auto;
+  .command__input-icon {
+    position: absolute;
+    top: var(--space-8);
+    left: var(--space-8);
+  }
 
-  /*
+  .command__list {
+    border: 1px solid var(--surface-interactive-border);
+    border-top: 0;
+    border-bottom-right-radius: var(--border-radius-default) !important;
+    border-bottom-left-radius: var(--border-radius-default) !important;
+    padding-bottom: var(--command-padding);
+    max-height: var(--space-256);
+    overflow: hidden auto;
+  }
+
+  .command__group {
+    padding-top: var(--space-6);
+
+    /* stylelint-disable-next-line */
+    [cmdk-group-heading] {
+      border: 1px solid transparent;
+      padding: 0 var(--space-12) var(--space-2) var(--space-12);
+      color: var(--foreground-dimmer);
+      font-size: var(--font-size-small);
+      line-height: var(--line-height-small);
+    }
+  }
+
+  .command__item {
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-8);
+    padding: var(--space-4) var(--space-12);
+    height: var(--space-32);
+    user-select: none;
+
+    &[data-selected="true"] {
+      background-color: var(--interactive-background);
+    }
+  }
+
+  .command__shortcut {
+    margin-left: auto;
+
+    /*
     https://tailwindcss.com/docs/letter-spacing
     tracking widest
     */
-  letter-spacing: 0.1em;
+    letter-spacing: 0.1em;
+  }
 }

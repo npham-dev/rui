@@ -1,10 +1,9 @@
 import { Separator as SeparatorPrimitive } from "@base-ui/react/separator";
 import clsx from "clsx";
-import type { ComponentProps } from "react";
 
 import styles from "./separator.module.css";
 
-export type SeparatorProps = ComponentProps<typeof SeparatorPrimitive> & {
+export type SeparatorProps = SeparatorPrimitive.Props & {
   /** Separator color */
   color?: "default" | "stronger";
 };

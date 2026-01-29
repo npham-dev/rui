@@ -1,5 +1,7 @@
-.alert-dialog__actions {
-  flex-direction: row;
-  justify-content: end;
-  gap: var(--space-8);
+@layer components {
+  .alert-dialog__actions {
+    flex-direction: row;
+    justify-content: end;
+    gap: var(--space-8);
+  }
 }

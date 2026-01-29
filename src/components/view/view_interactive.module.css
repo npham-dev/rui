@@ -1,126 +1,128 @@
-.view_interactive {
-  /* loading styles */
-  --view-loading-low-pulse: var(--outline-dimmest);
-  --view-loading-high-pulse: var(--surface-interactive-background);
+@layer base {
+  .view_interactive {
+    /* loading styles */
+    --view-loading-low-pulse: var(--outline-dimmest);
+    --view-loading-high-pulse: var(--surface-interactive-background);
 
-  transition-duration: var(--transition-duration-snappy);
-  transition-timing-function: var(--transition-timing-function-snappy);
-  cursor: not-allowed;
-  border-width: 1px;
-  border-style: solid;
-  border-color: transparent;
-  border-radius: var(--border-radius-default);
-  background-color: transparent;
-  color: var(--foreground-dimmest);
+    transition-duration: var(--transition-duration-snappy);
+    transition-timing-function: var(--transition-timing-function-snappy);
+    cursor: not-allowed;
+    border-width: 1px;
+    border-style: solid;
+    border-color: transparent;
+    border-radius: var(--border-radius-default);
+    background-color: transparent;
+    color: var(--foreground-dimmest);
 
-  &:not([disabled], [data-disabled]) {
-    cursor: pointer;
+    &:not([disabled], [data-disabled]) {
+      cursor: pointer;
 
-    &:focus:focus-visible {
-      outline-color: transparent;
-      outline-width: var(--space-2);
-      outline-offset: var(--space-4);
-      box-shadow: var(--shadow-focus);
+      &:focus:focus-visible {
+        outline-color: transparent;
+        outline-width: var(--space-2);
+        outline-offset: var(--space-4);
+        box-shadow: var(--shadow-focus);
+      }
     }
   }
-}
 
-/* Variants */
-.view_interactive_fill {
-  transition-property: background-color, box-shadow;
-  background-color: var(--surface-interactive-background);
+  /* Variants */
+  .view_interactive_fill {
+    transition-property: background-color, box-shadow;
+    background-color: var(--surface-interactive-background);
 
-  &:not([disabled], [data-disabled]) {
-    color: inherit;
+    &:not([disabled], [data-disabled]) {
+      color: inherit;
 
-    &:active {
-      border-color: var(--primary-default);
-      background-color: var(--surface-interactive-background-active);
-    }
-
-    @media (hover: hover) {
-      &:hover {
+      &:active {
+        border-color: var(--primary-default);
         background-color: var(--surface-interactive-background-active);
       }
-    }
-  }
-}
 
-.view_interactive_no-fill {
-  transition-property: background-color, box-shadow;
-
-  &:not([disabled], [data-disabled]) {
-    color: inherit;
-
-    &:not(textarea):active {
-      border-color: var(--primary-default);
-      background-color: var(--surface-interactive-background);
-    }
-
-    @media (hover: hover) {
-      &:hover {
-        background-color: var(--surface-interactive-background);
+      @media (hover: hover) {
+        &:hover {
+          background-color: var(--surface-interactive-background-active);
+        }
       }
     }
   }
-}
 
-.view_interactive_outline {
-  transition-property: background-color, box-shadow;
-  border-color: var(--surface-interactive-border);
+  .view_interactive_no-fill {
+    transition-property: background-color, box-shadow;
 
-  &:not([disabled], [data-disabled]) {
-    color: inherit;
+    &:not([disabled], [data-disabled]) {
+      color: inherit;
 
-    &:not(textarea):active {
-      border-color: var(--primary-default);
-    }
-
-    @media (hover: hover) {
-      &:hover {
+      &:not(textarea):active {
+        border-color: var(--primary-default);
         background-color: var(--surface-interactive-background);
+      }
+
+      @media (hover: hover) {
+        &:hover {
+          background-color: var(--surface-interactive-background);
+        }
       }
     }
   }
-}
 
-/* default interactive style */
-.view_interactive_fill-outline {
-  transition-property: box-shadow;
-  background-color: var(--surface-interactive-background);
-
-  &:not([disabled], [data-disabled]) {
+  .view_interactive_outline {
+    transition-property: background-color, box-shadow;
     border-color: var(--surface-interactive-border);
-    color: inherit;
 
-    &:not(textarea):active {
-      transition: none;
-      border-color: var(--primary-default);
-    }
+    &:not([disabled], [data-disabled]) {
+      color: inherit;
 
-    @media (hover: hover) {
-      &:hover {
-        border-color: var(--surface-interactive-border-hover);
+      &:not(textarea):active {
+        border-color: var(--primary-default);
+      }
+
+      @media (hover: hover) {
+        &:hover {
+          background-color: var(--surface-interactive-background);
+        }
       }
     }
   }
-}
 
-.view_interactive_list-item {
-  transition-property: box-shadow;
-  border-radius: 0;
+  /* default interactive style */
+  .view_interactive_fill-outline {
+    transition-property: box-shadow;
+    background-color: var(--surface-interactive-background);
 
-  &:not([disabled], [data-disabled]) {
-    color: inherit;
+    &:not([disabled], [data-disabled]) {
+      border-color: var(--surface-interactive-border);
+      color: inherit;
 
-    &:not(textarea):active {
-      border-color: var(--primary-default);
-      background-color: var(--surface-interactive-background-active);
+      &:not(textarea):active {
+        transition: none;
+        border-color: var(--primary-default);
+      }
+
+      @media (hover: hover) {
+        &:hover {
+          border-color: var(--surface-interactive-border-hover);
+        }
+      }
     }
+  }
 
-    @media (hover: hover) {
-      &:hover {
-        background-color: var(--surface-interactive-background);
+  .view_interactive_list-item {
+    transition-property: box-shadow;
+    border-radius: 0;
+
+    &:not([disabled], [data-disabled]) {
+      color: inherit;
+
+      &:not(textarea):active {
+        border-color: var(--primary-default);
+        background-color: var(--surface-interactive-background-active);
+      }
+
+      @media (hover: hover) {
+        &:hover {
+          background-color: var(--surface-interactive-background);
+        }
       }
     }
   }

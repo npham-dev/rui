@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import { tokens } from "~/styles/tokens";
 
-import { Accordion, AccordionItem } from ".";
+import { Accordion } from ".";
 
 const meta = {
   title: "Accordion",
@@ -21,16 +21,12 @@ export const Default: Story = {
       defaultValue={["item-1"]}
       style={{ width: tokens.space256 }}
     >
-      <AccordionItem
-        value="item-1"
-        header={"I am the header"}
-        content={"Hello, I am inside the accordion"}
-      />
-      <AccordionItem
-        value="item-2"
-        header={"I am the header"}
-        content={"Hello, I am inside the accordion"}
-      />
+      <Accordion.Item value="item-1" header={"I am the header"}>
+        Hello, I am inside the accordion
+      </Accordion.Item>
+      <Accordion.Item value="item-2" header={"I am the header"}>
+        Hello, I am inside the accordion
+      </Accordion.Item>
     </Accordion>
   ),
 };

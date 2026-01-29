@@ -1,26 +1,28 @@
-.code__root {
-  border-radius: var(--border-radius-default);
-  overflow: hidden;
-}
+@layer components {
+  .code__root {
+    border-radius: var(--border-radius-default);
+    overflow: hidden;
+  }
 
-.code {
-  border-radius: var(--border-radius-default);
-  padding: var(--space-8);
-  overflow-x: auto;
-}
+  .code {
+    border-radius: var(--border-radius-default);
+    padding: var(--space-8);
+    overflow-x: auto;
+  }
 
-.code_title {
-  border-top-left-radius: 0;
-}
+  .code_title {
+    border-top-left-radius: 0;
+  }
 
-.code__value {
-  font-size: var(--font-size-default);
-  font-family: var(--font-family-code);
-}
+  .code__value {
+    font-size: var(--font-size-default);
+    font-family: var(--font-family-code);
+  }
 
-.code__title {
-  border-top-right-radius: var(--border-radius-default);
-  border-top-left-radius: var(--border-radius-default);
-  padding: var(--space-4) var(--space-8);
-  width: fit-content;
+  .code__title {
+    border-top-right-radius: var(--border-radius-default);
+    border-top-left-radius: var(--border-radius-default);
+    padding: var(--space-4) var(--space-8);
+    width: fit-content;
+  }
 }

@@ -11,7 +11,7 @@ import { View, type ViewProps } from "../view";
 
 import styles from "./button.module.css";
 
-export type ButtonProps = ComponentProps<"button"> &
+type ButtonProps = ComponentProps<"button"> &
   ViewProps<"button"> & {
     /**
      * Size of the button
@@ -35,7 +35,7 @@ export type ButtonProps = ComponentProps<"button"> &
     nativeButton?: boolean;
   };
 
-export function Button({
+function Button({
   size = "md",
   leftIcon,
   rightIcon,
@@ -60,4 +60,10 @@ export function Button({
       {rightIcon ? <Icon name={rightIcon} size={size} /> : null}
     </View>
   );
+}
+
+export { Button };
+
+export declare namespace Button {
+  export type Props = ButtonProps;
 }

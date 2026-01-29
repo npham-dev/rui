@@ -1,52 +1,54 @@
-.status-banner {
-  flex-grow: 1;
-  flex-shrink: 1;
-  flex-direction: row;
-  align-items: center;
-  gap: var(--status-banner-gap);
-  border-width: 1px;
-  border-style: solid;
-  border-radius: var(--border-radius-default);
-  padding: var(--status-banner-padding);
-  width: fit-content;
-}
+@layer components {
+  .status-banner {
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--status-banner-gap);
+    border-width: 1px;
+    border-style: solid;
+    border-radius: var(--border-radius-default);
+    padding: var(--status-banner-padding);
+    width: fit-content;
+  }
 
-.status-banner_variant_neutral {
-  border-color: var(--surface-interactive-border);
-  background: var(--surface-interactive-background);
-  color: var(--foreground-default);
-}
+  .status-banner_variant_neutral {
+    border-color: var(--surface-interactive-border);
+    background: var(--surface-interactive-background);
+    color: var(--foreground-default);
+  }
 
-.status-banner_variant_colorway {
-  border-color: var(--view-colorway-stronger);
-  background: var(--view-colorway-dimmest);
-  color: var(--view-colorway-strongest);
-}
+  .status-banner_variant_colorway {
+    border-color: var(--view-colorway-stronger);
+    background: var(--view-colorway-dimmest);
+    color: var(--view-colorway-strongest);
+  }
 
-.status-banner_size_md {
-  --status-banner-gap: var(--space-8);
-  --status-banner-padding: var(--space-8);
-  --status-banner-content-gap: 0;
-}
+  .status-banner_size_md {
+    --status-banner-gap: var(--space-8);
+    --status-banner-padding: var(--space-8);
+    --status-banner-content-gap: 0;
+  }
 
-.status-banner_size_lg {
-  --status-banner-gap: var(--space-12);
-  --status-banner-padding: var(--space-12);
-  --status-banner-content-gap: var(--space-2);
-}
+  .status-banner_size_lg {
+    --status-banner-gap: var(--space-12);
+    --status-banner-padding: var(--space-12);
+    --status-banner-content-gap: var(--space-2);
+  }
 
-.status-banner__content {
-  flex-grow: 1;
-  flex-shrink: 1;
-  gap: var(--status-banner-content-gap);
-}
+  .status-banner__content {
+    flex-grow: 1;
+    flex-shrink: 1;
+    gap: var(--status-banner-content-gap);
+  }
 
-.status-banner__description {
-  flex-grow: 1;
-  flex-shrink: 1;
-}
+  .status-banner__description {
+    flex-grow: 1;
+    flex-shrink: 1;
+  }
 
-.status-banner__close {
-  flex-grow: 0;
-  background: transparent !important;
+  .status-banner__close {
+    flex-grow: 0;
+    background: transparent !important;
+  }
 }

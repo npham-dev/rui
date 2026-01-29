@@ -1,3 +1,5 @@
-.heading {
-  font-weight: var(--font-weight-medium);
+@layer components {
+  .heading {
+    font-weight: var(--font-weight-medium);
+  }
 }

@@ -1,8 +1,10 @@
-.popover {
-  gap: var(--space-8);
-  padding: var(--space-8);
-}
+@layer components {
+  .popover {
+    gap: var(--space-8);
+    padding: var(--space-8);
+  }
 
-.popover__header {
-  gap: var(--space-4);
+  .popover__header {
+    gap: var(--space-4);
+  }
 }

@@ -1,6 +1,6 @@
 import { Accordion as AccordionPrimitive } from "@base-ui/react/accordion";
 import clsx from "clsx";
-import type { ComponentProps, ReactNode } from "react";
+import type { ReactNode } from "react";
 
 import { textify } from "~/-utils";
 
@@ -10,25 +10,17 @@ import { View } from "../view";
 
 import styles from "./accordion.module.css";
 
-export const Accordion = AccordionPrimitive.Root;
-
-export type AccordionItemProps = Omit<
-  ComponentProps<typeof AccordionPrimitive.Item>,
-  "render"
-> & {
+interface AccordionItemProps extends AccordionPrimitive.Item.Props {
   /** The content to display in the accordion header trigger. */
   header: ReactNode;
 
-  /** The content to display within the expandable accordion panel. */
-  content: ReactNode;
-
   /** Apply className to the accordion trigger */
   className?: string;
-};
+}
 
-export function AccordionItem({
+function AccordionItem({
   header,
-  content,
+  children,
   className,
   ...props
 }: AccordionItemProps) {
@@ -57,11 +49,23 @@ export function AccordionItem({
       </AccordionPrimitive.Header>
       <AccordionPrimitive.Panel className={styles["accordion__panel"]}>
         <View className={styles["accordion__panel-content"]}>
-          {textify(content, {
+          {textify(children, {
             multiline: true,
           })}
         </View>
       </AccordionPrimitive.Panel>
     </AccordionPrimitive.Item>
   );
+}
+
+export const Accordion = Object.assign(AccordionPrimitive.Root, {
+  Item: AccordionItem,
+});
+
+export declare namespace Accordion {
+  export type Props = AccordionPrimitive.Root.Props;
+
+  export namespace Item {
+    export type Props = AccordionItemProps;
+  }
 }

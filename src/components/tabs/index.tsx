@@ -4,7 +4,7 @@ import { Fragment } from "react";
 
 import { tokens } from "~/styles/tokens";
 
-import { Button, type ButtonProps } from "../button";
+import { Button } from "../button";
 import { Icon } from "../icon";
 import { Separator, type SeparatorProps } from "../separator";
 import { View } from "../view";
@@ -15,7 +15,7 @@ type TabsTriggerProps = {
   value: TabsPrimitive.Tab.Props["value"];
   /** Show indicator that tab is complete.  */
   complete?: boolean;
-} & ButtonProps;
+} & Button.Props;
 
 type TabsVariant = "default" | "progress" | "button-group";
 

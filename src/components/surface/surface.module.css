@@ -1,35 +1,37 @@
-.surface {
-  background-color: var(--surface-background);
-}
+@layer base {
+  .surface {
+    background-color: var(--surface-background);
+  }
 
-.surface--root {
-  --surface-background: var(--background-root);
-  --surface-interactive-background: var(--background-default);
-  --surface-interactive-background-active: var(--background-higher);
-  --surface-interactive-border: var(--outline-dimmest);
-  --surface-interactive-border-hover: var(--outline-default);
-}
+  .surface--root {
+    --surface-background: var(--background-root);
+    --surface-interactive-background: var(--background-default);
+    --surface-interactive-background-active: var(--background-higher);
+    --surface-interactive-border: var(--outline-dimmest);
+    --surface-interactive-border-hover: var(--outline-default);
+  }
 
-.surface--default {
-  --surface-background: var(--background-default);
-  --surface-interactive-background: var(--background-higher);
-  --surface-interactive-background-active: var(--background-highest);
-  --surface-interactive-border: var(--outline-dimmer);
-  --surface-interactive-border-hover: var(--outline-stronger);
-}
+  .surface--default {
+    --surface-background: var(--background-default);
+    --surface-interactive-background: var(--background-higher);
+    --surface-interactive-background-active: var(--background-highest);
+    --surface-interactive-border: var(--outline-dimmer);
+    --surface-interactive-border-hover: var(--outline-stronger);
+  }
 
-.surface--higher {
-  --surface-background: var(--background-higher);
-  --surface-interactive-background: var(--background-highest);
-  --surface-interactive-background-active: var(--background-default);
-  --surface-interactive-border: var(--outline-default);
-  --surface-interactive-border-hover: var(--outline-strongest);
-}
+  .surface--higher {
+    --surface-background: var(--background-higher);
+    --surface-interactive-background: var(--background-highest);
+    --surface-interactive-background-active: var(--background-default);
+    --surface-interactive-border: var(--outline-default);
+    --surface-interactive-border-hover: var(--outline-strongest);
+  }
 
-.surface--highest {
-  --surface-background: var(--background-highest);
-  --surface-interactive-background: var(--background-higher);
-  --surface-interactive-background-active: var(--background-default);
-  --surface-interactive-border: var(--outline-stronger);
-  --surface-interactive-border-hover: var(--outline-strongest);
+  .surface--highest {
+    --surface-background: var(--background-highest);
+    --surface-interactive-background: var(--background-higher);
+    --surface-interactive-background-active: var(--background-default);
+    --surface-interactive-border: var(--outline-stronger);
+    --surface-interactive-border-hover: var(--outline-strongest);
+  }
 }

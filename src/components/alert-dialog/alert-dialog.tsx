@@ -1,12 +1,12 @@
 import { AlertDialog as AlertDialogPrimitive } from "@base-ui/react/alert-dialog";
 import clsx from "clsx";
-import type { ComponentProps } from "react";
 
-import { Button, type ButtonProps } from "../button";
+import { Button } from "../button";
 import type { BaseDialogProps } from "../dialog";
 import { Surface } from "../surface";
 import { Text } from "../text";
 import { View } from "../view";
+import { getButtonProps } from "./alert-dialog.utils";
 
 import transitionStyles from "../../styles/transitions.module.css";
 import dialogStyles from "../dialog/dialog.module.css";
@@ -22,22 +22,19 @@ import styles from "./alert-dialog.module.css";
  * Should you have payloads? Probably not... Currently unsupported but that
  * style of generalization feels kind of anti-composition
  */
+interface AlertDialogRootProps
+  extends Omit<AlertDialogPrimitive.Root.Props, "children">, BaseDialogProps {
+  /**
+   *
+   * The actions to display in the alert dialog. You must have at least two
+   * actions. By default, actions will be `interactive` and the last action will
+   * have `colorway` "negative_fill".
+   *
+   */
+  actions: Array<Button.Props>;
+}
 
-export type AlertDialogProps = ComponentProps<
-  typeof AlertDialogPrimitive.Root
-> &
-  BaseDialogProps & {
-    /**
-     *
-     * The actions to display in the alert dialog. You must have at least two
-     * actions. By default, actions will be `interactive` and the last action will
-     * have `colorway` "negative_fill".
-     *
-     */
-    actions: Array<ButtonProps>;
-  };
-
-export function AlertDialog({
+function AlertDialogRoot({
   title,
   description,
   children,
@@ -48,7 +45,7 @@ export function AlertDialog({
   centered = false,
   className,
   ...props
-}: AlertDialogProps) {
+}: AlertDialogRootProps) {
   if (actions.length < 2) {
     console.error("You must have at least two actions.");
   }
@@ -114,25 +111,20 @@ export function AlertDialog({
   );
 }
 
-export function AlertDialogClose(props: ButtonProps) {
+type AlertDialogCloseProps = Button.Props;
+
+function AlertDialogClose(props: AlertDialogCloseProps) {
   return <AlertDialogPrimitive.Close render={<Button {...props} />} />;
 }
 
-/**
- * Sensible defaults for actions (buttons)
- * @param props Action provided by AlertDialog
- * @param isLast Is this the last action provided in the array?
- * @returns Props with defaults
- */
-function getButtonProps(props: ButtonProps, isLast?: boolean): ButtonProps {
-  if (isLast) {
-    return {
-      interactive: "negative_fill",
-      ...props,
-    };
+export const AlertDialog = Object.assign(AlertDialogRoot, {
+  Close: AlertDialogClose,
+});
+
+export declare namespace AlertDialog {
+  export type Props = AlertDialogRootProps;
+
+  export namespace Close {
+    export type Props = AlertDialogCloseProps;
   }
-  return {
-    interactive: true,
-    ...props,
-  };
 }

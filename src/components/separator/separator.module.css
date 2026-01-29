@@ -1,24 +1,26 @@
-.separator {
-  flex-grow: 0;
-  flex-shrink: 0;
-  outline: none;
-  border: none;
-}
+@layer base {
+  .separator {
+    flex-grow: 0;
+    flex-shrink: 0;
+    outline: none;
+    border: none;
+  }
 
-.separator_color_default {
-  background-color: var(--surface-interactive-border);
-}
+  .separator_color_default {
+    background-color: var(--surface-interactive-border);
+  }
 
-.separator_color_stronger {
-  background-color: var(--surface-interactive-border-hover);
-}
+  .separator_color_stronger {
+    background-color: var(--surface-interactive-border-hover);
+  }
 
-.separator_orientation_horizontal {
-  height: 1px;
-  min-height: 1px;
-}
+  .separator_orientation_horizontal {
+    height: 1px;
+    min-height: 1px;
+  }
 
-.separator_orientation_vertical {
-  width: 1px;
-  min-width: 1px;
+  .separator_orientation_vertical {
+    width: 1px;
+    min-width: 1px;
+  }
 }

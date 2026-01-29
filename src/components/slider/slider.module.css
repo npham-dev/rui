@@ -1,52 +1,54 @@
-.slider__control {
-  display: flex;
-  align-items: center;
-  touch-action: none;
-  user-select: none;
-}
-
-.slider__track {
-  border-radius: var(--border-radius-round);
-  background-color: var(--surface-interactive-border);
-  width: 100%;
-  height: var(--space-4);
-  user-select: none;
-}
-
-.slider__indicator {
-  border-color: var(--view-colorway-default);
-  border-radius: var(--border-radius-round);
-  background-color: var(--view-colorway-dimmer);
-  user-select: none;
-
-  &:not([disabled], [data-disabled]) {
-    background-color: var(--view-colorway-default);
+@layer components {
+  .slider__control {
+    display: flex;
+    align-items: center;
+    touch-action: none;
+    user-select: none;
   }
-}
 
-.slider__thumb {
-  cursor: not-allowed;
-  border-width: 1px;
-  border-style: solid;
-  border-radius: var(--border-radius-round);
-  background-color: var(--view-colorway-dimmer);
-  aspect-ratio: 1 / 1;
-  width: var(--space-16);
-  height: var(--space-16);
-  user-select: none;
+  .slider__track {
+    border-radius: var(--border-radius-round);
+    background-color: var(--surface-interactive-border);
+    width: 100%;
+    height: var(--space-4);
+    user-select: none;
+  }
 
-  &:not([disabled], [data-disabled]) {
-    cursor: ew-resize;
+  .slider__indicator {
     border-color: var(--view-colorway-default);
-    background-color: var(--view-colorway-default);
+    border-radius: var(--border-radius-round);
+    background-color: var(--view-colorway-dimmer);
+    user-select: none;
+
+    &:not([disabled], [data-disabled]) {
+      background-color: var(--view-colorway-default);
+    }
   }
 
-  &:not([disabled], [data-disabled]):hover {
-    border-color: var(--view-colorway-stronger);
-  }
+  .slider__thumb {
+    cursor: not-allowed;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: var(--border-radius-round);
+    background-color: var(--view-colorway-dimmer);
+    aspect-ratio: 1 / 1;
+    width: var(--space-16);
+    height: var(--space-16);
+    user-select: none;
 
-  &:not([disabled], [data-disabled])[data-dragging] {
-    border-color: var(--view-colorway-stronger);
-    background-color: var(--view-colorway-default);
+    &:not([disabled], [data-disabled]) {
+      cursor: ew-resize;
+      border-color: var(--view-colorway-default);
+      background-color: var(--view-colorway-default);
+    }
+
+    &:not([disabled], [data-disabled]):hover {
+      border-color: var(--view-colorway-stronger);
+    }
+
+    &:not([disabled], [data-disabled])[data-dragging] {
+      border-color: var(--view-colorway-stronger);
+      background-color: var(--view-colorway-default);
+    }
   }
 }

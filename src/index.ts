@@ -1,5 +1,5 @@
-export { Accordion, AccordionItem } from "./components/accordion";
-export { AlertDialog, AlertDialogClose } from "./components/alert-dialog";
+export { Accordion } from "./components/accordion";
+export { AlertDialog } from "./components/alert-dialog";
 export { Anchor } from "./components/anchor";
 export { Avatar } from "./components/avatar";
 export { Badge } from "./components/badge";
@@ -7,22 +7,8 @@ export { Button } from "./components/button";
 export { Checkbox } from "./components/checkbox";
 export { Code } from "./components/code";
 export { Collapse } from "./components/collapse";
-export {
-  CommandDialog,
-  CommandGroup,
-  CommandSeparator,
-  CommandItem,
-} from "./components/command";
-export {
-  ContextMenu,
-  ContextMenuCheckboxItem,
-  ContextMenuGroup,
-  ContextMenuItem,
-  ContextMenuMore,
-  ContextMenuRadioGroup,
-  ContextMenuRadioItem,
-  ContextMenuSeparator,
-} from "./components/context-menu";
+export { Command } from "./components/command";
+export { ContextMenu } from "./components/context-menu";
 export { Dialog, DialogClose } from "./components/dialog";
 export { Heading, Section } from "./components/heading";
 export { Icon } from "./components/icon";

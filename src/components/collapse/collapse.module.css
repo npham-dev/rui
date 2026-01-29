@@ -1,27 +1,29 @@
-.collapse {
-  opacity: 0;
-  transition:
-    height var(--transition-duration-chill)
-      var(--transition-timing-function-chill),
-    opacity var(--transition-duration-chill)
-      var(--transition-timing-function-chill);
-  height: 0;
-  overflow-y: hidden;
-}
+@layer base {
+  .collapse {
+    opacity: 0;
+    transition:
+      height var(--transition-duration-chill)
+        var(--transition-timing-function-chill),
+      opacity var(--transition-duration-chill)
+        var(--transition-timing-function-chill);
+    height: 0;
+    overflow-y: hidden;
+  }
 
-.collapse_expand {
-  opacity: 1;
-  height: var(--collapse-height);
-}
+  .collapse_expand {
+    opacity: 1;
+    height: var(--collapse-height);
+  }
 
-.collapse_hidden {
-  position: fixed;
-  top: 0;
-  left: 0;
-  visibility: hidden;
-  opacity: 0;
-  z-index: 0;
-  height: fit-content;
-  pointer-events: none;
-  user-select: none;
+  .collapse_hidden {
+    position: fixed;
+    top: 0;
+    left: 0;
+    visibility: hidden;
+    opacity: 0;
+    z-index: 0;
+    height: fit-content;
+    pointer-events: none;
+    user-select: none;
+  }
 }

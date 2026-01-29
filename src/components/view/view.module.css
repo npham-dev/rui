@@ -1,11 +1,13 @@
-.view {
-  display: flex;
-  position: relative;
-  flex-shrink: 0;
-  flex-basis: auto;
-  flex-direction: column;
-  align-items: stretch;
-  box-sizing: border-box;
-  outline: none;
-  border-style: solid;
+@layer base {
+  .view {
+    display: flex;
+    position: relative;
+    flex-shrink: 0;
+    flex-basis: auto;
+    flex-direction: column;
+    align-items: stretch;
+    box-sizing: border-box;
+    outline: none;
+    border-style: solid;
+  }
 }
