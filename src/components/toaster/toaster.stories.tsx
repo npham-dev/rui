@@ -4,7 +4,7 @@ import { Toaster, useToastManager } from ".";
 import { Button } from "../button";
 
 const meta = {
-  title: "Toast",
+  title: "Toaster",
   component: Toaster,
   parameters: { layout: "centered" },
   argTypes: {

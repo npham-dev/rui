@@ -25,7 +25,7 @@ function Toaster({ children, ...props }: ToasterProps) {
     <ToastPrimitive.Provider {...props}>
       {children}
       <ToastPrimitive.Portal>
-        <ToastPrimitive.Viewport className={styles["toast__viewport"]}>
+        <ToastPrimitive.Viewport className={styles["toaster__viewport"]}>
           <ToastList />
         </ToastPrimitive.Viewport>
       </ToastPrimitive.Portal>
