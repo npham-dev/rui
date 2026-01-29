@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { Tabs, TabsPanel } from ".";
+import { Tabs } from ".";
 
 const meta = {
   title: "Tabs",
@@ -23,9 +23,9 @@ export const Default: Story = {
   },
   render: (args) => (
     <Tabs {...args}>
-      <TabsPanel value="tab1">Tab 1</TabsPanel>
-      <TabsPanel value="tab2">Tab 2</TabsPanel>
-      <TabsPanel value="tab3">Tab 3</TabsPanel>
+      <Tabs.Panel value="tab1">Tab 1</Tabs.Panel>
+      <Tabs.Panel value="tab2">Tab 2</Tabs.Panel>
+      <Tabs.Panel value="tab3">Tab 3</Tabs.Panel>
     </Tabs>
   ),
 };
@@ -50,9 +50,9 @@ export const Progress: Story = {
   },
   render: (args) => (
     <Tabs defaultValue="tab1" {...args}>
-      <TabsPanel value="tab1">Tab 1</TabsPanel>
-      <TabsPanel value="tab2">Tab 2</TabsPanel>
-      <TabsPanel value="tab3">Tab 3</TabsPanel>
+      <Tabs.Panel value="tab1">Tab 1</Tabs.Panel>
+      <Tabs.Panel value="tab2">Tab 2</Tabs.Panel>
+      <Tabs.Panel value="tab3">Tab 3</Tabs.Panel>
     </Tabs>
   ),
 };
@@ -80,9 +80,9 @@ export const ButtonGroup: Story = {
   },
   render: (args) => (
     <Tabs defaultValue="tab3" {...args}>
-      <TabsPanel value="tab1">Tab 1</TabsPanel>
-      <TabsPanel value="tab2">Tab 2</TabsPanel>
-      <TabsPanel value="tab3">Tab 3</TabsPanel>
+      <Tabs.Panel value="tab1">Tab 1</Tabs.Panel>
+      <Tabs.Panel value="tab2">Tab 2</Tabs.Panel>
+      <Tabs.Panel value="tab3">Tab 3</Tabs.Panel>
     </Tabs>
   ),
 };

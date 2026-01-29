@@ -1,5 +1,5 @@
 import type { Background } from "~/components/surface";
-import type { TextProps } from "~/components/text";
+import type { Text } from "~/components/text";
 import type {
   Color,
   ColorStyle,
@@ -9,7 +9,7 @@ import type {
 
 import { type Size } from "../styles/tokens";
 
-export const textColors: Array<NonNullable<TextProps["color"]>> = [
+export const textColors: Array<NonNullable<Text.Props["color"]>> = [
   "inherit",
   "default",
   "dimmer",

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { Heading, Section, type HeadingProps } from ".";
+import { Heading } from ".";
 
 const meta = {
   title: "Typography/Heading",
@@ -11,7 +11,7 @@ const meta = {
       control: "select",
     },
   },
-} satisfies Meta<HeadingProps>;
+} satisfies Meta<typeof Heading>;
 
 export default meta;
 
@@ -23,30 +23,5 @@ export const Default: Story = {
   },
   render: ({ level }) => (
     <Heading level={level}>Hello World (h{level})</Heading>
-  ),
-};
-
-export const AutoLevel: Story = {
-  args: {
-    level: 1,
-  },
-  parameters: {
-    docs: {
-      description: {
-        story:
-          "When nested within `Section` components, `Heading` will automatically determine its level based on the current section depth.",
-      },
-    },
-  },
-  render: (props) => (
-    <Section {...props}>
-      <Heading>Hello World</Heading>
-      <Section>
-        <Heading>Hello World</Heading>
-        <Section>
-          <Heading>Hello World</Heading>
-        </Section>
-      </Section>
-    </Section>
   ),
 };

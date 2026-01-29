@@ -1,6 +1,6 @@
 import type * as React from "react";
 
-import { Text, type TextProps } from "~/components/text";
+import { Text } from "~/components/text";
 
 export function omit<T extends object>(
   record: T,
@@ -36,7 +36,7 @@ export function pick<T extends Record<string, string>, K extends keyof T>(
  */
 export function textify(
   node: React.ReactNode,
-  props: TextProps = {
+  props: Text.Props = {
     // TODO look for any regressions
     color: "inherit",
   },

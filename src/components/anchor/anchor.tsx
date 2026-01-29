@@ -2,12 +2,12 @@ import { mergeProps, useRender } from "@base-ui/react";
 
 import styles from "./anchor.module.css";
 
-type AnchorProps = useRender.ComponentProps<"a"> & {
+interface AnchorProps extends useRender.ComponentProps<"a"> {
   /**
    * Open this link in a new tab
    */
   external?: boolean;
-};
+}
 
 function Anchor({ external, render, ...props }: AnchorProps) {
   const element = useRender({

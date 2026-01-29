@@ -9,8 +9,8 @@ export { Code } from "./components/code";
 export { Collapse } from "./components/collapse";
 export { Command } from "./components/command";
 export { ContextMenu } from "./components/context-menu";
-export { Dialog, DialogClose } from "./components/dialog";
-export { Heading, Section } from "./components/heading";
+export { Dialog } from "./components/dialog";
+export { Heading } from "./components/heading";
 export { Icon } from "./components/icon";
 export { IconButton } from "./components/icon-button";
 export { InlineCode } from "./components/inline-code";
@@ -22,7 +22,7 @@ export { PasswordInput } from "./components/password-input";
 export { Pill } from "./components/pill";
 export { Popover } from "./components/popover";
 export { PreviewCard } from "./components/preview-card";
-export { RadioGroup, Radio } from "./components/radio";
+export { RadioGroup } from "./components/radio-group";
 export { SearchBar } from "./components/search-bar";
 export { Select } from "./components/select";
 export { Separator } from "./components/separator";
@@ -32,15 +32,11 @@ export { StackedAvatars } from "./components/stacked-avatars";
 export { StatusBanner } from "./components/status-banner";
 export { Surface } from "./components/surface";
 export { Switch } from "./components/switch";
-export { Tabs, TabsPanel } from "./components/tabs";
+export { Tabs } from "./components/tabs";
 export { Text } from "./components/text";
 export { ThemeProvider, useThemeContext } from "./components/theme-provider";
 export { Timestamp } from "./components/timestamp";
-export {
-  ToastProvider,
-  ToastViewport,
-  useToastManager,
-} from "./components/toast";
-export { TooltipProvider, Tooltip } from "./components/tooltip";
+export { Toaster, useToastManager } from "./components/toaster";
+export { Tooltip } from "./components/tooltip";
 export { View } from "./components/view";
 export { VisuallyHidden } from "./components/visually-hidden";

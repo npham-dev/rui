@@ -5,25 +5,32 @@ import type { ComponentProps } from "react";
 
 import { textify } from "~/-utils";
 
-import { Dialog, type BaseDialogProps } from "../dialog";
+import { Dialog } from "../dialog";
+import { type BaseDialogProps } from "../dialog/dialog.types";
 import { Icon } from "../icon";
-import type { IconName } from "../icon/icon-names";
 import { Separator } from "../separator";
 import { Text } from "../text";
 import { View } from "../view";
 
 import styles from "./command.module.css";
 
-type CommandRootProps = DialogPrimitive.Root.Props &
-  Omit<BaseDialogProps, "title" | "description" | "background"> & {
-    placeholder?: string;
-  };
+interface CommandRootProps
+  extends
+    Omit<DialogPrimitive.Root.Props, "children">,
+    Omit<BaseDialogProps, "title" | "description"> {
+  placeholder?: string;
+}
 
-function CommandRoot({ placeholder, children, ...props }: CommandRootProps) {
+function CommandRoot({
+  placeholder,
+  children,
+  background = "default",
+  ...props
+}: CommandRootProps) {
   return (
     <Dialog
       width="sm"
-      background="default"
+      background={background}
       className={styles["command"]}
       closable
       {...props}
@@ -52,6 +59,7 @@ function CommandRoot({ placeholder, children, ...props }: CommandRootProps) {
   );
 }
 
+// TODO update @npham-dev/cmdk to use base-ui style API (magic namespaces obv)
 type CommandGroupProps = ComponentProps<typeof CommandPrimitive.Group>;
 
 function CommandGroup({ className, ...props }: CommandGroupProps) {
@@ -69,10 +77,12 @@ function CommandSeparator(props: CommandSeparatorProps) {
   return <Separator render={<CommandPrimitive.Separator {...props} />} />;
 }
 
-type CommandItemProps = ComponentProps<typeof CommandPrimitive.Item> & {
+interface CommandItemProps extends ComponentProps<
+  typeof CommandPrimitive.Item
+> {
   shortcut?: string;
-  icon?: IconName;
-};
+  icon?: Icon.Name;
+}
 
 function CommandItem({
   shortcut,

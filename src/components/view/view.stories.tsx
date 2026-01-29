@@ -6,7 +6,7 @@ import {
   surfaceBackgrounds,
 } from "~/stories/data";
 
-import { View, type ViewProps } from ".";
+import { View } from ".";
 import { tokens } from "../../styles/tokens";
 import { Surface } from "../surface";
 import { Text } from "../text";
@@ -27,7 +27,7 @@ const meta = {
       control: "boolean",
     },
   },
-} satisfies Meta<ViewProps & { "aria-disabled"?: boolean }>;
+} satisfies Meta<View.Props & { "aria-disabled"?: boolean }>;
 
 export default meta;
 

@@ -1,11 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import { disable } from "~/stories/utils";
-import { tokens } from "~/styles/tokens";
 
-import { Tooltip, TooltipProvider } from ".";
+import { Tooltip } from ".";
 import { IconButton } from "../icon-button";
-import { View } from "../view";
 
 const meta = {
   title: "Tooltip",
@@ -48,29 +46,5 @@ export const Default: Story = {
       trigger={<IconButton icon="bold" alt="Bold" interactive />}
       {...args}
     />
-  ),
-};
-
-export const Provider: Story = {
-  argTypes: {
-    ...disable(["message", "trigger", "open", "children"]),
-  },
-  render: () => (
-    <TooltipProvider>
-      <View style={{ flexDirection: "row", gap: tokens.space4 }}>
-        <Tooltip
-          children="Bold"
-          trigger={<IconButton icon="bold" alt="Bold" interactive />}
-        />
-        <Tooltip
-          children="Italic"
-          trigger={<IconButton icon="italic" alt="Italic" interactive />}
-        />
-        <Tooltip
-          children="Underline"
-          trigger={<IconButton icon="underline" alt="Underline" interactive />}
-        />
-      </View>
-    </TooltipProvider>
   ),
 };

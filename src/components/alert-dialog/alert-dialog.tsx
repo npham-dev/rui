@@ -2,11 +2,10 @@ import { AlertDialog as AlertDialogPrimitive } from "@base-ui/react/alert-dialog
 import clsx from "clsx";
 
 import { Button } from "../button";
-import type { BaseDialogProps } from "../dialog";
+import type { BaseDialogProps } from "../dialog/dialog.types";
 import { Surface } from "../surface";
 import { Text } from "../text";
 import { View } from "../view";
-import { getButtonProps } from "./alert-dialog.utils";
 
 import transitionStyles from "../../styles/transitions.module.css";
 import dialogStyles from "../dialog/dialog.module.css";
@@ -115,6 +114,25 @@ type AlertDialogCloseProps = Button.Props;
 
 function AlertDialogClose(props: AlertDialogCloseProps) {
   return <AlertDialogPrimitive.Close render={<Button {...props} />} />;
+}
+
+/**
+ * Sensible defaults for actions (buttons)
+ * @param props Action provided by AlertDialog
+ * @param isLast Is this the last action provided in the array?
+ * @returns Props with defaults
+ */
+function getButtonProps(props: Button.Props, isLast?: boolean): Button.Props {
+  if (isLast) {
+    return {
+      interactive: "negative_fill",
+      ...props,
+    };
+  }
+  return {
+    interactive: true,
+    ...props,
+  };
 }
 
 export const AlertDialog = Object.assign(AlertDialogRoot, {

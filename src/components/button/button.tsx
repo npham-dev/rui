@@ -1,39 +1,36 @@
 import { Button as ButtonPrimitive } from "@base-ui/react/button";
 import clsx from "clsx";
-import type { ComponentProps } from "react";
 
 import { textify } from "~/-utils";
 import type { Size } from "~/styles/tokens";
 
 import { Icon } from "../icon";
-import type { IconName } from "../icon/icon-names";
-import { View, type ViewProps } from "../view";
+import { View } from "../view";
 
 import styles from "./button.module.css";
 
-type ButtonProps = ComponentProps<"button"> &
-  ViewProps<"button"> & {
-    /**
-     * Size of the button
-     */
-    size?: Size;
+interface ButtonProps extends View.Props<"button"> {
+  /**
+   * Size of the button
+   */
+  size?: Size;
 
-    /**
-     * Icon to display on the left side of the button content
-     */
-    leftIcon?: IconName;
+  /**
+   * Icon to display on the left side of the button content
+   */
+  leftIcon?: Icon.Name;
 
-    /**
-     * Icon to display on the right side of the button content
-     */
-    rightIcon?: IconName;
+  /**
+   * Icon to display on the right side of the button content
+   */
+  rightIcon?: Icon.Name;
 
-    /**
-     * The button can remain keyboard accessible while being rendered as another tag
-     * {@link https://base-ui.com/react/components/button}
-     */
-    nativeButton?: boolean;
-  };
+  /**
+   * The button can remain keyboard accessible while being rendered as another tag
+   * {@link https://base-ui.com/react/components/button}
+   */
+  nativeButton?: boolean;
+}
 
 function Button({
   size = "md",

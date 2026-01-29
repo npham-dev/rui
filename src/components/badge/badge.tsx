@@ -2,7 +2,6 @@ import { mergeProps, useRender } from "@base-ui/react";
 import { clsx } from "clsx";
 
 import { Icon } from "../icon";
-import type { IconName } from "../icon/icon-names";
 import { Text } from "../text";
 import { Tooltip } from "../tooltip";
 import { View, type Color } from "../view";
@@ -14,7 +13,7 @@ interface BadgeProps extends Omit<
   "children"
 > {
   /** Optional icon, goes before name */
-  icon?: IconName;
+  icon?: Icon.Name;
 
   /** Name of badge to be displayed, goes after icon */
   name: string;

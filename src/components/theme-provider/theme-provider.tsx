@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 
-import { View, type ViewProps } from "../view";
+import { View } from "../view";
 import { ThemeContext } from "./theme-context";
 
-export type ThemeProviderProps = ViewProps & {
+interface ThemeProviderProps extends View.Props {
   /** Override theme. */
   value?: string;
 
@@ -19,9 +19,9 @@ export type ThemeProviderProps = ViewProps & {
    * Defaults to true.
    */
   overrideBody?: boolean;
-};
+}
 
-export function ThemeProvider({
+function ThemeProvider({
   value,
   defaultValue,
   overrideBody = true,
@@ -74,4 +74,10 @@ function getDefaultTheme(): string {
   }
 
   return "light";
+}
+
+export { ThemeProvider };
+
+export declare namespace ThemeProvider {
+  export type Props = ThemeProviderProps;
 }

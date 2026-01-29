@@ -3,7 +3,7 @@ import { type ReactNode } from "react";
 
 import { surfaceBackgrounds } from "~/stories/data";
 
-import { Surface, type Background, type SurfaceProps } from ".";
+import { Surface, type Background } from ".";
 import { tokens } from "../../styles/tokens";
 import { Text } from "../text";
 
@@ -66,7 +66,7 @@ function PaddedSurface({
   label,
   children,
   ...props
-}: SurfaceProps & { label?: Background; children?: ReactNode }) {
+}: Surface.Props & { label?: Background; children?: ReactNode }) {
   return (
     <Surface
       style={{ padding: tokens.space24, minWidth: tokens.space256 }}
