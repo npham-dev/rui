@@ -1,4 +1,4 @@
-@layer components {
+@layer ui-component {
   .spinner {
     animation: loading 3s linear infinite;
   }

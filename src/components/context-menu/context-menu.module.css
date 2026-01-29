@@ -1,4 +1,4 @@
-@layer components {
+@layer ui-component {
   .context-menu {
     gap: var(--space-4);
     box-shadow: var(--shadow-1);

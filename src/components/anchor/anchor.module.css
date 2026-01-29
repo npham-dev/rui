@@ -1,4 +1,4 @@
-@layer components {
+@layer ui-component {
   .anchor {
     cursor: pointer;
     color: var(--primary-stronger);

@@ -1,4 +1,4 @@
-@layer base {
+@layer ui-atom {
   .dialog__backdrop {
     position: fixed;
     z-index: 50;

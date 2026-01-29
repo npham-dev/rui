@@ -1,4 +1,4 @@
-@layer base {
+@layer ui-atom {
   .view_colorway {
     /* loading styles */
     --view-loading-low-pulse: var(--view-colorway-dimmest);

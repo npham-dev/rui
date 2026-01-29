@@ -1,4 +1,4 @@
-@layer base {
+@layer ui-atom {
   .view {
     display: flex;
     position: relative;

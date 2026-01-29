@@ -1,4 +1,4 @@
-@layer base {
+@layer ui-atom {
   .separator {
     flex-grow: 0;
     flex-shrink: 0;

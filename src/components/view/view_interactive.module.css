@@ -1,4 +1,4 @@
-@layer base {
+@layer ui-atom {
   .view_interactive {
     /* loading styles */
     --view-loading-low-pulse: var(--outline-dimmest);
