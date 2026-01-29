@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import { CommandSeparator } from "cmdk";
 
-import { CommandDialog, CommandGroup, CommandItem } from ".";
+import { CommandDialog, CommandGroup, CommandItem, CommandSeparator } from ".";
 import { Button } from "../button";
 
 const meta = {

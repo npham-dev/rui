@@ -1,6 +1,6 @@
 import { Dialog as DialogPrimitive } from "@base-ui/react/dialog";
+import { Command as CommandPrimitive } from "@npham-dev/cmdk";
 import clsx from "clsx";
-import { Command as CommandPrimitive } from "cmdk";
 import type { ComponentProps } from "react";
 
 import { textify } from "~/-utils";
