@@ -13,6 +13,8 @@ export default defineConfig([
   {
     plugins: {
       storybook: storybook,
+      // https://typescript-eslint.io/packages/typescript-eslint/#config-deprecated
+      "@typescript-eslint": tseslint.plugin,
     },
     files: ["**/*.{ts,tsx}"],
     extends: [
@@ -24,6 +26,9 @@ export default defineConfig([
     languageOptions: {
       ecmaVersion: 2020,
       globals: globals.browser,
+    },
+    rules: {
+      "@typescript-eslint/no-namespace": ["error", { allowDeclarations: true }],
     },
   },
 ]);
