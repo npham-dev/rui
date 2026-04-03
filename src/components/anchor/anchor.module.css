@@ -2,9 +2,9 @@
   .anchor {
     cursor: pointer;
     color: var(--primary-stronger);
-    font-weight: var(--font-weight-regular);
-    font-size: var(--font-size-default);
-    line-height: var(--line-height-default);
+    font-weight: inherit;
+    font-size: inherit;
+    line-height: inherit;
     text-decoration: underline;
 
     &:visited {
