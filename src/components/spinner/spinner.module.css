@@ -1,6 +1,6 @@
 @layer component {
   .spinner {
-    animation: loading 3s linear infinite;
+    animation: loading 1.5s linear infinite;
   }
 
   @keyframes loading {
