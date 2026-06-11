@@ -17,6 +17,12 @@ export interface IconButtonProps extends View.Props<"button"> {
 
   /** What size should the IconButton be. Defaults to "md". */
   size?: Size;
+
+  /**
+   * The button can remain keyboard accessible while being rendered as another tag
+   * {@link https://base-ui.com/react/components/button}
+   */
+  nativeButton?: boolean;
 }
 
 function IconButton({
