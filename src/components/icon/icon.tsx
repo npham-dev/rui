@@ -9,14 +9,14 @@ import { type IconName } from "./icon.types";
 import styles from "./icon.module.css";
 
 interface IconProps extends Omit<ComponentProps<"svg">, "name"> {
+  /** Icon name */
+  name: IconName;
+
   /**
    * Overrides the icon size provider.
    * Defaults to "md".
    */
   size?: Size;
-
-  /** Icon name */
-  name: IconName;
 
   /**
    * Icon fill color
@@ -39,16 +39,18 @@ interface IconProps extends Omit<ComponentProps<"svg">, "name"> {
 }
 
 function Icon({
-  size = "md",
   name,
-  color,
+  size = "md",
+  color = "currentColor",
   alt,
   className,
   spin,
   ...props
 }: IconProps) {
-  const href = `${svgSprite}#ri-${name}`;
-  const normalized = normalize({ spin });
+  const iconName = name === "spinner" ? "loader-4-line" : name;
+  const href = `${svgSprite}#ri-${iconName}`;
+  const spinDuration = normalize({ spin, name });
+  const shouldSpin = spinDuration > 0;
 
   return (
     <svg
@@ -57,18 +59,18 @@ function Icon({
       aria-hidden={!alt}
       focusable={false}
       xmlns="http://www.w3.org/2000/svg"
-      fill={color || "currentColor"}
+      fill={color}
       style={
-        spin
+        shouldSpin
           ? ({
-              "--icon-spin-duration": `${normalized}s`,
+              "--icon-spin-duration": `${spinDuration}s`,
             } as CSSProperties)
           : undefined
       }
       className={clsx(
         styles["icon"],
         styles[`icon_size_${size}`],
-        spin && styles.icon_spin,
+        shouldSpin && styles.icon_spin,
         className,
       )}
       {...props}
@@ -80,7 +82,11 @@ function Icon({
   );
 }
 
-const normalize = (args: { spin: IconProps["spin"] }) => {
+const normalize = (args: Pick<IconProps, "spin" | "name">) => {
+  if (args.name === "spinner" && !args.spin) {
+    return 1;
+  }
+
   if (typeof args.spin === "boolean") {
     return args.spin ? 1 : 0;
   }

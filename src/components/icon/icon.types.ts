@@ -3,6 +3,7 @@
  * Every publish to NPM will automatically regenerate this file
  */
 export type IconName =
+  | "spinner"
   | "24-hours-fill"
   | "24-hours-line"
   | "4k-fill"
