@@ -1,15 +1,5 @@
 @layer component {
   .spinner {
-    animation: loading 1.5s linear infinite;
-  }
-
-  @keyframes loading {
-    from {
-      rotate: 0deg;
-    }
-
-    to {
-      rotate: 360deg;
-    }
+    width: fit-content;
   }
 }

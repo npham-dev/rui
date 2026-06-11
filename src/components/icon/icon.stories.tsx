@@ -19,6 +19,9 @@ const meta = {
       control: "select",
       options: iconSizeOptions,
     },
+    spin: {
+      control: "boolean",
+    },
   },
 } satisfies Meta<typeof Icon>;
 
@@ -31,6 +34,7 @@ export const Default: Story = {
     name: "heart-fill",
     color: tokens.primaryDefault,
     size: "md",
+    spin: false,
   },
   render: (props) => (
     <div>
