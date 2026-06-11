@@ -1,6 +1,7 @@
 @layer component {
   .icon {
     --icon-size: var(--space-16);
+    --icon-spin-duration: 1s;
 
     vertical-align: middle;
     width: var(--icon-size);
@@ -34,5 +35,19 @@
 
   .icon_size_3xl {
     --icon-size: var(--space-48);
+  }
+
+  .icon_spin {
+    animation: spin var(--icon-spin-duration) linear infinite;
+  }
+
+  @keyframes spin {
+    from {
+      rotate: 0deg;
+    }
+
+    to {
+      rotate: 360deg;
+    }
   }
 }
