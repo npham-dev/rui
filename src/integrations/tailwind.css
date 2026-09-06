@@ -153,13 +153,17 @@
     --surface-interactive-border-hover
   );
 
+  /* Transitions and easing */
+  --transition-duration-snappy: var(--transition-duration-snappy);
+  --transition-duration-chill: var(--transition-duration-chill);
+
+  --ease-snappy: var(--transition-timing-function-snappy);
+  --ease-chill: var(--transition-timing-function-chill);
+
   --default-transition-duration: var(--transition-duration-snappy);
   --default-transition-timing-function: var(
     --transition-timing-function-snappy
   );
-
-  --ease-snappy: var(--transition-timing-function-snappy);
-  --ease-chill: var(--transition-timing-function-chill);
 
   --radius-none: 0px;
   --radius-sm: var(--border-radius-2);

@@ -1,9 +1,5 @@
 export type InteractiveStyle =
-  | "fill"
-  | "no-fill"
-  | "outline"
-  | "fill-outline"
-  | "list-item";
+  "fill" | "no-fill" | "outline" | "fill-outline" | "list-item";
 
 export type Color =
   | "primary"
