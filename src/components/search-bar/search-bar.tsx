@@ -9,7 +9,7 @@ import { View } from "../view";
 
 import styles from "./search-bar.module.css";
 
-interface SearchBarProps extends React.ComponentPropsWithoutRef<"input"> {
+interface SearchBarProps extends React.ComponentPropsWithRef<"input"> {
   /**
    * Is the search bar loading or processing?
    */
